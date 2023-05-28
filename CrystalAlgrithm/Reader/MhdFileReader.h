@@ -17,36 +17,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __Header_Export_dll_cuh__
-#define __Header_Export_dll_cuh__
-
-namespace CrystalAlgrithm {
-
-#ifdef _EXPORTING
-#define EXPORT_DLL    __declspec(dllexport)
-#else
-#define EXPORT_DLL    __declspec(dllimport)
-#endif
-
-// Init functions before conduct the program
-
-class GpuDeviceInfos;
-extern "C" EXPORT_DLL
-void cudaDevicesInit(GpuDeviceInfos& info);
-
-extern "C" EXPORT_DLL
-void printCudaDevice();
-
-// Test Functions
-
-extern "C" EXPORT_DLL
-void SpectrumTest();
+#ifndef __MhdFileReader_h__
+#define __MhdFileReader_h__
 
 
 
 
-}
 
 #endif
+
+
+
 
 

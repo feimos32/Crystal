@@ -17,38 +17,28 @@
     Github site: <https://github.com/feimos32/Crystal>
 */
 
-#include "MainWindow.h"
+#include "Export_dll.cuh"
 
-#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+#include "CrystalAlgrithm/Basic/Transform.cuh"
+#include "CrystalAlgrithm/Basic/Spectrum.cuh"
+#include "CrystalAlgrithm/Basic/Geometry.cuh"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
+#include <iostream>
 
-MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent) {
+namespace CrystalAlgrithm {
 
-    setMinimumSize(800, 800);
+void SpectrumTest() {
+    Spectrum4 s(0.8f);
+    Spectrum4 s1 = s * s;
+    Spectrum4 s2 = s + s;
 
-    setCentralWidget(&centralWidget);
-
-    CrystalAlgrithm::printCudaDevice();
-    CrystalAlgrithm::SpectrumTest();
-
-    setMenu();
-    setWidget();
-    setDock();
+    std::cout << "s = " << s.ToString() << std::endl;
+    std::cout << "s1 = " << s1.ToString() << std::endl;
+    std::cout << "s2 = " << s2.ToString() << std::endl;
 }
 
-void MainWindow::setMenu(void)
-{
 }
 
-void MainWindow::setWidget(void)
-{
-}
 
-void MainWindow::setDock(void)
-{
-}
 
-void MainWindow::closeEvent(QCloseEvent* event)
-{
-}

@@ -23,6 +23,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <string>
+#include <limits>
 
 namespace CrystalAlgrithm {
 
@@ -31,10 +32,27 @@ namespace CrystalAlgrithm {
 #define DEVICE __device__
 #define GPU_CALL __global__
 
+#define Float float
+
 #define M_PI 3.1415926f
 #define OneOver4PI 0.07957747f
 #define INV_M_PI 0.3183099f
 #define ANGLE(angle) (angle*M_PI/180.0f)
+
+#define MaxFloat std::numeric_limits<Float>::max()
+#define Infinity std::numeric_limits<Float>::infinity()
+
+HOST_AND_DEVICE inline Float Clamp(Float val, Float low, Float high) {
+	if (val < low)
+		return low;
+	else if (val > high)
+		return high;
+	else
+		return val;
+}
+HOST_AND_DEVICE inline Float Lerp(Float t, Float v1, Float v2) { return (1 - t) * v1 + t * v2; }
+
+const Float largeValue = 9999999.0;
 
 std::string getCudaDebug_NULL(const char* file, int line);
 

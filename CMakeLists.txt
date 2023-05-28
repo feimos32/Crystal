@@ -76,6 +76,8 @@ set(GENCODE ${GENCODE} -gencode=arch=compute_30,code=sm_30)
 set(GENCODE ${GENCODE} -gencode=arch=compute_20,code=sm_20)
 set(GENCODE ${GENCODE} -gencode=arch=compute_10,code=sm_10)
 
+enable_language(CUDA)
+
 # include files
 INCLUDE_DIRECTORIES(
 	${CMAKE_CURRENT_BINARY_DIR}
@@ -88,6 +90,9 @@ INCLUDE_DIRECTORIES(
 ########################################################################
 ###################### Crystal Algrithm Project ########################
 ########################################################################
+
+# macros predefined 
+add_compile_definitions(_EXPORTING)
 
 # 程序输出目录
 set(publish_debug ${CMAKE_CURRENT_BINARY_DIR}/lib_out/debug) 
@@ -127,12 +132,16 @@ set(Basic
 	CrystalAlgrithm/Basic/Geometry.cuh
 	CrystalAlgrithm/Basic/Transform.cuh
 	CrystalAlgrithm/Basic/Export_dll.cuh
+	CrystalAlgrithm/Basic/Spectrum.cuh
+	CrystalAlgrithm/Basic/BasicTest.cu
 )
 # Make the Basic group
 SOURCE_GROUP("Basic" FILES ${Basic})
 
 # Reader
 set(Reader
+	CrystalAlgrithm/Reader/MedicalImagesInfo.h
+	CrystalAlgrithm/Reader/MhdFileReader.h
 )
 # Make the Reader group
 SOURCE_GROUP("Reader" FILES ${Reader})
