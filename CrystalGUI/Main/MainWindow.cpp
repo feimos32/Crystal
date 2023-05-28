@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-    Github site: https://github.com/feimos32/Crystal
+    Github site: <https://github.com/feimos32/Crystal>
 */
 
 #include "MainWindow.h"
