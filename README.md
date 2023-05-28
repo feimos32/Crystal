@@ -1,7 +1,7 @@
 # Crystal
 Crystal - A modern, fashionable, high-quality 3D visualization tool for medical images
 
-## Build this program
+## Build this project
 
 ### Dependent third-party libraries
 
@@ -31,13 +31,19 @@ set(VTK_Include_DIR ${VTK_DIR}/include)
 
 ### 3D medical images Cinematic rendering
 
+Utilize advanced visualization techniques to process medical image data, and apply physically-based rendering techniques to achieve realistic rendering effects.
+
 ### Advanced Visualization Tools
+
+Implement multiple visualization processing algorithms and enable interactive operation of said algorithms.
 
 ### Support for multiple light sources
 
+Provide support for multiple light sources, including point light, surface light, directional light, and high dynamic range environment mapping, to illuminate medical 3D data.
+
 ### Real time denoising
 
-
+Provide real-time denoising capabilities for realistic rendering, with the intention of achieving high-quality rendering results in interaction.
 
 
 
