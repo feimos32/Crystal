@@ -122,6 +122,11 @@ SOURCE_GROUP("3rdLib_stb" FILES ${3rdLib_stb})
 
 # Basic
 set(Basic
+	CrystalAlgrithm/Basic/Common.cuh
+	CrystalAlgrithm/Basic/Common.cu
+	CrystalAlgrithm/Basic/Geometry.cuh
+	CrystalAlgrithm/Basic/Transform.cuh
+	CrystalAlgrithm/Basic/Export_dll.cuh
 )
 # Make the Basic group
 SOURCE_GROUP("Basic" FILES ${Basic})
@@ -211,6 +216,8 @@ cuda_add_library(CrystalAlgrithm SHARED
 # Main
 set(Main
 	CrystalGUI/Main/main.cpp
+	CrystalGUI/Main/MainWindow.h
+	CrystalGUI/Main/MainWindow.cpp
 )
 # Make the Main group
 SOURCE_GROUP("Main" FILES ${Main})
@@ -232,7 +239,6 @@ set(Utility
 )
 # Make the Utility group
 SOURCE_GROUP("Utility" FILES ${Utility})
-
 
 # QtReader
 set(QtReader
@@ -326,12 +332,14 @@ SET(LIBRARY_debug
 	# Qt Lib
 	${LIBRARY_CrystalGUI}
 	# Crystal Algrithm Lib
+	${publish_debug}/*.lib
 )
 
 SET(LIBRARY_release 
 	# Qt Lib
 	${LIBRARY_CrystalGUI}
 	# Crystal Algrithm Lib
+	${publish_release}/*.lib
 )
 
 target_link_libraries (CrystalGUI PRIVATE

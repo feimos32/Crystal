@@ -3,7 +3,7 @@
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or any 
+    the Free Software Foundation, either version 3 of the License, or any
     later version.
 
     This program is distributed in the hope that it will be useful,
@@ -17,16 +17,39 @@
     Github site: https://github.com/feimos32/Crystal
 */
 
-#include <QtWidgets/QApplication>
+#include <qmainwindow.h>
+#include <QCloseEvent>
 
-#include "MainWindow.h"
-
-int main(int argc, char* argv[])
+class MainWindow : public QMainWindow
 {
-    QApplication a(argc, argv);
-   
-    MainWindow w;
-    w.show();
+    Q_OBJECT
 
-    return a.exec();
-}
+public:
+    MainWindow(QWidget* parent = Q_NULLPTR);
+
+public:
+
+
+private:
+    QWidget centralWidget;
+
+
+
+private:
+    void setMenu(void);
+    void setWidget(void);
+    void setDock(void);
+    void closeEvent(QCloseEvent* event);
+
+
+};
+
+
+
+
+
+
+
+
+
+

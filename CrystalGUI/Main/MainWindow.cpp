@@ -3,7 +3,7 @@
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or any 
+    the Free Software Foundation, either version 3 of the License, or any
     later version.
 
     This program is distributed in the hope that it will be useful,
@@ -17,16 +17,36 @@
     Github site: https://github.com/feimos32/Crystal
 */
 
-#include <QtWidgets/QApplication>
-
 #include "MainWindow.h"
 
-int main(int argc, char* argv[])
-{
-    QApplication a(argc, argv);
-   
-    MainWindow w;
-    w.show();
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
 
-    return a.exec();
+MainWindow::MainWindow(QWidget* parent)
+    : QMainWindow(parent) {
+
+    setMinimumSize(800, 800);
+
+    setCentralWidget(&centralWidget);
+
+    CrystalAlgrithm::printCudaDevice();
+
+    setMenu();
+    setWidget();
+    setDock();
+}
+
+void MainWindow::setMenu(void)
+{
+}
+
+void MainWindow::setWidget(void)
+{
+}
+
+void MainWindow::setDock(void)
+{
+}
+
+void MainWindow::closeEvent(QCloseEvent* event)
+{
 }
