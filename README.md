@@ -1,4 +1,4 @@
-# Crystal
+# <img src="Resources/Icons/logo.png" width="40" > Crystal
 Crystal - A modern, fashionable, high-quality 3D visualization tool for medical images
 
 ## Build this project
