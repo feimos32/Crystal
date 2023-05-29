@@ -17,24 +17,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __MhdFileReader_h__
-#define __MhdFileReader_h__
+#include "CrystalAlgrithm/Reader/MhdFileReader.h"
+
+#include<vtkAutoInit.h>
+VTK_MODULE_INIT(vtkRenderingOpenGL2)
+VTK_MODULE_INIT(vtkInteractionStyle);
+VTK_MODULE_INIT(vtkRenderingFreeType);
+VTK_MODULE_INIT(vtkRenderingVolumeOpenGL2);
+
+#include <vtkSmartPointer.h>
+#include <vtkMetaImageReader.h>
+#include <vtkImageViewer2.h>
+#include <vtkImageCast.h>
+#include <vtkImageData.h>
+#include <vtkImageAccumulate.h>
+#include <vtkImageGradientMagnitude.h>
 
 namespace CrystalAlgrithm {
 
-class MhdFileReader{
-public:
-	
-	
-	
-}
+
 
 
 }
-
-
-
-#endif
 
 
 

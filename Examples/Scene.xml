@@ -1,0 +1,11 @@
+<Scene>
+	<Data> 
+		<DataFileType type="mhd" />
+		<DataFilePath path="D:/Dataset/Volume/test.mhd" />
+	</Data>
+	<Camera> 
+	</Camera>
+	<Transferfunction> 
+		<TFFile file="TransferFunction.xml" />
+	</Transferfunction>
+</Scene>

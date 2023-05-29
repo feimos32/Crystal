@@ -1,0 +1,40 @@
+<TransferFunction>
+	<Type type="TrapezoidalTransferFunction" />
+	<AxisY Name="Opacity" />
+	<TFDefine Name="TFDefine">
+		<DensityScale components="1" type="float" RangeBtn="0.1" RangeTop="10.0" />
+	</TFDefine>
+	<TFDefineOneNode Name="TFDefineOneNode">
+		<Opacity components="1" type="float" RangeBtn="0" RangeTop="1.0" />
+		<Diffuse components="3" type="float" RangeBtn="0" RangeTop="1.0" />
+		<Specular components="3" type="float" RangeBtn="0" RangeTop="1.0" />
+		<Emission components="3" type="float" RangeBtn="0" RangeTop="1.0" />
+		<Roughness components="1" type="float" RangeBtn="0" RangeTop="1.0" />
+	</TFDefineOneNode>
+	<NodesProperty>
+		<Node>
+			<NormalizedIntensity Value="0"/>
+			<Opacity Value="0"/>
+			<Diffuse G="0.3" R="0.5" B="0.2"/>
+			<Specular G="0.3" R="0.5" B="0.2"/>
+			<Emission G="0.3" R="0.5" B="0.2"/>
+			<Roughness Value="0.5"/>
+		</Node>
+		<Node>
+			<NormalizedIntensity Value="0.23597"/>
+			<Opacity Value="0"/>
+			<Diffuse G="0.3" R="0.5" B="0.2"/>
+			<Specular G="0.3" R="0.5" B="0.2"/>
+			<Emission G="0.3" R="0.5" B="0.2"/>
+			<Roughness Value="0.5"/>
+		</Node>
+		<Node>
+			<NormalizedIntensity Value="1"/>
+			<Opacity Value="1"/>
+			<Diffuse G="0.3" R="0.5" B="0.2"/>
+			<Specular G="0.3" R="0.5" B="0.2"/>
+			<Emission G="0.3" R="0.5" B="0.2"/>
+			<Roughness Value="0.5"/>
+		</Node>
+	</NodesProperty>
+</TransferFunction>

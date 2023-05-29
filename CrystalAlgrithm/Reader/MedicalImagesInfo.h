@@ -20,12 +20,48 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __MedicalImagesInfo_h__
 #define __MedicalImagesInfo_h__
 
+#include "CrystalAlgrithm/Basic/Common.cuh"
+
+namespace CrystalAlgrithm {
+
+
 class MedicalImagesInfo {
 public:
+	MedicalImagesInfo() {
+		data = nullptr;
+		reset();
+	} 
+	
+	void reset() {
+		Dim = 0;
+		X_Dim = Y_Dim = Z_Dim = 0;
+		X_Spacing = Y_Spacing = Z_Spacing = 0.0;
+		Slope = Intercept = 0.0;
+		dataRange[0] = dataRange[1] = 0;
+		gradientRange[0] = gradientRange[1] = 0;
 
+		if (data) {
+			delete[] data;
+			data = nullptr;
+		}
+	}
+	~MedicalImagesInfo() {
+		reset();
+	}
+
+	int Dim;
+	size_t X_Dim, Y_Dim, Z_Dim;
+	Float X_Spacing, Y_Spacing, Z_Spacing;
+	Float Slope, Intercept;
+	short dataRange[2];
+	short gradientRange[2];
+
+	void* data;
 };
 
 
+
+}
 
 #endif
 
