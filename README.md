@@ -1,24 +1,29 @@
+
 # <img src="Resources/Icons/logo.png" width="200" >
 
-> Crystal - A modern, fashionable, high-quality 3D visualization tool for medical images
+> Crystal - A `modern`, `fashionable`, `high-quality` 3D visualization tool for medical images
 
+---
 ## Build this project
 
 ### Dependent third-party libraries
 
-> **Qt**
+
+> <img src="Resources/Icons/logo-Qt.jpg" width="50" >
 >
-> version 6.2   
+> **Qt** version 6.2   
 > https://www.qt.io/product/qt6
 
-> **Nvidia Cuda**
+
+> <img src="Resources/Icons/logo-cuda.png" width="90" >
 >
-> version 11.0   
+> **Nvidia Cuda** version 11.0   
 > https://developer.nvidia.com/cuda-toolkit
 
-> **VTK**
+
+> <img src="Resources/Icons/logo-vtk.png" width="70" >
 >
-> version greater than 7.0   
+> **VTK** version greater than 7.0   
 > https://vtk.org/
 
 ### Corresponding CMake path that needs to be modified (in CMakeLists.txt)
@@ -34,7 +39,7 @@
 > - set(VTK_Release_Dll_DIR ${VTK_DIR}/bin-Release) \
 > - set(VTK_Include_DIR ${VTK_DIR}/include) 
 
-
+---
 ## Supported Features
 
 ### 3D medical images Cinematic rendering
