@@ -1,7 +1,7 @@
 
 # <img src="Resources/Icons/logo.png" width="200" >
 
-> <font face="微软雅黑" size=5>Crystal - A `modern`, `fashionable`, `high-quality` 3D visualization tool for medical images</font>
+> <font size=5>Crystal - A `modern`, `fashionable`, `high-quality` 3D visualization tool for medical images</font>
 
 ---
 # <img src="Resources/Images/crystal.png" width="40" > Build this project
