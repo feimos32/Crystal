@@ -9,7 +9,7 @@
 ### Dependent third-party libraries
 
 
-> <img src="Resources/Icons/logo-Qt.jpg" width="50" >
+> <img src="Resources/Icons/logo-Qt.png" width="50" >
 >
 > **Qt** version 6.2   
 > https://www.qt.io/product/qt6
