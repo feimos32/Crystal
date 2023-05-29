@@ -20,14 +20,16 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __MhdFileReader_h__
 #define __MhdFileReader_h__
 
+#include "Reader.h"
+
 namespace CrystalAlgrithm {
 
-class MhdFileReader{
+class MhdFileReader : public Reader {
 public:
-	
-	
-	
-}
+
+
+
+};
 
 
 }

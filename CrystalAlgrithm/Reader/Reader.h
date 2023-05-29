@@ -27,40 +27,40 @@ namespace CrystalAlgrithm {
 
 
 inline std::string obtainDirFromFilePath(std::string filepath){
-	const size_t last_slash_idx = filepath.rfind('\\');
+	size_t last_slash_idx = filepath.rfind('\\');
 	if (std::string::npos != last_slash_idx) {
-		std::string fileDir = filename.substr(0, last_slash_idx);
+		std::string fileDir = filepath.substr(0, last_slash_idx);
 		return fileDir;
 	}
 	last_slash_idx = filepath.rfind('/');
 	if (std::string::npos != last_slash_idx) {
-		std::string fileDir = filename.substr(0, last_slash_idx);
+		std::string fileDir = filepath.substr(0, last_slash_idx);
 		return fileDir;
 	}
 	return "";
 }
 
-class Reader{
+class Reader {
 public:
-	
-	Reader(){
+
+	Reader() {
 		filePath = "";
 		fileDir = "";
 	}
-	
-	virtual bool readFromDirectory(std::string dirpath){
+
+	virtual bool readFromDirectory(std::string dirpath) {
 		std::cout << "This class does not support reading data from the directory." << std::endl;
 		return false;
 	}
-	
-	virtual bool readFromFilePath(std::string filepath){
+
+	virtual bool readFromFilePath(std::string filepath) {
 		std::cout << "This class does not support reading data based on file name." << std::endl;
 		return false;
 	}
-	
+
 	std::string filePath;
 	std::string fileDir;
-}
+};
 
 
 }

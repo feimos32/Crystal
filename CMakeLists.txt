@@ -85,6 +85,7 @@ INCLUDE_DIRECTORIES(
 	${QT_INCLUDE_DIR}
 	${CUDA_INCLUDE_DIRS}
 	${VTK_Include_DIR}
+	${VTK_Include_DIR}/vtk-8.2/
 )
 
 ########################################################################
@@ -140,8 +141,10 @@ SOURCE_GROUP("Basic" FILES ${Basic})
 
 # Reader
 set(Reader
+	CrystalAlgrithm/Reader/Reader.h
 	CrystalAlgrithm/Reader/MedicalImagesInfo.h
 	CrystalAlgrithm/Reader/MhdFileReader.h
+	CrystalAlgrithm/Reader/MhdFileReader.cpp
 )
 # Make the Reader group
 SOURCE_GROUP("Reader" FILES ${Reader})
@@ -164,12 +167,6 @@ set(Visualizer
 # Make the Visualizer group
 SOURCE_GROUP("Visualizer" FILES ${Visualizer})
 
-# VisInfo
-set(VisInfo
-)
-# Make the VisInfo group
-SOURCE_GROUP("VisInfo" FILES ${VisInfo})
-
 # Preprocessor
 set(Preprocessor
 )
@@ -184,6 +181,8 @@ SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
 
 # VisInteractor
 set(VisInteractor
+	CrystalAlgrithm/VisInteractor/ArcballCamera.h
+	CrystalAlgrithm/VisInteractor/FpsCamera.h
 )
 # Make the VisInteractor group
 SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
@@ -217,6 +216,19 @@ cuda_add_library(CrystalAlgrithm SHARED
 	${DataAttribute}
 )
 
+SET(CrystalAlgrithm_LIBRARY_debug 
+	# VTK Lib
+	${VTK_Debug_Lib_DIR}/*.lib
+)
+
+SET(CrystalAlgrithm_LIBRARY_release 
+	# VTK Lib
+	${VTK_Release_Lib_DIR}/*.lib
+)
+
+target_link_libraries (CrystalAlgrithm 
+						debug ${CrystalAlgrithm_LIBRARY_debug}
+						optimized ${CrystalAlgrithm_LIBRARY_release} )
 
 ########################################################################
 ######################### Crystal GUI Project ##########################
@@ -251,6 +263,11 @@ SOURCE_GROUP("Utility" FILES ${Utility})
 
 # QtReader
 set(QtReader
+	CrystalGUI/QtReader/QtReader.h
+	CrystalGUI/QtReader/QtReader.cpp
+	CrystalGUI/QtReader/LightParser.h
+	CrystalGUI/QtReader/SceneParser.h
+	CrystalGUI/QtReader/TransferFunctionParser.h
 )
 # Make the QtReader group
 SOURCE_GROUP("QtReader" FILES ${QtReader})
@@ -273,12 +290,6 @@ set(QtVisualizer
 # Make the QtVisualizer group
 SOURCE_GROUP("QtVisualizer" FILES ${QtVisualizer})
 
-# QtVisInfo
-set(QtVisInfo
-)
-# Make the QtVisInfo group
-SOURCE_GROUP("QtVisInfo" FILES ${QtVisInfo})
-
 # QtPreprocessor
 set(QtPreprocessor
 )
@@ -293,6 +304,10 @@ SOURCE_GROUP("QtPostprocessor" FILES ${QtPostprocessor})
 
 # QtVisInteractor
 set(QtVisInteractor
+	CrystalGUI/QtVisInteractor/QtVisInteractor.h
+	CrystalGUI/QtVisInteractor/QtVisInteractor.cpp
+	CrystalGUI/QtVisInteractor/QtFpsCamera.h
+	CrystalGUI/QtVisInteractor/QtArcballCamera.h
 )
 # Make the QtVisInteractor group
 SOURCE_GROUP("QtVisInteractor" FILES ${QtVisInteractor})
@@ -340,6 +355,8 @@ SET(LIBRARY_CrystalGUI
 SET(LIBRARY_debug 
 	# Qt Lib
 	${LIBRARY_CrystalGUI}
+	# VTK Lib
+	${VTK_Debug_Lib_DIR}/*.lib
 	# Crystal Algrithm Lib
 	${publish_debug}/*.lib
 )
@@ -347,6 +364,8 @@ SET(LIBRARY_debug
 SET(LIBRARY_release 
 	# Qt Lib
 	${LIBRARY_CrystalGUI}
+	# VTK Lib
+	${VTK_Release_Lib_DIR}/*.lib
 	# Crystal Algrithm Lib
 	${publish_release}/*.lib
 )
