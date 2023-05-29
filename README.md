@@ -4,9 +4,9 @@
 > Crystal - A `modern`, `fashionable`, `high-quality` 3D visualization tool for medical images
 
 ---
-## Build this project
+# <img src="Resources/Images/crystal.png" width="40" > Build this project
 
-### Dependent third-party libraries
+## Dependent third-party libraries
 
 
 > <img src="Resources/Icons/logo-qt.png" width="50" >
@@ -26,7 +26,7 @@
 > **VTK** version greater than 7.0   
 > https://vtk.org/
 
-### Corresponding CMake path that needs to be modified (in CMakeLists.txt)
+## Corresponding CMake path that needs to be modified (in CMakeLists.txt)
 
 > **Qt Dir**
 > - set(Qt6_DIR "D:/DevTools/Qt6/6.2.4/msvc2019_64/" CACHE PATH "qt5 cmake dir") 
@@ -40,21 +40,21 @@
 > - set(VTK_Include_DIR ${VTK_DIR}/include) 
 
 ---
-## Supported Features
+# <img src="Resources/Images/crystal.png" width="40" > Supported Features
 
-### 3D medical images Cinematic rendering
+## 3D medical images Cinematic rendering
 
 > Utilize advanced visualization techniques to process medical image data, and apply physically-based rendering techniques to achieve realistic rendering effects.
 
-### Advanced Visualization Tools
+## Advanced Visualization Tools
 
 > Implement multiple visualization processing algorithms and enable interactive operation of said algorithms.
 
-### Support for multiple light sources
+## Support for multiple light sources
 
 > Provide support for multiple light sources, including point light, surface light, directional light, and high dynamic range environment mapping, to illuminate medical 3D data.
 
-### Real time denoising
+## Real time denoising
 
 > Provide real-time denoising capabilities for realistic rendering, with the intention of achieving high-quality rendering results in interaction.
 
