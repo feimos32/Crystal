@@ -17,7 +17,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __DataMapperPreset_h__
+#define __DataMapperPreset_h__
 
+#include <string>
+
+namespace CrystalAlgrithm {
+
+class DataMapperPreset {
+public:
+	DataMapperPreset() {
+		TSFuncType = "1D_Trapezoidal_TF";
+		TSFuncFileName = "TransferFunction.xml";
+	}
+	std::string TSFuncType;
+	std::string TSFuncFileName;
+};
+
+}
+
+#endif
 
 
 

@@ -18,6 +18,21 @@ Github site: <https://github.com/feimos32/Crystal>
 */
 
 
+#ifndef __LightPreset_h__
+#define __LightPreset_h__
+
+namespace CrystalAlgrithm {
+
+class LightPreset {
+public:
+	LightPreset() {}
+
+
+};
+
+}
+
+#endif
 
 
 

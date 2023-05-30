@@ -145,18 +145,21 @@ set(Reader
 	CrystalAlgrithm/Reader/MedicalImagesInfo.h
 	CrystalAlgrithm/Reader/MhdFileReader.h
 	CrystalAlgrithm/Reader/MhdFileReader.cpp
+	CrystalAlgrithm/Reader/ScenePreset.h
 )
 # Make the Reader group
 SOURCE_GROUP("Reader" FILES ${Reader})
 
 # DataOrganiz
 set(DataOrganiz
+	CrystalAlgrithm/DataOrganiz/DataPreset.h
 )
 # Make the DataOrganiz group
 SOURCE_GROUP("DataOrganiz" FILES ${DataOrganiz})
 
 # DataMapper
 set(DataMapper
+	CrystalAlgrithm/DataMapper/DataMapperPreset.h
 )
 # Make the DataMapper group
 SOURCE_GROUP("DataMapper" FILES ${DataMapper})
@@ -183,12 +186,14 @@ SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
 set(VisInteractor
 	CrystalAlgrithm/VisInteractor/ArcballCamera.h
 	CrystalAlgrithm/VisInteractor/FpsCamera.h
+	CrystalAlgrithm/VisInteractor/CameraPreset.h
 )
 # Make the VisInteractor group
 SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
 
 # Light
 set(Light
+	CrystalAlgrithm/Light/LightPreset.h
 )
 # Make the Light group
 SOURCE_GROUP("Light" FILES ${Light})

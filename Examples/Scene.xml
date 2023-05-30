@@ -2,10 +2,13 @@
 	<Data> 
 		<DataFileType type="mhd" />
 		<DataFilePath path="D:/Dataset/Volume/test.mhd" />
+		<DataType type="short" />
 	</Data>
 	<Camera> 
+		<CameraType type="perspective" />
 	</Camera>
 	<Transferfunction> 
+		<TFType type="1D_Trapezoidal_TF" />
 		<TFFile file="TransferFunction.xml" />
 	</Transferfunction>
 </Scene>

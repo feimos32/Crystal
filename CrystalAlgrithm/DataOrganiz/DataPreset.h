@@ -17,6 +17,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __DataPreset_h__
+#define __DataPreset_h__
+
+#include <string>
+
+namespace CrystalAlgrithm {
+
+class DataPreset {
+public:
+	DataPreset() {
+		DataFileType = "mhd";
+		DataType = "short";
+		DataFilePath = "";
+	}
+	std::string DataFileType;
+	std::string DataType;
+	std::string DataFilePath;
+};
+
+}
+
+#endif
 
 
 

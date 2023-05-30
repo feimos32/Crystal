@@ -17,10 +17,24 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __CameraPreset_h__
+#define __CameraPreset_h__
 
+#include <string>
 
+namespace CrystalAlgrithm {
 
+class CameraPreset {
+public:
+	CameraPreset() {
+		CameraType = "perspective";
+	}
+	std::string CameraType;
 
+};
 
+}
+
+#endif
 
 
