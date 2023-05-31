@@ -1,7 +1,7 @@
 <TransferFunction>
 	<Type type="TrapezoidalTransferFunction" />
 	<AxisY Name="Opacity" />
-	<TFDefine Name="TFDefine">
+	<TFDefine>
 		<DensityScale components="1" type="float" RangeBtn="0.1" RangeTop="10.0" />
 	</TFDefine>
 	<TFDefineOneNode Name="TFDefineOneNode">
@@ -11,6 +11,9 @@
 		<Emission components="3" type="float" RangeBtn="0" RangeTop="1.0" />
 		<Roughness components="1" type="float" RangeBtn="0" RangeTop="1.0" />
 	</TFDefineOneNode>
+	<TFProperty>
+		<DensityScale Value="5.0" />
+	</TFProperty>
 	<NodesProperty>
 		<Node>
 			<NormalizedIntensity Value="0"/>

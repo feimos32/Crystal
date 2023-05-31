@@ -260,6 +260,14 @@ set(Display
 # Make the Display group
 SOURCE_GROUP("Display" FILES ${Display})
 
+# DebugTools
+set(DebugTools
+	CrystalGUI/DebugTools/DebugStd.h
+	CrystalGUI/DebugTools/DebugStd.cpp
+)
+# Make the DebugTools group
+SOURCE_GROUP("DebugTools" FILES ${DebugTools})
+
 # Utility
 set(Utility
 )
@@ -272,6 +280,7 @@ set(QtReader
 	CrystalGUI/QtReader/QtReader.cpp
 	CrystalGUI/QtReader/LightParser.h
 	CrystalGUI/QtReader/SceneParser.h
+	CrystalGUI/QtReader/SceneParser.cpp
 	CrystalGUI/QtReader/TransferFunctionParser.h
 )
 # Make the QtReader group
@@ -335,6 +344,7 @@ add_executable(CrystalGUI
 	${Main}
 	${Status}
 	${Display}
+	${DebugTools}
 	${Utility}
 	${QtReader}
 	${QtDataOrganiz}

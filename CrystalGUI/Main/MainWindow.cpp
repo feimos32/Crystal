@@ -20,7 +20,9 @@
 #include "MainWindow.h"
 
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
+#include "CrystalGUI/QtReader/SceneParser.h"
 
+namespace CrystalGUI{
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent) {
@@ -31,6 +33,12 @@ MainWindow::MainWindow(QWidget* parent)
 
     CrystalAlgrithm::printCudaDevice();
     CrystalAlgrithm::SpectrumTest();
+
+    CrystalGUI::SceneParser sp;
+    sp.setFilePath("Examples/Scene.xml");
+    sp.readSceneXML();
+
+
 
     setMenu();
     setWidget();
@@ -52,3 +60,8 @@ void MainWindow::setDock(void)
 void MainWindow::closeEvent(QCloseEvent* event)
 {
 }
+
+
+}
+
+

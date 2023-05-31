@@ -20,6 +20,8 @@
 #include <qmainwindow.h>
 #include <QCloseEvent>
 
+namespace CrystalGUI{
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -45,7 +47,7 @@ private:
 };
 
 
-
+}
 
 
 

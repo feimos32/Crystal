@@ -18,9 +18,13 @@ Github site: <https://github.com/feimos32/Crystal>
 */
 
 
+namespace CrystalAlgrithm {
 
 
 
 
+
+
+}
 
 

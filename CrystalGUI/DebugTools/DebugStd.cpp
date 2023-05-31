@@ -17,8 +17,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#include "DebugStd.h"
 
-namespace CrystalAlgrithm {
+namespace CrystalGUI {
 
 
 
@@ -26,5 +27,14 @@ namespace CrystalAlgrithm {
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
