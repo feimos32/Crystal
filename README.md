@@ -3,6 +3,8 @@
 
 > <font size=5>Crystal - A `modern`, `fashionable`, `high-quality` 3D visualization tool for medical images</font>
 
+<img src="Resources/Images/cVRT1.png" width="390" >
+
 ---
 # <img src="Resources/Images/crystal.png" width="40" > Build this project
 
