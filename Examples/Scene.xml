@@ -7,8 +7,11 @@
 	<Camera> 
 		<CameraType type="perspective" />
 	</Camera>
-	<Transferfunction> 
-		<TFType type="1D_Trapezoidal_TF" />
-		<TFFile file="TransferFunction.xml" />
-	</Transferfunction>
+	<Light> 
+		<LightFile file="Light.xml" />
+	</Light>
+	<DataMapper> 
+		<TsFuncType type="1D_Trapezoidal_TF" />
+		<TsFuncFileName file="TransferFunction.xml" />
+	</DataMapper>
 </Scene>

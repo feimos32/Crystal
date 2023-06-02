@@ -26,6 +26,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #define __ScenePreset_h__
 
 #include <string>
+#include <iostream>
 
 namespace CrystalAlgrithm{
 

@@ -105,26 +105,105 @@ bool SceneParser::readSceneXML() {
 		PrintValue("rootName", rootName);
 	}
 
-	QDomNode data = root.firstChild();
-	while (!data.isNull())
+	QDomNode child = root.firstChild();
+	while (!child.isNull())
 	{
-
-		QDomElement e = data.toElement(); // try to convert the node to an element.  
-		PrintValue("e.tagName()", e.tagName());
-
+		QDomElement e = child.toElement(); // try to convert the node to an element. 
+		if (SceneParserDebug) {
+			PrintValue("e.tagName()", e.tagName());
+		}
+		
+		if ("Data" == e.tagName()) {
+			readSceneDataXML(child.childNodes());
+		}else if ("Camera" == e.tagName()) {
+			readSceneCameraXML(child.childNodes());
+		}
+		else if ("Light" == e.tagName()) {
+			readSceneLightXML(child.childNodes());
+		}
+		else if ("DataMapper" == e.tagName()) {
+			readSceneDataMapperXML(child.childNodes());
+		}
 		//find next node
-		data = data.nextSiblingElement();
+		child = child.nextSiblingElement();
 	}
-
+	return true;
 }
 
-bool SceneParser::readCameraXML() {}
+bool SceneParser::readSceneDataXML(const QDomNodeList nodes) {
+	for (int i = 0; i < nodes.count(); i++) {
+		QDomNode childNode = nodes.at(i);
+		QString tag = childNode.toElement().tagName();
+		if ("DataFileType" == tag) {
+			m_ScenePreset.m_DataPreset.DataFileType = 
+				childNode.toElement().attribute("type").toStdString();
 
-bool SceneParser::readLightXML() {}
+		} else if ("DataFilePath" == tag) {
+			m_ScenePreset.m_DataPreset.DataFilePath =
+				childNode.toElement().attribute("path").toStdString();
 
-bool SceneParser::readDataMapperXML() {}
+		} else if ("DataType" == tag) {
+			m_ScenePreset.m_DataPreset.DataType =
+				childNode.toElement().attribute("type").toStdString();
+		} 
+	}
+	if (SceneParserDebug) {
+		m_ScenePreset.m_DataPreset.PrintDataPreset();
+	}
+	return true;
+}
 
-bool SceneParser::readDataXML() {}
+bool SceneParser::readSceneCameraXML(const QDomNodeList& nodes) {
+	for (int i = 0; i < nodes.count(); i++) {
+		QDomNode childNode = nodes.at(i);
+		QString tag = childNode.toElement().tagName();
+		if ("CameraType" == tag) {
+			m_ScenePreset.m_CameraPreset.CameraType =
+				childNode.toElement().attribute("type").toStdString();
+		}
+	}
+	if (SceneParserDebug) {
+		m_ScenePreset.m_CameraPreset.PrintCameraPreset();
+	}
+	return true;
+}
+
+bool SceneParser::readSceneLightXML(const QDomNodeList& nodes) {
+	for (int i = 0; i < nodes.count(); i++) {
+		QDomNode childNode = nodes.at(i);
+		QString tag = childNode.toElement().tagName();
+		if ("LightFile" == tag) {
+			m_ScenePreset.m_LightPreset.LightFile =
+				childNode.toElement().attribute("file").toStdString();
+		}
+	}
+	if (SceneParserDebug) {
+		m_ScenePreset.m_LightPreset.PrintLightPreset();
+	}
+	return true;
+}
+
+bool SceneParser::readSceneDataMapperXML(const QDomNodeList& nodes) {
+	for (int i = 0; i < nodes.count(); i++) {
+		QDomNode childNode = nodes.at(i);
+		QString tag = childNode.toElement().tagName();
+		if ("TsFuncType" == tag) {
+			m_ScenePreset.m_DataMapperPreset.TsFuncType =
+				childNode.toElement().attribute("type").toStdString();
+		}
+		else if ("TsFuncFileName" == tag) {
+			m_ScenePreset.m_DataMapperPreset.TsFuncFileName =
+				childNode.toElement().attribute("file").toStdString();
+		}
+	}
+	if (SceneParserDebug) {
+		m_ScenePreset.m_DataMapperPreset.PrintDataMapperPreset();
+	}
+
+	return true;
+}
+
+
 
 
 

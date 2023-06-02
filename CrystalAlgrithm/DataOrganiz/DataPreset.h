@@ -21,6 +21,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #define __DataPreset_h__
 
 #include <string>
+#include <iostream>
 
 namespace CrystalAlgrithm {
 
@@ -34,6 +35,13 @@ public:
 	std::string DataFileType;
 	std::string DataType;
 	std::string DataFilePath;
+
+	void PrintDataPreset() {
+		std::cout << "PrintDataPreset: " << std::endl;
+		std::cout << "  DataFilePath: " << DataFilePath << std::endl;
+		std::cout << "  DataFileType: " << DataFileType << std::endl;
+		std::cout << "  DataType: " << DataType << std::endl;
+	}
 };
 
 }

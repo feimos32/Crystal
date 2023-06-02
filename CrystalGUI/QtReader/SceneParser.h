@@ -70,10 +70,10 @@ public:
 	}
 	bool readSceneXML();
 
-	bool readCameraXML();
-	bool readLightXML();
-	bool readDataMapperXML();
-	bool readDataXML();
+	bool readSceneCameraXML(const QDomNodeList& nodes);
+	bool readSceneLightXML(const QDomNodeList& nodes);
+	bool readSceneDataMapperXML(const QDomNodeList& nodes);
+	bool readSceneDataXML(const QDomNodeList nodes);
 
 private:
 	CrystalAlgrithm::ScenePreset m_ScenePreset;

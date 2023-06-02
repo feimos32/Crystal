@@ -27,11 +27,17 @@ namespace CrystalAlgrithm {
 class DataMapperPreset {
 public:
 	DataMapperPreset() {
-		TSFuncType = "1D_Trapezoidal_TF";
-		TSFuncFileName = "TransferFunction.xml";
+		TsFuncType = "";
+		TsFuncFileName = "";
 	}
-	std::string TSFuncType;
-	std::string TSFuncFileName;
+	std::string TsFuncType;
+	std::string TsFuncFileName;
+
+	void PrintDataMapperPreset() {
+		std::cout << "PrintDataMapperPreset: " << std::endl;
+		std::cout << "  TsFuncFileName: " << TsFuncFileName << std::endl;
+		std::cout << "  TsFuncType: " << TsFuncType << std::endl;
+	}
 };
 
 }

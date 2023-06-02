@@ -21,16 +21,21 @@ Github site: <https://github.com/feimos32/Crystal>
 #define __CameraPreset_h__
 
 #include <string>
+#include <iostream>
 
 namespace CrystalAlgrithm {
 
 class CameraPreset {
 public:
 	CameraPreset() {
-		CameraType = "perspective";
+		CameraType = "";
 	}
 	std::string CameraType;
 
+	void PrintCameraPreset() {
+		std::cout << "PrintCameraPreset: " << std::endl;
+		std::cout << "  CameraType: " << CameraType << std::endl;
+	}
 };
 
 }

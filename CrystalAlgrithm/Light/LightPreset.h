@@ -21,13 +21,23 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __LightPreset_h__
 #define __LightPreset_h__
 
+#include <iostream>
+#include <string>
+
 namespace CrystalAlgrithm {
 
 class LightPreset {
 public:
-	LightPreset() {}
+	LightPreset() {
+		LightFile = "";
+	}
 
+	std::string LightFile;
 
+	void PrintLightPreset() {
+		std::cout << "PrintLightPreset: " << std::endl;
+		std::cout << "  LightFile: " << LightFile << std::endl;
+	}
 };
 
 }
