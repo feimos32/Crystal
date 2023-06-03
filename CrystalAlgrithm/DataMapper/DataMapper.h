@@ -17,8 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __DataMapper_h__
+#define __DataMapper_h__
 
 
+
+
+#endif
 
 
 

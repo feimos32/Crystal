@@ -17,6 +17,9 @@
     Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __MainWindow_h__
+#define __MainWindow_h__
+
 #include <qmainwindow.h>
 #include <QCloseEvent>
 
@@ -51,7 +54,7 @@ private:
 
 
 
-
+#endif
 
 
 

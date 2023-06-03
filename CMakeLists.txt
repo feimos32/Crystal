@@ -139,86 +139,101 @@ set(Basic
 # Make the Basic group
 SOURCE_GROUP("Basic" FILES ${Basic})
 
-# Reader
-set(Reader
-	CrystalAlgrithm/Reader/Reader.h
-	CrystalAlgrithm/Reader/MedicalImagesInfo.h
-	CrystalAlgrithm/Reader/MhdFileReader.h
-	CrystalAlgrithm/Reader/MhdFileReader.cpp
-	CrystalAlgrithm/Reader/ScenePreset.h
-)
-# Make the Reader group
-SOURCE_GROUP("Reader" FILES ${Reader})
-
-# DataOrganiz
-set(DataOrganiz
-	CrystalAlgrithm/DataOrganiz/DataPreset.h
-)
-# Make the DataOrganiz group
-SOURCE_GROUP("DataOrganiz" FILES ${DataOrganiz})
-
-# DataMapper
-set(DataMapper
-	CrystalAlgrithm/DataMapper/DataMapperPreset.h
-)
-# Make the DataMapper group
-SOURCE_GROUP("DataMapper" FILES ${DataMapper})
-
-# Visualizer
-set(Visualizer
-)
-# Make the Visualizer group
-SOURCE_GROUP("Visualizer" FILES ${Visualizer})
-
-# Preprocessor
-set(Preprocessor
-)
-# Make the Preprocessor group
-SOURCE_GROUP("Preprocessor" FILES ${Preprocessor})
-
-# Postprocessor
-set(Postprocessor
-)
-# Make the Postprocessor group
-SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
-
-# VisInteractor
-set(VisInteractor
-	CrystalAlgrithm/VisInteractor/ArcballCamera.h
-	CrystalAlgrithm/VisInteractor/FpsCamera.h
-	CrystalAlgrithm/VisInteractor/CameraPreset.h
-)
-# Make the VisInteractor group
-SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
-
-# Light
-set(Light
-	CrystalAlgrithm/Light/LightPreset.h
-)
-# Make the Light group
-SOURCE_GROUP("Light" FILES ${Light})
-
 # DataAttribute
 set(DataAttribute
 )
 # Make the DataAttribute group
 SOURCE_GROUP("DataAttribute" FILES ${DataAttribute})
 
-set(CMAKE_BUILD_TYPE "debug")
+# DataMapper
+set(DataMapper
+	CrystalAlgrithm/DataMapper/DataMapper.h
+)
+# Make the DataMapper group
+SOURCE_GROUP("DataMapper" FILES ${DataMapper})
+
+# DataOrganiz
+set(DataOrganiz
+	CrystalAlgrithm/DataOrganiz/DataOrganiz.h
+)
+# Make the DataOrganiz group
+SOURCE_GROUP("DataOrganiz" FILES ${DataOrganiz})
+
+# Light
+set(Light
+	CrystalAlgrithm/Light/Light.h
+)
+# Make the Light group
+SOURCE_GROUP("Light" FILES ${Light})
+
+# Postprocessor
+set(Postprocessor
+	CrystalAlgrithm/Postprocessor/Postprocessor.h
+)
+# Make the Postprocessor group
+SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
+
+# Preprocessor
+set(Preprocessor
+	CrystalAlgrithm/Preprocessor/Preprocessor.h
+)
+# Make the Preprocessor group
+SOURCE_GROUP("Preprocessor" FILES ${Preprocessor})
+
+# Reader
+set(Reader
+	CrystalAlgrithm/Reader/MedicalDataReader.h
+	CrystalAlgrithm/Reader/MedicalImagesInfo.h
+	CrystalAlgrithm/Reader/MhdFileReader.cpp
+	CrystalAlgrithm/Reader/MhdFileReader.h
+	CrystalAlgrithm/Reader/PresetCamera.h
+	CrystalAlgrithm/Reader/PresetData.h
+	CrystalAlgrithm/Reader/PresetDataMapper.h
+	CrystalAlgrithm/Reader/PresetLight.h
+	CrystalAlgrithm/Reader/PresetScene.h
+)
+# Make the Reader group
+SOURCE_GROUP("Reader" FILES ${Reader})
+
+# Scene
+set(Scene
+	CrystalAlgrithm/Scene/Scene.h
+)
+# Make the Scene group
+SOURCE_GROUP("Scene" FILES ${Scene})
+
+# VisInteractor
+set(VisInteractor
+	CrystalAlgrithm/VisInteractor/Camera.h
+	CrystalAlgrithm/VisInteractor/CameraArcball.h
+	CrystalAlgrithm/VisInteractor/CameraFps.h
+)
+# Make the VisInteractor group
+SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
+
+# Visualizer
+set(Visualizer
+	CrystalAlgrithm/Visualizer/Visualizer.h
+)
+# Make the Visualizer group
+SOURCE_GROUP("Visualizer" FILES ${Visualizer})
+
+#set(CMAKE_BUILD_TYPE "debug")
 
 # cuda_add_library(CrystalAlgrithm STATIC ${DataType_CUDA})
 cuda_add_library(CrystalAlgrithm SHARED 
 	${3rdLib_stb}
 	${Basic}
 	${Reader}
+	${Scene}
 	${DataOrganiz}
 	${DataMapper}
+	${DataAttribute}
 	${Visualizer}
 	${Preprocessor}
 	${Postprocessor}
 	${VisInteractor}
 	${Light}
-	${DataAttribute}
 )
 
 SET(CrystalAlgrithm_LIBRARY_debug 
@@ -234,6 +249,10 @@ SET(CrystalAlgrithm_LIBRARY_release
 target_link_libraries (CrystalAlgrithm 
 						debug ${CrystalAlgrithm_LIBRARY_debug}
 						optimized ${CrystalAlgrithm_LIBRARY_release} )
+
+set_target_properties(CrystalAlgrithm PROPERTIES CUDA_ARCHITECTURES "35;50;72")
+target_compile_features(CrystalAlgrithm PUBLIC cxx_std_11)
+target_compile_features(CrystalAlgrithm PUBLIC cuda_std_11)
 
 ########################################################################
 ######################### Crystal GUI Project ##########################
@@ -256,6 +275,8 @@ SOURCE_GROUP("Status" FILES ${Status})
 
 # Display
 set(Display
+	CrystalGUI/Display/DisplayWidget.h
+	CrystalGUI/Display/DisplayWidget.cpp
 )
 # Make the Display group
 SOURCE_GROUP("Display" FILES ${Display})
@@ -270,48 +291,59 @@ SOURCE_GROUP("DebugTools" FILES ${DebugTools})
 
 # Utility
 set(Utility
+	CrystalGUI/Utility/Utility.h
+	CrystalGUI/Utility/Utility.cpp
 )
 # Make the Utility group
 SOURCE_GROUP("Utility" FILES ${Utility})
 
 # QtReader
 set(QtReader
-	CrystalGUI/QtReader/QtReader.h
-	CrystalGUI/QtReader/QtReader.cpp
-	CrystalGUI/QtReader/LightParser.h
-	CrystalGUI/QtReader/SceneParser.h
-	CrystalGUI/QtReader/SceneParser.cpp
-	CrystalGUI/QtReader/TransferFunctionParser.h
+	CrystalGUI/QtReader/ParserScene.h
+	CrystalGUI/QtReader/ParserScene.cpp
+	CrystalGUI/QtReader/ParserLight.h
+	CrystalGUI/QtReader/ParserTransferFunction.h
+	CrystalGUI/QtReader/QtMedicalDataReader.h
+	CrystalGUI/QtReader/QtMedicalDataReader.cpp
 )
 # Make the QtReader group
 SOURCE_GROUP("QtReader" FILES ${QtReader})
 
 # QtDataOrganiz
 set(QtDataOrganiz
+	CrystalGUI/QtDataOrganiz/QtDataOrganiz.h
+	CrystalGUI/QtDataOrganiz/QtDataOrganiz.cpp
 )
 # Make the QtDataOrganiz group
 SOURCE_GROUP("QtDataOrganiz" FILES ${QtDataOrganiz})
 
 # QtDataMapper
 set(QtDataMapper
+	CrystalGUI/QtDataMapper/QtDataMapper.h
 )
 # Make the QtDataMapper group
 SOURCE_GROUP("QtDataMapper" FILES ${QtDataMapper})
 
 # QtVisualizer
 set(QtVisualizer
+	CrystalGUI/QtVisualizer/QtVisualizer.h
+	CrystalGUI/QtVisualizer/QtVisualizer.cpp
 )
 # Make the QtVisualizer group
 SOURCE_GROUP("QtVisualizer" FILES ${QtVisualizer})
 
 # QtPreprocessor
 set(QtPreprocessor
+	CrystalGUI/QtPreprocessor/QtPreprocessor.h
+	CrystalGUI/QtPreprocessor/QtPreprocessor.cpp
 )
 # Make the QtPreprocessor group
 SOURCE_GROUP("QtPreprocessor" FILES ${QtPreprocessor})
 
 # QtPostprocessor
 set(QtPostprocessor
+	CrystalGUI/QtPostprocessor/QtPostprocessor.h
+	CrystalGUI/QtPostprocessor/QtPostprocessor.cpp
 )
 # Make the QtPostprocessor group
 SOURCE_GROUP("QtPostprocessor" FILES ${QtPostprocessor})
@@ -320,14 +352,14 @@ SOURCE_GROUP("QtPostprocessor" FILES ${QtPostprocessor})
 set(QtVisInteractor
 	CrystalGUI/QtVisInteractor/QtVisInteractor.h
 	CrystalGUI/QtVisInteractor/QtVisInteractor.cpp
-	CrystalGUI/QtVisInteractor/QtFpsCamera.h
-	CrystalGUI/QtVisInteractor/QtArcballCamera.h
 )
 # Make the QtVisInteractor group
 SOURCE_GROUP("QtVisInteractor" FILES ${QtVisInteractor})
 
 # QtLight
 set(QtLight
+	CrystalGUI/QtLight/QtLight.h
+	CrystalGUI/QtLight/QtLight.cpp
 )
 # Make the QtLight group
 SOURCE_GROUP("QtLight" FILES ${QtLight})

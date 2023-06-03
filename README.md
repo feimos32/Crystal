@@ -12,13 +12,13 @@
 
 ## Computer configuration
 
-|  Device   |  Equipment Model (equal to or greater than)  |
-|  ----  | ----  |
-| System  | Windows 10 |
-| CPU RAM | 8GB |
-| GPU  | Nvidia GTX 1060 / Nvidia RTX 20xx |
-| GPU VRAM | 8GB |
-| Visual Studio | 2019 |
+|  Device   |  Equipment Model (equal to or greater than)  | Recommended settings |
+|  ----  | ----  | ----  |
+| System  | Windows 10 | Windows 10 |
+| CPU RAM | 8GB | 16GB |
+| GPU  | Nvidia GTX 1060 | Nvidia RTX 2080 Ti |
+| GPU VRAM | 8GB | 16GB |
+| Visual Studio | 2015 | 2019 |
 
 ## Dependent third-party libraries
 

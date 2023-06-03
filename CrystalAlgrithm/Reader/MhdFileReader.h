@@ -20,11 +20,11 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __MhdFileReader_h__
 #define __MhdFileReader_h__
 
-#include "Reader.h"
+#include "MedicalDataReader.h"
 
 namespace CrystalAlgrithm {
 
-class MhdFileReader : public Reader {
+class MhdFileReader : public MedicalDataReader {
 public:
 
 

@@ -17,22 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-namespace CrystalGUI {
+#ifndef __CameraFps_h__
+#define __CameraFps_h__
 
 
 
 
-
-
-
-
-}
-
-
-
-
-
-
+#endif
 
 
 

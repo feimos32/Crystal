@@ -17,8 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __Reader_h__
-#define __Reader_h__
+#ifndef __MedicalDataReader_h__
+#define __MedicalDataReader_h__
 
 #include <string>
 #include <iostream>
@@ -40,10 +40,10 @@ inline std::string obtainDirFromFilePath(std::string filepath){
 	return "";
 }
 
-class Reader {
+class MedicalDataReader {
 public:
 
-	Reader() {
+	MedicalDataReader() {
 		filePath = "";
 		fileDir = "";
 	}

@@ -17,6 +17,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __ParserTransferFunction_h__
+#define __ParserTransferFunction_h__
+
 namespace CrystalGUI {
 
 
@@ -28,6 +31,8 @@ namespace CrystalGUI {
 
 }
 
+
+#endif
 
 
 

@@ -17,7 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __CameraArcball_h__
+#define __CameraArcball_h__
 
+
+
+
+#endif
 
 
 

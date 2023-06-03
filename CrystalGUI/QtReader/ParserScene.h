@@ -17,8 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __SceneParser_h__
-#define __SceneParser_h__
+#ifndef __ParserScene_h__
+#define __ParserScene_h__
 
 #include <QObject>
 #include <QString>
@@ -28,11 +28,11 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/DebugTools/DebugStd.h"
 
-#include "CrystalAlgrithm/VisInteractor/CameraPreset.h"
-#include "CrystalAlgrithm/Light/LightPreset.h"
-#include "CrystalAlgrithm/DataOrganiz/DataPreset.h"
-#include "CrystalAlgrithm/DataMapper/DataMapperPreset.h"
-#include "CrystalAlgrithm/Reader/ScenePreset.h"
+#include "CrystalAlgrithm/Reader/PresetCamera.h"
+#include "CrystalAlgrithm/Reader/PresetLight.h"
+#include "CrystalAlgrithm/Reader/PresetData.h"
+#include "CrystalAlgrithm/Reader/PresetDataMapper.h"
+#include "CrystalAlgrithm/Reader/PresetScene.h"
 
 namespace CrystalGUI {
 
@@ -58,12 +58,12 @@ inline QString obtainFileNameFromFilePath(QString filepath) {
 	return fileDir;
 }
 
-class SceneParser : public QObject {
+class ParserScene : public QObject {
 	Q_OBJECT
 
 public:
-	SceneParser(QObject* parent = Q_NULLPTR);
-	~SceneParser();
+	ParserScene(QObject* parent = Q_NULLPTR);
+	~ParserScene();
 
 	void setFilePath(QString fp) {
 		filePath = fp;
@@ -76,7 +76,7 @@ public:
 	bool readSceneDataXML(const QDomNodeList nodes);
 
 private:
-	CrystalAlgrithm::ScenePreset m_ScenePreset;
+	CrystalAlgrithm::PresetScene m_ScenePreset;
 
 	QDomDocument reader;
 	QDomDocument writer;

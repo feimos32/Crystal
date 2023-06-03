@@ -17,29 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __CameraPreset_h__
-#define __CameraPreset_h__
 
-#include <string>
+#ifndef __PresetLight_h__
+#define __PresetLight_h__
+
 #include <iostream>
+#include <string>
 
 namespace CrystalAlgrithm {
 
-class CameraPreset {
+class PresetLight {
 public:
-	CameraPreset() {
-		CameraType = "";
+	PresetLight() {
+		LightFile = "";
 	}
-	std::string CameraType;
 
-	void PrintCameraPreset() {
-		std::cout << "PrintCameraPreset: " << std::endl;
-		std::cout << "  CameraType: " << CameraType << std::endl;
+	std::string LightFile;
+
+	void PrintLightPreset() {
+		std::cout << "PrintLightPreset: " << std::endl;
+		std::cout << "  LightFile: " << LightFile << std::endl;
 	}
 };
 
 }
 
 #endif
+
+
+
+
 
 

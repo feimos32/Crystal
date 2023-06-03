@@ -17,35 +17,20 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __ParserLight_h__
+#define __ParserLight_h__
 
-#ifndef __LightPreset_h__
-#define __LightPreset_h__
+namespace CrystalGUI {
 
-#include <iostream>
-#include <string>
 
-namespace CrystalAlgrithm {
 
-class LightPreset {
-public:
-	LightPreset() {
-		LightFile = "";
-	}
 
-	std::string LightFile;
 
-	void PrintLightPreset() {
-		std::cout << "PrintLightPreset: " << std::endl;
-		std::cout << "  LightFile: " << LightFile << std::endl;
-	}
-};
+
+
 
 }
 
 #endif
-
-
-
-
 
 

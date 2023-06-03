@@ -17,18 +17,36 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-namespace CrystalGUI {
+#ifndef __PresetData_h__
+#define __PresetData_h__
 
+#include <string>
+#include <iostream>
 
+namespace CrystalAlgrithm {
 
+class PresetData {
+public:
+	PresetData() {
+		DataFileType = "mhd";
+		DataType = "short";
+		DataFilePath = "";
+	}
+	std::string DataFileType;
+	std::string DataType;
+	std::string DataFilePath;
 
-
-
-
+	void PrintDataPreset() {
+		std::cout << "PrintDataPreset: " << std::endl;
+		std::cout << "  DataFilePath: " << DataFilePath << std::endl;
+		std::cout << "  DataFileType: " << DataFileType << std::endl;
+		std::cout << "  DataType: " << DataType << std::endl;
+	}
+};
 
 }
 
-
+#endif
 
 
 

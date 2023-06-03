@@ -20,7 +20,7 @@
 #include "MainWindow.h"
 
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
-#include "CrystalGUI/QtReader/SceneParser.h"
+#include "CrystalGUI/QtReader/ParserScene.h"
 
 namespace CrystalGUI{
 
@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget* parent)
     CrystalAlgrithm::printCudaDevice();
     CrystalAlgrithm::SpectrumTest();
 
-    CrystalGUI::SceneParser sp;
+    CrystalGUI::ParserScene sp;
     sp.setFilePath("Examples/Scene.xml");
     sp.readSceneXML();
 

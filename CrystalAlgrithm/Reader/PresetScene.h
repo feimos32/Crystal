@@ -17,22 +17,22 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#include "CrystalAlgrithm/VisInteractor/CameraPreset.h"
-#include "CrystalAlgrithm/Light/LightPreset.h"
-#include "CrystalAlgrithm/DataOrganiz/DataPreset.h"
-#include "CrystalAlgrithm/DataMapper/DataMapperPreset.h"
+#include "CrystalAlgrithm/Reader/PresetCamera.h"
+#include "CrystalAlgrithm/Reader/PresetLight.h"
+#include "CrystalAlgrithm/Reader/PresetData.h"
+#include "CrystalAlgrithm/Reader/PresetDataMapper.h"
 
-#ifndef __ScenePreset_h__
-#define __ScenePreset_h__
+#ifndef __PresetScene_h__
+#define __PresetScene_h__
 
 #include <string>
 #include <iostream>
 
 namespace CrystalAlgrithm{
 
-class ScenePreset {
+class PresetScene {
 public:
-	ScenePreset():
+	PresetScene():
 		m_CameraPreset(),
 		m_LightPreset(),
 		m_DataPreset(),
@@ -43,10 +43,10 @@ public:
 		SceneFileDir = "";
 	}
 
-	CameraPreset m_CameraPreset;
-	LightPreset m_LightPreset;
-	DataPreset m_DataPreset;
-	DataMapperPreset m_DataMapperPreset;
+	PresetCamera m_CameraPreset;
+	PresetLight m_LightPreset;
+	PresetData m_DataPreset;
+	PresetDataMapper m_DataMapperPreset;
 
 	std::string SceneFilePath;
 	std::string SceneFileName;

@@ -17,19 +17,33 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-namespace CrystalGUI {
+#ifndef __PresetDataMapper_h__
+#define __PresetDataMapper_h__
 
+#include <string>
+#include <iostream>
 
+namespace CrystalAlgrithm {
 
+class PresetDataMapper {
+public:
+	PresetDataMapper() {
+		TsFuncType = "";
+		TsFuncFileName = "";
+	}
+	std::string TsFuncType;
+	std::string TsFuncFileName;
 
-
-
-
+	void PrintDataMapperPreset() {
+		std::cout << "PrintDataMapperPreset: " << std::endl;
+		std::cout << "  TsFuncFileName: " << TsFuncFileName << std::endl;
+		std::cout << "  TsFuncType: " << TsFuncType << std::endl;
+	}
+};
 
 }
 
-
-
+#endif
 
 
 

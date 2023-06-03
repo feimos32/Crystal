@@ -17,35 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __DataMapperPreset_h__
-#define __DataMapperPreset_h__
+#ifndef __PostProcessor_h__
+#define __PostProcessor_h__
 
-#include <string>
-
-namespace CrystalAlgrithm {
-
-class DataMapperPreset {
-public:
-	DataMapperPreset() {
-		TsFuncType = "";
-		TsFuncFileName = "";
-	}
-	std::string TsFuncType;
-	std::string TsFuncFileName;
-
-	void PrintDataMapperPreset() {
-		std::cout << "PrintDataMapperPreset: " << std::endl;
-		std::cout << "  TsFuncFileName: " << TsFuncFileName << std::endl;
-		std::cout << "  TsFuncType: " << TsFuncType << std::endl;
-	}
-};
-
-}
-
-#endif
 
 
 
+#endif
 
 
 

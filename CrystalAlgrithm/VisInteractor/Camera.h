@@ -17,14 +17,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-
-namespace CrystalAlgrithm {
-
-
+#ifndef __Camera_h__
+#define __Camera_h__
 
 
 
 
-}
+#endif
+
 
 

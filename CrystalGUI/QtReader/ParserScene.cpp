@@ -27,21 +27,21 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include <iostream>
 
-#include "SceneParser.h"
+#include "ParserScene.h"
 
 #define SceneParserDebug true
 
 namespace CrystalGUI {
 
-SceneParser::SceneParser(QObject* parent) {
+ParserScene::ParserScene(QObject* parent) {
 
 }
 
-SceneParser::~SceneParser() {
+ParserScene::~ParserScene() {
 
 }
 
-bool SceneParser::readSceneXML() {
+bool ParserScene::readSceneXML() {
 
 	if (filePath == "") {
 		if (SceneParserDebug) {
@@ -130,7 +130,7 @@ bool SceneParser::readSceneXML() {
 	return true;
 }
 
-bool SceneParser::readSceneDataXML(const QDomNodeList nodes) {
+bool ParserScene::readSceneDataXML(const QDomNodeList nodes) {
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -153,7 +153,7 @@ bool SceneParser::readSceneDataXML(const QDomNodeList nodes) {
 	return true;
 }
 
-bool SceneParser::readSceneCameraXML(const QDomNodeList& nodes) {
+bool ParserScene::readSceneCameraXML(const QDomNodeList& nodes) {
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -168,7 +168,7 @@ bool SceneParser::readSceneCameraXML(const QDomNodeList& nodes) {
 	return true;
 }
 
-bool SceneParser::readSceneLightXML(const QDomNodeList& nodes) {
+bool ParserScene::readSceneLightXML(const QDomNodeList& nodes) {
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -183,7 +183,7 @@ bool SceneParser::readSceneLightXML(const QDomNodeList& nodes) {
 	return true;
 }
 
-bool SceneParser::readSceneDataMapperXML(const QDomNodeList& nodes) {
+bool ParserScene::readSceneDataMapperXML(const QDomNodeList& nodes) {
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
