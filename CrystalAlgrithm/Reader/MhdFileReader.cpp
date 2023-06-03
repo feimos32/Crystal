@@ -33,7 +33,9 @@ VTK_MODULE_INIT(vtkRenderingVolumeOpenGL2);
 #include <vtkImageAccumulate.h>
 #include <vtkImageGradientMagnitude.h>
 
+
 namespace CrystalAlgrithm {
+
 
 
 

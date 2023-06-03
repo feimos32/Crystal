@@ -10,24 +10,34 @@
 ---
 # <img src="Resources/Images/crystal.png" width="40" > Build this project
 
+## Computer configuration
+
+|  Device   |  Equipment Model (equal to or greater than)  |
+|  ----  | ----  |
+| System  | Windows 10 |
+| CPU RAM | 8GB |
+| GPU  | Nvidia GTX 1060 / Nvidia RTX 20xx |
+| GPU VRAM | 8GB |
+| Visual Studio | 2019 |
+
 ## Dependent third-party libraries
 
 
 > <img src="Resources/Icons/logo-qt.png" width="50" >
 >
-> **Qt** version 6.2   
+> **Qt** version (equal to or greater than) 6.0   
 > https://www.qt.io/product/qt6
 
 
 > <img src="Resources/Icons/logo-cuda.png" width="90" >
 >
-> **Nvidia Cuda** version 11.0   
+> **Nvidia Cuda** version (equal to or greater than) 11.0   
 > https://developer.nvidia.com/cuda-toolkit
 
 
 > <img src="Resources/Icons/logo-vtk.png" width="70" >
 >
-> **VTK** version greater than 7.0   
+> **VTK** version (equal to or greater than) 7.0   
 > https://vtk.org/
 
 ## Corresponding CMake path that needs to be modified (in CMakeLists.txt)
