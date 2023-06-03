@@ -12,7 +12,7 @@
 
 ## Computer configuration
 
-|  Device   |  Equipment Model (equal to or greater than)  | Recommended settings |
+|  Device   |  Minimum configuration | Recommended settings ((equal to or greater than)) |
 |  ----  | ----  | ----  |
 | System  | Windows 10 | Windows 10 |
 | CPU RAM | 8GB | 16GB |
