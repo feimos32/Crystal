@@ -131,10 +131,14 @@ set(Basic
 	CrystalAlgrithm/Basic/Common.cuh
 	CrystalAlgrithm/Basic/Common.cu
 	CrystalAlgrithm/Basic/Geometry.cuh
+	CrystalAlgrithm/Basic/Geometry.cu
 	CrystalAlgrithm/Basic/Transform.cuh
+	CrystalAlgrithm/Basic/Transform.cu
 	CrystalAlgrithm/Basic/Export_dll.cuh
 	CrystalAlgrithm/Basic/Spectrum.cuh
+	CrystalAlgrithm/Basic/Spectrum.cu
 	CrystalAlgrithm/Basic/BasicTest.cu
+	CrystalAlgrithm/Basic/cudaTextureTest.cu
 )
 # Make the Basic group
 SOURCE_GROUP("Basic" FILES ${Basic})
@@ -148,6 +152,11 @@ SOURCE_GROUP("DataAttribute" FILES ${DataAttribute})
 # DataMapper
 set(DataMapper
 	CrystalAlgrithm/DataMapper/DataMapper.h
+	CrystalAlgrithm/DataMapper/TransferFunction.h
+	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h
+	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.cpp
+	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal.h
+	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal.cpp
 )
 # Make the DataMapper group
 SOURCE_GROUP("DataMapper" FILES ${DataMapper})

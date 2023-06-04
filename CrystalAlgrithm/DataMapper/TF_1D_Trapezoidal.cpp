@@ -17,41 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __TF_2D_Trapezoidal_h__
-#define __TF_2D_Trapezoidal_h__
 
-#include "TransferFunction.h"
-#include "CrystalAlgrithm/Basic/Geometry.cuh"
-#include "CrystalAlgrithm/Basic/Spectrum.cuh"
-
-#include <vector>
+#include "TF_1D_Trapezoidal.h"
 
 namespace CrystalAlgrithm {
-
-struct TF_2D_Trapezoidal_GF_Node_1 {
-	float normalizedIntensity;
-	Spectrum3 emit;
-	Spectrum3 diffuse;
-	Spectrum3 specular;
-	float opacity;
-	float roughness;
-	float metallic;
-};
-
-struct TF_2D_Trapezoidal_GF_Node_2 {
-	float normalizedIntensity;
-	float opacity;
-};
-
-// TF_2D_Trapezoidal Gradient factor
-class TF_2D_Trapezoidal_GF : public TransferFunction {
-public:
-
-	std::vector<TF_2D_Trapezoidal_GF_Node_1> nodes1;
-	std::vector<TF_2D_Trapezoidal_GF_Node_2> nodes2;
-
-
-};
 
 
 
@@ -59,7 +28,6 @@ public:
 }
 
 
-#endif
 
 
 

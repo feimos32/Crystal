@@ -20,13 +20,10 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __Spectrum_cuh__
 #define __Spectrum_cuh__
 
-#include <algorithm>
-#include <cmath>
 #include <string>
 
 #include <cuda.h>
 #include <cuda_runtime.h>
-#include <math_functions.h>
 
 #include "Common.cuh"
 
@@ -45,10 +42,6 @@ HOST_AND_DEVICE inline void RGBToXYZ(const Float rgb[3], Float xyz[3]) {
     xyz[2] = 0.019334f * rgb[0] + 0.119193f * rgb[1] + 0.950227f * rgb[2];
 }
 
-//using std::sqrt;
-//using std::exp;
-//using std::max;
-//using std::pow;
 
 class Spectrum3 {
 public:

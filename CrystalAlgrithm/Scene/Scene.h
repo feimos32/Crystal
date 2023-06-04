@@ -21,7 +21,9 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __Scene_h__
 #define __Scene_h__
 
+class Scene {
 
+};
 
 #endif
 

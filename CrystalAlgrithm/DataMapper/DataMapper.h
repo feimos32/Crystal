@@ -20,8 +20,12 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __DataMapper_h__
 #define __DataMapper_h__
 
+namespace CrystalAlgrithm {
 
 
+
+
+}
 
 #endif
 

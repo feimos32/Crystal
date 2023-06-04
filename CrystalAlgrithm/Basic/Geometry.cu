@@ -17,49 +17,45 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __TF_2D_Trapezoidal_h__
-#define __TF_2D_Trapezoidal_h__
+/*
+The following code is partially rewritten from: 
+PBRT v3: <https://pbrt.org/>
+*/
 
-#include "TransferFunction.h"
-#include "CrystalAlgrithm/Basic/Geometry.cuh"
-#include "CrystalAlgrithm/Basic/Spectrum.cuh"
+#include "Geometry.cuh"
 
-#include <vector>
+#include <cuda.h>
+#include <cuda_runtime.h>
 
+// It seems that math_functions.h may not be included into.cpp file.
+#include <math_functions.h>
+
+#include <cmath>
+#include <algorithm>
+
+
+// Vector3f/Point3f/Normal3f
 namespace CrystalAlgrithm {
 
-struct TF_2D_Trapezoidal_GF_Node_1 {
-	float normalizedIntensity;
-	Spectrum3 emit;
-	Spectrum3 diffuse;
-	Spectrum3 specular;
-	float opacity;
-	float roughness;
-	float metallic;
-};
+HOST inline Point3f Floor(const Point3f& p) {
+	return Point3f(std::floor(p.x), std::floor(p.y), std::floor(p.z));
+}
 
-struct TF_2D_Trapezoidal_GF_Node_2 {
-	float normalizedIntensity;
-	float opacity;
-};
+HOST inline Point3f Ceil(const Point3f& p) {
+	return Point3f(std::ceil(p.x), std::ceil(p.y), std::ceil(p.z));
+}
 
-// TF_2D_Trapezoidal Gradient factor
-class TF_2D_Trapezoidal_GF : public TransferFunction {
-public:
+}
 
-	std::vector<TF_2D_Trapezoidal_GF_Node_1> nodes1;
-	std::vector<TF_2D_Trapezoidal_GF_Node_2> nodes2;
-
-
-};
-
-
-
+// Vector2f/Point2f/Normal2f
+namespace CrystalAlgrithm {
 
 }
 
 
-#endif
+
+
+
 
 
 

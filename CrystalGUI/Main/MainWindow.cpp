@@ -22,6 +22,8 @@
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
 #include "CrystalGUI/QtReader/ParserScene.h"
 
+#include "CrystalAlgrithm/Basic/Transform.cuh"
+
 namespace CrystalGUI{
 
 MainWindow::MainWindow(QWidget* parent)

@@ -27,10 +27,6 @@ PBRT v3: <https://pbrt.org/>
 
 #include <cuda.h>
 #include <cuda_runtime.h>
-#include <math_functions.h>
-
-//#include <cmath>
-//#include <algorithm>
 
 #include "Common.cuh"
 
@@ -40,17 +36,27 @@ namespace CrystalAlgrithm {
 	class Point3f;
 	class Normal3f;
 
-	using std::isnan;
-	using std::min;
-	using std::max;
-	using std::abs;
-	using std::swap;
-
 }
 
 // Vector3f/Point3f/Normal3f
 namespace CrystalAlgrithm {
 
+HOST_AND_DEVICE inline void swap(Float& a, Float& b) {
+	Float c = b;
+	b = a; a = c;
+}
+
+HOST_AND_DEVICE inline Float max(Float a, Float b) {
+	return a > b ? a : b;
+}
+
+HOST_AND_DEVICE inline Float min(Float a, Float b) {
+	return a < b ? a : b;
+}
+
+HOST_AND_DEVICE inline Float abs(Float a) {
+	return a > 0.0f ? a : -a;
+}
 
 class Vector3f {
 public:
@@ -434,14 +440,6 @@ HOST_AND_DEVICE
 	inline Point3f Max(const Point3f& p1, const Point3f& p2) {
 	return Point3f(max(p1.x, p2.x), max(p1.y, p2.y),
 		max(p1.z, p2.z));
-}
-
-HOST inline Point3f Floor(const Point3f& p) {
-	return Point3f(std::floor(p.x), std::floor(p.y), std::floor(p.z));
-}
-
-HOST inline Point3f Ceil(const Point3f& p) {
-	return Point3f(std::ceil(p.x), std::ceil(p.y), std::ceil(p.z));
 }
 
 HOST_AND_DEVICE
