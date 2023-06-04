@@ -186,17 +186,13 @@ set(Reader
 	CrystalAlgrithm/Reader/MedicalImagesInfo.h
 	CrystalAlgrithm/Reader/MhdFileReader.cpp
 	CrystalAlgrithm/Reader/MhdFileReader.h
-	CrystalAlgrithm/Reader/PresetCamera.h
-	CrystalAlgrithm/Reader/PresetData.h
-	CrystalAlgrithm/Reader/PresetDataMapper.h
-	CrystalAlgrithm/Reader/PresetLight.h
-	CrystalAlgrithm/Reader/PresetScene.h
 )
 # Make the Reader group
 SOURCE_GROUP("Reader" FILES ${Reader})
 
 # Scene
 set(Scene
+	CrystalAlgrithm/Scene/PresetScene.h
 	CrystalAlgrithm/Scene/Scene.h
 )
 # Make the Scene group
@@ -419,7 +415,8 @@ SET(LIBRARY_release
 
 target_link_libraries (CrystalGUI PRIVATE
 						debug ${LIBRARY_debug}
-						optimized ${LIBRARY_release} )
+						# optimized ${LIBRARY_release} 
+						)
 
 # set CrystalGUI as start up project
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT CrystalGUI)
@@ -431,6 +428,9 @@ set_target_properties(CrystalGUI PROPERTIES LINK_FLAGS_RELWITHDEBINFO "/SUBSYSTE
 set_target_properties(CrystalGUI PROPERTIES COMPILE_DEFINITIONS_RELWITHDEBINFO "_CONSOLE")
 set_target_properties(CrystalGUI PROPERTIES LINK_FLAGS_DEBUG "/SUBSYSTEM:CONSOLE")
 set_target_properties(CrystalGUI PROPERTIES LINK_FLAGS_MINSIZEREL "/SUBSYSTEM:CONSOLE")
+
+
+
 
 
 

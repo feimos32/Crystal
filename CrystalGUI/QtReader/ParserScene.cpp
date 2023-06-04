@@ -89,8 +89,6 @@ bool ParserScene::readSceneXML() {
 			PrintValue("firstChild.nodeName()", firstChild.nodeName());
 			PrintValue("firstChild.nodeValue()", firstChild.nodeValue());
 		}
-		//DebugText::getDebugText()->addContents(firstChild.nodeName());
-		//DebugText::getDebugText()->addContents(firstChild.nodeValue());
 	}
 	else {
 		// "No version , No Format"
@@ -105,6 +103,7 @@ bool ParserScene::readSceneXML() {
 		PrintValue("rootName", rootName);
 	}
 
+	bool readFlag = true;
 	QDomNode child = root.firstChild();
 	while (!child.isNull())
 	{
@@ -113,24 +112,30 @@ bool ParserScene::readSceneXML() {
 			PrintValue("e.tagName()", e.tagName());
 		}
 		
-		if ("Data" == e.tagName()) {
-			readSceneDataXML(child.childNodes());
+		if ("MedicalData" == e.tagName()) {
+			readSceneMedicalDataXML(child.childNodes());
 		}else if ("Camera" == e.tagName()) {
 			readSceneCameraXML(child.childNodes());
 		}
-		else if ("Light" == e.tagName()) {
-			readSceneLightXML(child.childNodes());
+		else if ("SceneGeometry" == e.tagName()) {
+			readSceneSceneGeometryXML(child.childNodes());
 		}
 		else if ("DataMapper" == e.tagName()) {
 			readSceneDataMapperXML(child.childNodes());
 		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + e.tagName().toStdString());
+		}
 		//find next node
 		child = child.nextSiblingElement();
 	}
-	return true;
+	return readFlag;
 }
 
-bool ParserScene::readSceneDataXML(const QDomNodeList nodes) {
+bool ParserScene::readSceneMedicalDataXML(const QDomNodeList nodes) {
+
+	bool readFlag = true;
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -145,15 +150,20 @@ bool ParserScene::readSceneDataXML(const QDomNodeList nodes) {
 		} else if ("DataType" == tag) {
 			m_ScenePreset.m_DataPreset.DataType =
 				childNode.toElement().attribute("type").toStdString();
-		} 
+		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
+		}
 	}
 	if (SceneParserDebug) {
 		m_ScenePreset.m_DataPreset.PrintDataPreset();
 	}
-	return true;
+	return readFlag;
 }
 
 bool ParserScene::readSceneCameraXML(const QDomNodeList& nodes) {
+	bool readFlag = true;
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -161,29 +171,40 @@ bool ParserScene::readSceneCameraXML(const QDomNodeList& nodes) {
 			m_ScenePreset.m_CameraPreset.CameraType =
 				childNode.toElement().attribute("type").toStdString();
 		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
+		}
 	}
 	if (SceneParserDebug) {
 		m_ScenePreset.m_CameraPreset.PrintCameraPreset();
 	}
-	return true;
+	return readFlag;
 }
 
-bool ParserScene::readSceneLightXML(const QDomNodeList& nodes) {
+bool ParserScene::readSceneSceneGeometryXML(const QDomNodeList& nodes) {
+	bool readFlag = true;
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
-		if ("LightFile" == tag) {
-			m_ScenePreset.m_LightPreset.LightFile =
+		if ("SceneGeometryFile" == tag) {
+			m_ScenePreset.m_SceneGeometryPreset.SceneGeometryFile =
 				childNode.toElement().attribute("file").toStdString();
+		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
 		}
 	}
 	if (SceneParserDebug) {
-		m_ScenePreset.m_LightPreset.PrintLightPreset();
+		m_ScenePreset.m_SceneGeometryPreset.PrintLightPreset();
 	}
-	return true;
+	return readFlag;
 }
 
 bool ParserScene::readSceneDataMapperXML(const QDomNodeList& nodes) {
+
+	bool readFlag = true;
 	for (int i = 0; i < nodes.count(); i++) {
 		QDomNode childNode = nodes.at(i);
 		QString tag = childNode.toElement().tagName();
@@ -195,12 +216,16 @@ bool ParserScene::readSceneDataMapperXML(const QDomNodeList& nodes) {
 			m_ScenePreset.m_DataMapperPreset.TsFuncFileName =
 				childNode.toElement().attribute("file").toStdString();
 		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
+		}
 	}
 	if (SceneParserDebug) {
 		m_ScenePreset.m_DataMapperPreset.PrintDataMapperPreset();
 	}
 
-	return true;
+	return readFlag;
 }
 
 

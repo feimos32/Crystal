@@ -1,17 +1,17 @@
 <Scene>
-	<Data> 
+	<MedicalData> 
 		<DataFileType type="mhd" />
 		<DataFilePath path="D:/Dataset/Volume/test.mhd" />
 		<DataType type="short" />
-	</Data>
+	</MedicalData>
+	<DataMapper> 
+		<TsFuncType type="TF_1D_Trapezoidal" />
+		<TsFuncFileName file="TsFunc.xml" />
+	</DataMapper>
 	<Camera> 
 		<CameraType type="perspective" />
 	</Camera>
-	<Light> 
-		<LightFile file="Light.xml" />
-	</Light>
-	<DataMapper> 
-		<TsFuncType type="1D_Trapezoidal_TF" />
-		<TsFuncFileName file="TransferFunction.xml" />
-	</DataMapper>
+	<SceneGeometry> 
+		<SceneGeometryFile file="SceneGeometry.xml" />
+	</SceneGeometry>
 </Scene>

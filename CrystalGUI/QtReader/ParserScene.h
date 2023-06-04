@@ -28,11 +28,7 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/DebugTools/DebugStd.h"
 
-#include "CrystalAlgrithm/Reader/PresetCamera.h"
-#include "CrystalAlgrithm/Reader/PresetLight.h"
-#include "CrystalAlgrithm/Reader/PresetData.h"
-#include "CrystalAlgrithm/Reader/PresetDataMapper.h"
-#include "CrystalAlgrithm/Reader/PresetScene.h"
+#include "CrystalAlgrithm/Scene/PresetScene.h"
 
 namespace CrystalGUI {
 
@@ -71,9 +67,9 @@ public:
 	bool readSceneXML();
 
 	bool readSceneCameraXML(const QDomNodeList& nodes);
-	bool readSceneLightXML(const QDomNodeList& nodes);
+	bool readSceneSceneGeometryXML(const QDomNodeList& nodes);
 	bool readSceneDataMapperXML(const QDomNodeList& nodes);
-	bool readSceneDataXML(const QDomNodeList nodes);
+	bool readSceneMedicalDataXML(const QDomNodeList nodes);
 
 private:
 	CrystalAlgrithm::PresetScene m_ScenePreset;
