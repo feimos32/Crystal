@@ -24,8 +24,9 @@
 int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
-   
-    CrystalGUI::MainWindow w;
+    
+    
+    CrystalGUI::InitialMainWindow w;
     w.show();
 
     return a.exec();

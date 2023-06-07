@@ -20,7 +20,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Qt6Config.cmake
-set(Qt6_DIR "D:/DevTools/Qt6/6.2.4/msvc2019_64/" CACHE PATH "qt5 cmake dir")
+set(Qt6_DIR "D:/DevTools/Qt6/6.2.4/msvc2019_64/" CACHE PATH "qt6 cmake dir")
 set(CMAKE_PREFIX_PATH ${Qt6_DIR})
 find_package(Qt6 COMPONENTS 
 	Widgets 
@@ -35,7 +35,7 @@ else()
    	message(FATAL_ERROR "Qt6 not found!")
 endif()
 
-set(CMAKE_CXX_FLAGS "-mwindows")
+# set(CMAKE_CXX_FLAGS "-mwindows")
 
 
 ############ VTK Lib ###########
@@ -155,8 +155,8 @@ set(DataMapper
 	CrystalAlgrithm/DataMapper/TransferFunction.h
 	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h
 	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.cpp
-	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal.h
-	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal.cpp
+	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.h
+	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.cpp
 )
 # Make the DataMapper group
 SOURCE_GROUP("DataMapper" FILES ${DataMapper})
@@ -325,6 +325,17 @@ SOURCE_GROUP("QtDataOrganiz" FILES ${QtDataOrganiz})
 # QtDataMapper
 set(QtDataMapper
 	CrystalGUI/QtDataMapper/QtDataMapper.h
+	CrystalGUI/QtDataMapper/QtDataMapper.cpp
+	
+	CrystalGUI/QtDataMapper/QtTfFuncDock.h
+	CrystalGUI/QtDataMapper/QtTfFuncDock.cpp
+	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h
+	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.cpp
+	
+	CrystalGUI/QtDataMapper/QtTF_1D_Trapezoidal.h
+	CrystalGUI/QtDataMapper/QtTF_1D_Trapezoidal.cpp
+	CrystalGUI/QtDataMapper/QtTF_2D_Trapezoidal_GF.h
+	CrystalGUI/QtDataMapper/QtTF_2D_Trapezoidal_GF.cpp
 )
 # Make the QtDataMapper group
 SOURCE_GROUP("QtDataMapper" FILES ${QtDataMapper})
@@ -439,12 +450,11 @@ set_target_properties(CrystalGUI PROPERTIES LINK_FLAGS_DEBUG "/SUBSYSTEM:CONSOLE
 set_target_properties(CrystalGUI PROPERTIES LINK_FLAGS_MINSIZEREL "/SUBSYSTEM:CONSOLE")
 
 
+file(GLOB Resources "${CMAKE_CURRENT_SOURCE_DIR}/Resources/*")
+file(COPY ${Resources} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Resources/)
 
-
-
-
-
-
+file(GLOB Examples "${CMAKE_CURRENT_SOURCE_DIR}/Examples/*")
+file(COPY ${Examples} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Examples/)
 
 
 

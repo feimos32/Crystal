@@ -17,15 +17,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtDataMapper_h__
-#define __QtDataMapper_h__
-
-
-
+#ifndef __QtTF_2D_Trapezoidal_GF_h__
+#define __QtTF_2D_Trapezoidal_GF_h__
 
 
 
 
 #endif
+
+
+
 
 

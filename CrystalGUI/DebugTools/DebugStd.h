@@ -27,23 +27,23 @@ Github site: <https://github.com/feimos32/Crystal>
 namespace CrystalGUI {
 
 inline void PrintError_Std(std::string err, const char* file, int line) {
-	std::cout << std::string(err) + " in " + std::string(file) +
+	std::cout << "[Error]: " <<  std::string(err) + " in " + std::string(file) +
 		" at line " + std::to_string(line) << std::endl;
 }
 
 #define PrintError( err ) (PrintError_Std( err, __FILE__, __LINE__ ))
 
 inline void PrintValue_Std(std::string info, float s) {
-	std::cout << info + ": [" + std::to_string(s) + "]" << std::endl;
+	std::cout <<"[Debug]: " <<  info + ": [" + std::to_string(s) + "]" << std::endl;
 }
 inline void PrintValue_Std(std::string info, size_t s) {
-	std::cout << info + ": [" + std::to_string(s) + "]" << std::endl;
+	std::cout << "[Debug]: " << info + ": [" + std::to_string(s) + "]" << std::endl;
 }
 inline void PrintValue_Std(std::string info, int s) {
-	std::cout << info + ": [" + std::to_string(s) + "]" << std::endl;
+	std::cout << "[Debug]: " << info + ": [" + std::to_string(s) + "]" << std::endl;
 }
 inline void PrintValue_Std(std::string info, QString s) {
-	std::cout << info + ": [" + s.toStdString() + "]" << std::endl;
+	std::cout << "[Debug]: " << info + ": [" + s.toStdString() + "]" << std::endl;
 }
 
 #define PrintValue(info, val) PrintValue_Std(info, val);
@@ -51,13 +51,13 @@ inline void PrintValue_Std(std::string info, QString s) {
 
 
 inline void PrintValue_Std(float s) {
-	std::cout << "[" + std::to_string(s) + "]" << std::endl;
+	std::cout << "[Debug]: " << "[" + std::to_string(s) + "]" << std::endl;
 }
 inline void PrintValue_Std(int s) {
-	std::cout << "[" + std::to_string(s) + "]" << std::endl;
+	std::cout << "[Debug]: " << "[" + std::to_string(s) + "]" << std::endl;
 }
 inline void PrintValue_Std(QString s) {
-	std::cout << "[" + s.toStdString() + "]" << std::endl;
+	std::cout << "[Debug]: " << "[" + s.toStdString() + "]" << std::endl;
 }
 
 

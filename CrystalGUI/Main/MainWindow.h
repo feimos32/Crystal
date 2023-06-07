@@ -20,34 +20,71 @@
 #ifndef __MainWindow_h__
 #define __MainWindow_h__
 
-#include <qmainwindow.h>
+#include <QtWidgets>
+
+#include <QMainWindow>
+#include <QWidget>
 #include <QCloseEvent>
 
 namespace CrystalGUI{
 
-class MainWindow : public QMainWindow
+class DisplayMainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = Q_NULLPTR);
+
+    DisplayMainWindow(QString sceneFile, QWidget* parent = 0);
+    ~DisplayMainWindow();
+
+signals:
+    void windowClosed();
+
+protected:
+
+    QWidget centralWidget;
+    void closeEvent(QCloseEvent* e);
+
+};
+
+
+class InitialMainWindow : public QMainWindow
+{
+    Q_OBJECT
 
 public:
+    InitialMainWindow(QWidget* parent = Q_NULLPTR);
+    ~InitialMainWindow();
 
+protected:
+    QToolBar mainToolBar;
 
+    QMenuBar menuBar;
+    QMenu fileMenu;
+
+    QAction OpenSceneAction;
+    QAction RunExampleAction;
+
+    bool isDisplayMainWindowExist;
+    DisplayMainWindow* m_DisplayMainWindow;
+
+    void setupMenu();
+    void setupTool();
+
+    void closeEvent(QCloseEvent* e);
 private:
     QWidget centralWidget;
 
-
-
-private:
-    void setMenu(void);
-    void setWidget(void);
-    void setDock(void);
-    void closeEvent(QCloseEvent* event);
-
+private slots:
+    void RunExample();
+    void DisplayMainWindowClosed();
 
 };
+
+
+
+
+
 
 
 }

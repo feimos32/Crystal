@@ -17,15 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtDataMapper_h__
-#define __QtDataMapper_h__
+#ifndef __QtTfFuncDock_h__
+#define __QtTfFuncDock_h__
+
+
+
+#include <QDockWidget>
+
+namespace CrystalGUI {
+
+class QtTfFuncDock : public QDockWidget
+{
+	Q_OBJECT
+
+public:
+	QtTfFuncDock(QWidget* pParent = NULL);
+
+protected:
+	
+
+
+};
 
 
 
 
-
+}
 
 
 #endif
+
 
 

@@ -41,7 +41,21 @@ struct TF_1D_Trapezoidal_Node {
 class TF_1D_Trapezoidal : public TransferFunction {
 public:
 
+	TF_1D_Trapezoidal() {
+		clear();
+	}
+
+	void clear() { 
+		hasEmit = hasDiffuse = hasSpecular =
+			hasOpacity = hasRoughness = hasMetallic = false;
+		nodes.clear();
+	}
+
 	std::vector<TF_1D_Trapezoidal_Node> nodes;
+
+	bool hasEmit, hasDiffuse, hasSpecular, 
+		hasOpacity, hasRoughness, hasMetallic;
+
 
 };
 

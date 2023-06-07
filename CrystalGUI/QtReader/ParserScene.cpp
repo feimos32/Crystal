@@ -29,7 +29,7 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "ParserScene.h"
 
-#define SceneParserDebug true
+#define ParserSceneDebug true
 
 namespace CrystalGUI {
 
@@ -44,7 +44,7 @@ ParserScene::~ParserScene() {
 bool ParserScene::readSceneXML() {
 
 	if (filePath == "") {
-		if (SceneParserDebug) {
+		if (ParserSceneDebug) {
 			PrintError("(filePath == \"\")");
 		}
 		return false;
@@ -52,7 +52,7 @@ bool ParserScene::readSceneXML() {
 
 	QFile file(filePath);
 	if (!file.open(QIODevice::ReadOnly)) {
-		if (SceneParserDebug) {
+		if (ParserSceneDebug) {
 			PrintError( "(!file.open(QIODevice::ReadOnly))" );
 		}
 		return false;
@@ -60,7 +60,7 @@ bool ParserScene::readSceneXML() {
 
 	if (!reader.setContent(&file)) {
 		file.close();
-		if (SceneParserDebug) {
+		if (ParserSceneDebug) {
 			PrintError("(!reader.setContent(&file))");
 		}
 		return false;
@@ -76,7 +76,7 @@ bool ParserScene::readSceneXML() {
 	m_ScenePreset.SceneFileDir = fileDir.toStdString();
 	m_ScenePreset.SceneFileName = fileName.toStdString();
 
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		PrintValue("filePath", filePath);
 		PrintValue("fileDir", fileDir);
 		PrintValue("fileName", fileName);
@@ -85,21 +85,21 @@ bool ParserScene::readSceneXML() {
 	// version
 	QDomNode firstChild = reader.firstChild();
 	if (firstChild.nodeName() == "xml") {
-		if(SceneParserDebug) {
+		if(ParserSceneDebug) {
 			PrintValue("firstChild.nodeName()", firstChild.nodeName());
 			PrintValue("firstChild.nodeValue()", firstChild.nodeValue());
 		}
 	}
 	else {
 		// "No version , No Format"
-		if (SceneParserDebug) {
+		if (ParserSceneDebug) {
 			PrintValue_Std("No version , No Format");
 		}
 	}
 
 	QDomElement root = reader.documentElement();
 	rootName = root.tagName();
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		PrintValue("rootName", rootName);
 	}
 
@@ -108,7 +108,7 @@ bool ParserScene::readSceneXML() {
 	while (!child.isNull())
 	{
 		QDomElement e = child.toElement(); // try to convert the node to an element. 
-		if (SceneParserDebug) {
+		if (ParserSceneDebug) {
 			PrintValue("e.tagName()", e.tagName());
 		}
 		
@@ -156,7 +156,7 @@ bool ParserScene::readSceneMedicalDataXML(const QDomNodeList nodes) {
 			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
 		}
 	}
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		m_ScenePreset.m_DataPreset.PrintDataPreset();
 	}
 	return readFlag;
@@ -176,7 +176,7 @@ bool ParserScene::readSceneCameraXML(const QDomNodeList& nodes) {
 			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
 		}
 	}
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		m_ScenePreset.m_CameraPreset.PrintCameraPreset();
 	}
 	return readFlag;
@@ -196,7 +196,7 @@ bool ParserScene::readSceneSceneGeometryXML(const QDomNodeList& nodes) {
 			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
 		}
 	}
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		m_ScenePreset.m_SceneGeometryPreset.PrintLightPreset();
 	}
 	return readFlag;
@@ -221,7 +221,7 @@ bool ParserScene::readSceneDataMapperXML(const QDomNodeList& nodes) {
 			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
 		}
 	}
-	if (SceneParserDebug) {
+	if (ParserSceneDebug) {
 		m_ScenePreset.m_DataMapperPreset.PrintDataMapperPreset();
 	}
 

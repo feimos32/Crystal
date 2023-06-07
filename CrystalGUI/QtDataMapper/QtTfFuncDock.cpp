@@ -17,15 +17,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtDataMapper_h__
-#define __QtDataMapper_h__
+#include "CrystalGUI/DebugTools/DebugStd.h"
+#include "QtTfFuncDock.h"
+
+#define QtTfFuncDockDebug true
+
+namespace CrystalGUI {
+
+QtTfFuncDock::QtTfFuncDock(QWidget* pParent) {
+
+	if (QtTfFuncDockDebug) {
+		PrintValue_Std("QtTfFuncDock Constructed.");
+	}
+
+}
 
 
 
 
+}
 
 
-
-#endif
 
 
