@@ -39,6 +39,7 @@
 >
 > **VTK** version (equal to or greater than) 7.0   
 > https://vtk.org/
+> VTK now is only used for load mhd file volume data
 
 ## Corresponding CMake path that needs to be modified (in CMakeLists.txt)
 
