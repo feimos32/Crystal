@@ -20,7 +20,26 @@
 #ifndef __DisplayWidget_h__
 #define __DisplayWidget_h__
 
+// 
+#include "CrystalGUI/QtVisInteractor/QtVisInteractor.h"
 
+#include <QOpenGLWidget>
+
+namespace CrystalGUI {
+
+class DisplayWidget : public QOpenGLWidget {
+    Q_OBJECT
+public:
+    DisplayWidget(QWidget* parent = nullptr) : QOpenGLWidget(parent) { }
+    
+
+
+};
+
+
+
+
+}
 
 
 #endif

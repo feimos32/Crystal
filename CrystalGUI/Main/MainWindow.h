@@ -26,6 +26,10 @@
 #include <QWidget>
 #include <QCloseEvent>
 
+#include <QHBoxLayout>
+
+#include "CrystalGUI/Display/DisplayWidget.h"
+
 namespace CrystalGUI{
 
 class DisplayMainWindow : public QMainWindow
@@ -42,11 +46,15 @@ signals:
 
 protected:
 
-    QWidget centralWidget;
+    QHBoxLayout * mainLayout;
+
+    DisplayWidget * displayWidget;
+
+    QWidget* centralWidget;
+
     void closeEvent(QCloseEvent* e);
 
 };
-
 
 class InitialMainWindow : public QMainWindow
 {
@@ -65,8 +73,9 @@ protected:
     QAction OpenSceneAction;
     QAction RunExampleAction;
 
-    bool isDisplayMainWindowExist;
     DisplayMainWindow* m_DisplayMainWindow;
+
+    bool isDisplayMainWindowExist;
 
     void setupMenu();
     void setupTool();
@@ -74,6 +83,7 @@ protected:
     void closeEvent(QCloseEvent* e);
 private:
     QWidget centralWidget;
+
 
 private slots:
     void RunExample();

@@ -27,6 +27,7 @@ find_package(Qt6 COMPONENTS
 	Gui
 	Core
 	Xml
+	OpenGLWidgets
 REQUIRED)
 
 if(Qt6_FOUND)
@@ -225,7 +226,7 @@ SOURCE_GROUP("Visualizer" FILES ${Visualizer})
 
 #set(CMAKE_BUILD_TYPE "debug")
 
-# cuda_add_library(CrystalAlgrithm STATIC ${DataType_CUDA})
+# cuda_add_library(CrystalAlgrithm STATIC ${3rdLib_stb})
 cuda_add_library(CrystalAlgrithm SHARED 
 	${3rdLib_stb}
 	${Basic}
@@ -413,6 +414,7 @@ SET(LIBRARY_CrystalGUI
 	Qt6::Gui
 	Qt6::Core
 	Qt6::Xml
+	Qt6::OpenGLWidgets
 )
 
 SET(LIBRARY_debug 

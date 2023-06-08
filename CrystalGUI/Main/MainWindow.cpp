@@ -20,23 +20,21 @@
 #include "MainWindow.h"
 #include "CrystalGUI/DebugTools/DebugStd.h"
 
-#include <QFile>
-
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
 #include "CrystalGUI/QtReader/ParserScene.h"
 
 #include "CrystalAlgrithm/Basic/Transform.cuh"
 
+#include <QFile>
+
 #define MainWindowDebug true
 
 namespace CrystalGUI{
 
+
   
 InitialMainWindow::InitialMainWindow(QWidget* parent)
     : QMainWindow(parent) {
-
-    isDisplayMainWindowExist = false;
-    m_DisplayMainWindow = nullptr;
 
     // Appearance
     setWindowIcon(QIcon("Resources/Icons/sIcon.png"));
@@ -45,6 +43,8 @@ InitialMainWindow::InitialMainWindow(QWidget* parent)
     qssfile.open(QFile::ReadOnly);
     QString styleSheet = QString::fromLatin1(qssfile.readAll());
     this->setStyleSheet(styleSheet);
+
+    setAttribute(Qt::WA_DeleteOnClose, true);
 
     setFixedSize(500, 483);
 
@@ -56,12 +56,20 @@ InitialMainWindow::InitialMainWindow(QWidget* parent)
 
     setupTool();
 
+    isDisplayMainWindowExist = false;
 }
 
 InitialMainWindow::~InitialMainWindow() {
+    if (MainWindowDebug)
+        PrintValue_Std("InitialMainWindow::~InitialMainWindow()");
 
     if (m_DisplayMainWindow && isDisplayMainWindowExist) {
+        // Disconnect signals and slots
+        disconnect(&RunExampleAction, SIGNAL(triggered()), this, SLOT(RunExample()));
+
+        // delete DisplayMainWindow
         m_DisplayMainWindow->~DisplayMainWindow();
+        
     }
 
     // Disconnect all signals and slots
@@ -95,7 +103,7 @@ void InitialMainWindow::setupTool() {
 
 
 void InitialMainWindow::closeEvent(QCloseEvent* e) {
-    int ret = QMessageBox::question(this, "question", "Really close Crystal?");
+    int ret = QMessageBox::question(this, "close", "Really close Crystal?");
     if (ret == QMessageBox::Yes) {
         e->accept();
     }
@@ -105,14 +113,16 @@ void InitialMainWindow::closeEvent(QCloseEvent* e) {
 }
 
 void InitialMainWindow::RunExample() {
-    m_DisplayMainWindow = new DisplayMainWindow("Examples/Example1/Scene.xml");
-    isDisplayMainWindowExist = true;
-
+    if (m_DisplayMainWindow && isDisplayMainWindowExist) {
+        
+        return;
+    }
+    m_DisplayMainWindow = new DisplayMainWindow("Examples/Example1/Scene.xml", nullptr);
+    m_DisplayMainWindow->show();
+    // Connect signals and slots
     connect(m_DisplayMainWindow, SIGNAL(windowClosed()), this, SLOT(DisplayMainWindowClosed()));
 
-    m_DisplayMainWindow->show();
-
-
+    isDisplayMainWindowExist = true;
 }
 
 void InitialMainWindow::DisplayMainWindowClosed() {
@@ -121,12 +131,22 @@ void InitialMainWindow::DisplayMainWindowClosed() {
 
 
 
-
 DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     setMinimumSize(350, 200);
 
-    setCentralWidget(&centralWidget);
+    //setAttribute(Qt::WA_DeleteOnClose, true);
 
+    centralWidget = new QWidget;
+    setCentralWidget(centralWidget);
+    
+    mainLayout = new QHBoxLayout;
+    centralWidget->setLayout(mainLayout);
+
+    displayWidget = new DisplayWidget;
+    // thread return 0x1, maybe not a mistake
+    mainLayout->addWidget(displayWidget);
+
+    // Test
     CrystalAlgrithm::printCudaDevice();
     CrystalAlgrithm::SpectrumTest();
 
@@ -136,18 +156,18 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
 
 }
 
+
 DisplayMainWindow::~DisplayMainWindow() {
     if (MainWindowDebug)
         PrintValue_Std("DisplayMainWindow::~DisplayMainWindow()");
-    
-
 }
 
 void DisplayMainWindow::closeEvent(QCloseEvent* e) {
-    int ret = QMessageBox::question(this, "question", "Really close Crystal?");
+
+    int ret = QMessageBox::question(this, "close", "Really close Display Window?");
     if (ret == QMessageBox::Yes) {
-        e->accept();
         emit windowClosed();
+        e->accept();
         delete this;
     }
     else {
