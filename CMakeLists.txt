@@ -332,6 +332,8 @@ set(QtDataMapper
 	CrystalGUI/QtDataMapper/QtTfFuncDock.cpp
 	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h
 	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.cpp
+	CrystalGUI/QtDataMapper/QtNodePropertiesWidget.h
+	CrystalGUI/QtDataMapper/QtNodePropertiesWidget.cpp
 	
 	CrystalGUI/QtDataMapper/QtTF_1D_Trapezoidal.h
 	CrystalGUI/QtDataMapper/QtTF_1D_Trapezoidal.cpp

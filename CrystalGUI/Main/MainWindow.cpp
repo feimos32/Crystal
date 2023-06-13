@@ -21,9 +21,12 @@
 #include "CrystalGUI/DebugTools/DebugStd.h"
 
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
-#include "CrystalGUI/QtReader/ParserScene.h"
+
 
 #include "CrystalAlgrithm/Basic/Transform.cuh"
+
+#include "../../CrystalGUI/QtDataMapper/QtTF_1D_Trapezoidal.h"
+#include "../../CrystalGUI/QtDataMapper/QtTF_2D_Trapezoidal_GF.h"
 
 #include <QFile>
 
@@ -134,7 +137,11 @@ void InitialMainWindow::DisplayMainWindowClosed() {
 DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     setMinimumSize(350, 200);
 
-    //setAttribute(Qt::WA_DeleteOnClose, true);
+    setWindowIcon(QIcon("Resources/Icons/sIcon.png"));
+    QFile qssfile("Resources/qss/DisplayMainWindow.qss");
+    qssfile.open(QFile::ReadOnly);
+    QString styleSheet = QString::fromLatin1(qssfile.readAll());
+    this->setStyleSheet(styleSheet);
 
     centralWidget = new QWidget;
     setCentralWidget(centralWidget);
@@ -146,13 +153,17 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     // thread return 0x1, maybe not a mistake
     mainLayout->addWidget(displayWidget);
 
-    // Test
-    CrystalAlgrithm::printCudaDevice();
-    CrystalAlgrithm::SpectrumTest();
-
-    CrystalGUI::ParserScene sp;
+    // parse XML File
     sp.setFilePath(sceneFile);
     sp.readSceneXML();
+
+    setQtTfFuncDock(sp);
+
+    // Test
+    // CrystalAlgrithm::printCudaDevice();
+    // CrystalAlgrithm::SpectrumTest();
+
+
 
 }
 
@@ -176,6 +187,30 @@ void DisplayMainWindow::closeEvent(QCloseEvent* e) {
 }
 
 
+
+void DisplayMainWindow::setQtTfFuncDock(ParserScene& sp) {
+
+    if ("TF_1D_Trapezoidal" == sp.getTfFuncType()) {
+        m_QtTfFuncDock = new QtTF_1D_Trapezoidal();
+    }
+    else if ("TF_2D_Trapezoidal_GF" == sp.getTfFuncType()) {
+        m_QtTfFuncDock = new QtTF_2D_Trapezoidal_GF();
+    }
+    else {
+        PrintError("No matching transfer function name");
+        return;
+    }
+
+    addDockWidget(Qt::LeftDockWidgetArea, m_QtTfFuncDock);
+
+    //tabifyDockWidget(mytfDockWidget, myLightSetDockWidget);
+    m_QtTfFuncDock->raise();
+
+
+
+
+
+}
 
 
 

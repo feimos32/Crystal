@@ -50,9 +50,10 @@ inline QString obtainFileNameFromFilePath(QString filepath) {
 
 	int index = std::max(last_slash_idx, last_slash_idx_2);
 	index = std::max(index, 0);
-	QString fileDir = filepath.mid(index + 1, filepath.size() - index - 1);
+	QString fileDir = filepath.mid((size_t)index + 1, filepath.size() - index - 1);
 	return fileDir;
 }
+
 
 class ParserScene : public QObject {
 	Q_OBJECT
@@ -70,6 +71,11 @@ public:
 	bool readSceneSceneGeometryXML(const QDomNodeList& nodes);
 	bool readSceneDataMapperXML(const QDomNodeList& nodes);
 	bool readSceneMedicalDataXML(const QDomNodeList nodes);
+
+	std::string getTfFuncType() {
+		return m_ScenePreset.m_DataMapperPreset.TsFuncType;
+	}
+
 
 private:
 	CrystalAlgrithm::PresetScene m_ScenePreset;

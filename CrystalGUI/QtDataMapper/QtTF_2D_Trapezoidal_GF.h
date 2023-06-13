@@ -20,6 +20,27 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtTF_2D_Trapezoidal_GF_h__
 #define __QtTF_2D_Trapezoidal_GF_h__
 
+#include "QtTfFuncDock.h"
+
+namespace CrystalGUI {
+
+class QtTF_2D_Trapezoidal_GF : public QtTfFuncDock
+{
+	Q_OBJECT
+
+public:
+	QtTF_2D_Trapezoidal_GF(QWidget* pParent = NULL);
+
+protected:
+
+
+
+};
+
+
+
+
+}
 
 
 

@@ -29,6 +29,9 @@
 #include <QHBoxLayout>
 
 #include "CrystalGUI/Display/DisplayWidget.h"
+#include "CrystalGUI/QtDataMapper/QtTfFuncDock.h"
+
+#include "CrystalGUI/QtReader/ParserScene.h"
 
 namespace CrystalGUI{
 
@@ -41,6 +44,8 @@ public:
     DisplayMainWindow(QString sceneFile, QWidget* parent = 0);
     ~DisplayMainWindow();
 
+    void setQtTfFuncDock(ParserScene& sp);
+
 signals:
     void windowClosed();
 
@@ -50,9 +55,13 @@ protected:
 
     DisplayWidget * displayWidget;
 
+    QtTfFuncDock* m_QtTfFuncDock;
+
     QWidget* centralWidget;
 
     void closeEvent(QCloseEvent* e);
+
+    ParserScene sp;
 
 };
 

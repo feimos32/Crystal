@@ -18,11 +18,37 @@ Github site: <https://github.com/feimos32/Crystal>
 */
 
 
-#include "QtTfFuncDock.h"
+#include "QtTF_1D_Trapezoidal.h"
+
+#include <QFile>
+
 
 namespace CrystalGUI {
 
 
+
+
+QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTfFuncDock(pParent){
+
+	setWindowTitle("TF_1D_Trapezoidal");
+
+    QFile qssfile("Resources/qss/QtTF_1D_Trapezoidal.qss");
+    qssfile.open(QFile::ReadOnly);
+    QString styleSheet = QString::fromLatin1(qssfile.readAll());
+    this->setStyleSheet(styleSheet);
+
+    setMinimumWidth(200);
+
+    setWidget(&m_QScrollArea);
+    m_QScrollArea.setWidget(&centerWidget);
+    centerWidget.setLayout(&centerLayout);
+    
+    centerLayout.addWidget(&m_QtTfFuncGraphicsView_1D);
+    
+
+
+
+}
 
 
 

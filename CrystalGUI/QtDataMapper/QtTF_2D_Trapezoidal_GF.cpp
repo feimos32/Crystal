@@ -18,12 +18,16 @@ Github site: <https://github.com/feimos32/Crystal>
 */
 
 
-#include "QtTfFuncDock.h"
+#include "QtTF_2D_Trapezoidal_GF.h"
 
 namespace CrystalGUI {
 
 
+QtTF_2D_Trapezoidal_GF::QtTF_2D_Trapezoidal_GF(QWidget* pParent) : QtTfFuncDock(pParent) {
 
+	setWindowTitle("TF_2D_Trapezoidal_GF");
+
+}
 
 
 

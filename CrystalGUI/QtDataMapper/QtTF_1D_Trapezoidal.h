@@ -20,9 +20,35 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtTF_1D_Trapezoidal_h__
 #define __QtTF_1D_Trapezoidal_h__
 
+#include "QtTfFuncDock.h"
+
+#include "CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h"
+#include "CrystalGUI/QtDataMapper/QtNodePropertiesWidget.h"
+
+#include <QScrollArea>
+#include <QHBoxLayout>
+
+
 namespace CrystalGUI {
 
 
+class QtTF_1D_Trapezoidal : public QtTfFuncDock
+{
+	Q_OBJECT
+
+public:
+	QtTF_1D_Trapezoidal(QWidget* pParent = NULL);
+
+protected:
+	QScrollArea m_QScrollArea;
+	QWidget centerWidget;
+	QHBoxLayout centerLayout;
+
+	QtTfFuncGraphicsView_1D m_QtTfFuncGraphicsView_1D;
+
+	NodePropertiesWidget m_NodePropertiesWidget;
+
+};
 
 
 

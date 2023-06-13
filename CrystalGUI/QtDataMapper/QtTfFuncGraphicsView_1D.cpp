@@ -22,7 +22,13 @@ Github site: <https://github.com/feimos32/Crystal>
 
 namespace CrystalGUI {
 
+QtTfFuncGraphicsView_1D::QtTfFuncGraphicsView_1D(QGraphicsView* parent) :
+	QGraphicsView(parent){
 
+
+
+
+}
 
 
 

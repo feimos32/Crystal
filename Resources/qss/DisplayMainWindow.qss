@@ -1,0 +1,6 @@
+QMainWindow{
+	border-left: 3px solid gray;border-top: 3px solid gray;
+	border-bottom: 3px solid gray;
+	border-right: 3px solid gray;
+	background: rgb(50, 50, 50);
+}
