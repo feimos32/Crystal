@@ -47,6 +47,7 @@ set(VTK_Debug_Dll_DIR ${VTK_DIR}/bin-Debug)
 set(VTK_Release_Lib_DIR ${VTK_DIR}/lib-Release)
 set(VTK_Release_Dll_DIR ${VTK_DIR}/bin-Release)
 set(VTK_Include_DIR ${VTK_DIR}/include)
+set(VTK_Include_DIR_SubDir ${VTK_Include_DIR}/vtk-9.2/)
 
 if(EXISTS ${VTK_DIR})
   message(STATUS "VTK_DIR exists")
@@ -86,7 +87,7 @@ INCLUDE_DIRECTORIES(
 	${QT_INCLUDE_DIR}
 	${CUDA_INCLUDE_DIRS}
 	${VTK_Include_DIR}
-	${VTK_Include_DIR}/vtk-9.2/
+	${VTK_Include_DIR_SubDir}
 )
 
 ########################################################################

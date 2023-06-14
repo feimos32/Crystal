@@ -19,6 +19,7 @@
 | GPU  | Nvidia GTX 1060 | Nvidia RTX 2080 Ti |
 | GPU VRAM | 8GB | 16GB |
 | Visual Studio | 2015 | 2019 |
+| OpenGL | 4.3 | 4.5 |
 
 ## Dependent third-party libraries
 
@@ -37,11 +38,11 @@
 
 > <img src="Resources/Icons/logo-vtk.png" width="70" >
 >
-> **VTK** version 
+> **VTK**    
 > https://vtk.org/    
 > VTK now is only used for load mhd file volume data and display the rendering results
 
-> Choose between two settings:
+> - Choose between two settings:
 >
 > VTK version 8 (equal to or greater than 8.2) with Qt 5 (equal to or greater than 5.5)      
 > VTK 8.2 version starts supporting QVTKOpenGLNativeWidget     
@@ -52,9 +53,9 @@
 > VTK version 9 support Qt 6
 >
 >
-> VTK needs to be co-compiled with Qt to generate QVTKOpenGLNativeWidget.
+> - VTK needs to be co-compiled with Qt to generate QVTKOpenGLNativeWidget.
 > 
-> Our setting is VTK version 9.2.6 with Qt 6.2.4
+> - Our setting is VTK version 9.2.6 with Qt 6.2.4
 
 
 
@@ -64,12 +65,13 @@
 > - set(Qt6_DIR "D:/DevTools/Qt6/6.2.4/msvc2019_64/" CACHE PATH "qt5 cmake dir") 
 
 > **VTK Dir**
-> - set(VTK_DIR "D:/DevTools/VTK8-Install") \
-> - set(VTK_Debug_Lib_DIR ${VTK_DIR}/lib-Debug) \
-> - set(VTK_Debug_Dll_DIR ${VTK_DIR}/bin-Debug) \
-> - set(VTK_Release_Lib_DIR ${VTK_DIR}/lib-Release) \
-> - set(VTK_Release_Dll_DIR ${VTK_DIR}/bin-Release) \
-> - set(VTK_Include_DIR ${VTK_DIR}/include) 
+> - set(VTK_DIR "D:/DevTools/VTK8-Install")   
+> - set(VTK_Debug_Lib_DIR ${VTK_DIR}/lib-Debug)   
+> - set(VTK_Debug_Dll_DIR ${VTK_DIR}/bin-Debug)   
+> - set(VTK_Release_Lib_DIR ${VTK_DIR}/lib-Release)   
+> - set(VTK_Release_Dll_DIR ${VTK_DIR}/bin-Release)   
+> - set(VTK_Include_DIR ${VTK_DIR}/include)   
+> - set(VTK_Include_DIR_SubDir ${VTK_Include_DIR}/vtk-9.2/)
 
 ---
 # <img src="Resources/Images/crystal.png" width="40" > Supported Features
