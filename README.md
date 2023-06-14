@@ -25,8 +25,8 @@
 
 > <img src="Resources/Icons/logo-qt.png" width="50" >
 >
-> **Qt** version (equal to or greater than) 6.0   
-> https://www.qt.io/product/qt6
+> **Qt**   
+> https://www.qt.io/product
 
 
 > <img src="Resources/Icons/logo-cuda.png" width="90" >
@@ -37,9 +37,26 @@
 
 > <img src="Resources/Icons/logo-vtk.png" width="70" >
 >
-> **VTK** version (equal to or greater than) 7.0   
+> **VTK** version 
 > https://vtk.org/    
-> VTK now is only used for load mhd file volume data
+> VTK now is only used for load mhd file volume data and display the rendering results
+
+> Choose between two settings:
+>
+> VTK version 8 (equal to or greater than 8.2) with Qt 5 (equal to or greater than 5.5)      
+> VTK 8.2 version starts supporting QVTKOpenGLNativeWidget     
+> And VTK version 8 does not support Qt 6
+>
+>
+> VTK version 9 (equal to or greater than 9.1) with Qt 6 (equal to or greater than 6.1)      
+> VTK version 9 support Qt 6
+>
+>
+> VTK needs to be co-compiled with Qt to generate QVTKOpenGLNativeWidget.
+> 
+> Our setting is VTK version 9.2.6 with Qt 6.2.4
+
+
 
 ## Corresponding CMake path that needs to be modified (in CMakeLists.txt)
 

@@ -20,17 +20,24 @@
 #ifndef __DisplayWidget_h__
 #define __DisplayWidget_h__
 
+#include "vtkAutoInit.h"
+VTK_MODULE_INIT(vtkRenderingOpenGL2);
+VTK_MODULE_INIT(vtkInteractionStyle);
+VTK_MODULE_INIT(vtkRenderingVolumeOpenGL2);
+VTK_MODULE_INIT(vtkRenderingFreeType);
+
 
 #include "CrystalGUI/QtVisInteractor/QtVisInteractor.h"
 
-#include <QOpenGLWidget>
+#include <QVTKOpenGLNativewidget.h>
+
 
 namespace CrystalGUI {
 
-class DisplayWidget : public QOpenGLWidget {
+class DisplayWidget : public QVTKOpenGLNativeWidget {
     Q_OBJECT
 public:
-    DisplayWidget(QWidget* parent = nullptr) : QOpenGLWidget(parent) { }
+    DisplayWidget(QWidget* parent = nullptr);
     
 
 

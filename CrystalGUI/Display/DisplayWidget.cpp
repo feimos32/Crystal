@@ -19,5 +19,15 @@
 
 #include "DisplayWidget.h"
 
+namespace CrystalGUI {
+
+DisplayWidget::DisplayWidget(QWidget* parent) { 
+    
+}
+
+
+
+}
+
 
 

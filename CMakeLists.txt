@@ -41,7 +41,7 @@ endif()
 
 ############ VTK Lib ###########
 
-set(VTK_DIR "D:/DevTools/VTK8-Install")
+set(VTK_DIR "D:/DevTools/VTK9-Install")
 set(VTK_Debug_Lib_DIR ${VTK_DIR}/lib-Debug)
 set(VTK_Debug_Dll_DIR ${VTK_DIR}/bin-Debug)
 set(VTK_Release_Lib_DIR ${VTK_DIR}/lib-Release)
@@ -86,7 +86,7 @@ INCLUDE_DIRECTORIES(
 	${QT_INCLUDE_DIR}
 	${CUDA_INCLUDE_DIRS}
 	${VTK_Include_DIR}
-	${VTK_Include_DIR}/vtk-8.2/
+	${VTK_Include_DIR}/vtk-9.2/
 )
 
 ########################################################################
