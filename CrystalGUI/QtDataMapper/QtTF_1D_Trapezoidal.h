@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtTF_1D_Trapezoidal_h__
 #define __QtTF_1D_Trapezoidal_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include "QtTfFuncDock.h"
 
 #include "CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h"

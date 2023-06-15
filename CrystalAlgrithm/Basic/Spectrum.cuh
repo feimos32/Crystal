@@ -25,6 +25,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #include <cuda.h>
 #include <cuda_runtime.h>
 
+#include "Export_dll.cuh"
+
 #include "Common.cuh"
 
 
@@ -43,7 +45,7 @@ HOST_AND_DEVICE inline void RGBToXYZ(const Float rgb[3], Float xyz[3]) {
 }
 
 
-class Spectrum3 {
+class EXPORT_DLL Spectrum3 {
 public:
     // CoefficientSpectrum Public Methods
     HOST_AND_DEVICE Spectrum3(Float v = 0.f) {
@@ -176,7 +178,7 @@ protected:
     Float c[nSamples];
 };
 
-class Spectrum4 {
+class EXPORT_DLL Spectrum4 {
 public:
     // CoefficientSpectrum Public Methods
     HOST_AND_DEVICE Spectrum4(Float v = 0.f) {

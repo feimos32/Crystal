@@ -20,6 +20,9 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __ParserLight_h__
 #define __ParserLight_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
+
 namespace CrystalGUI {
 
 

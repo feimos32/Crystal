@@ -20,7 +20,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __PostProcessor_h__
 #define __PostProcessor_h__
 
-
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
 
 
 #endif

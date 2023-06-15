@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __ParserTransferFunction_h__
 #define __ParserTransferFunction_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 namespace CrystalGUI {
 
 

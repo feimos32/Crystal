@@ -24,6 +24,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalAlgrithm/Basic/Geometry.cuh"
 #include "CrystalAlgrithm/Basic/Spectrum.cuh"
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+
 #include <vector>
 
 namespace CrystalAlgrithm {
@@ -38,7 +40,7 @@ struct TF_1D_Trapezoidal_Node {
 	float metallic;
 };
 
-class TF_1D_Trapezoidal : public TransferFunction {
+class EXPORT_DLL TF_1D_Trapezoidal : public TransferFunction {
 public:
 
 	TF_1D_Trapezoidal() {

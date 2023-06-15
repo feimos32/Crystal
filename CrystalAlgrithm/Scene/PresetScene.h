@@ -24,9 +24,11 @@ Github site: <https://github.com/feimos32/Crystal>
 #include <string>
 #include <iostream>
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+
 namespace CrystalAlgrithm{
 
-class PresetData {
+class EXPORT_DLL PresetData {
 public:
 	PresetData() {
 		DataFileType = "";
@@ -45,7 +47,7 @@ public:
 	}
 };
 
-class PresetDataMapper {
+class EXPORT_DLL PresetDataMapper {
 public:
 	PresetDataMapper() {
 		TsFuncType = "";
@@ -61,7 +63,7 @@ public:
 	}
 };
 
-class PresetSceneGeometry {
+class EXPORT_DLL PresetSceneGeometry {
 public:
 	PresetSceneGeometry() {
 		SceneGeometryFile = "";
@@ -75,7 +77,7 @@ public:
 	}
 };
 
-class PresetCamera {
+class EXPORT_DLL PresetCamera {
 public:
 	PresetCamera() {
 		CameraType = "";
@@ -88,7 +90,23 @@ public:
 	}
 };
 
-class PresetScene {
+class EXPORT_DLL PresetVisualizer {
+public:
+	PresetVisualizer() {
+		VisualizerType = "";
+		width = height = 0;
+	}
+	std::string VisualizerType;
+	size_t width, height;
+
+	void PrintVisualizerPreset() {
+		std::cout << "PrintVisualizerPreset: " << std::endl;
+		std::cout << "  VisualizerType: " << VisualizerType << std::endl;
+		std::cout << "  FrameBuffer Size: [" << width << ", " << height << "]" << std::endl;
+	}
+};
+
+class EXPORT_DLL PresetScene {
 public:
 	PresetScene():
 		m_CameraPreset(),
@@ -105,11 +123,15 @@ public:
 	PresetSceneGeometry m_SceneGeometryPreset;
 	PresetData m_DataPreset;
 	PresetDataMapper m_DataMapperPreset;
+	PresetVisualizer m_VisualizerPreset;
 
 	std::string SceneFilePath;
 	std::string SceneFileName;
 	std::string SceneFileDir;
 };
+
+
+
 
 }
 

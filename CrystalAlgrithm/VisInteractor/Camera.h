@@ -20,7 +20,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __Camera_h__
 #define __Camera_h__
 
-
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
 
 
 #endif

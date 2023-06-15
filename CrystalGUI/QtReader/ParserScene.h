@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __ParserScene_h__
 #define __ParserScene_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include <QObject>
 #include <QString>
 
@@ -70,7 +72,9 @@ public:
 	bool readSceneCameraXML(const QDomNodeList& nodes);
 	bool readSceneSceneGeometryXML(const QDomNodeList& nodes);
 	bool readSceneDataMapperXML(const QDomNodeList& nodes);
-	bool readSceneMedicalDataXML(const QDomNodeList nodes);
+	bool readSceneMedicalDataXML(const QDomNodeList& nodes);
+	bool readSceneVisualizerXML(const QDomNodeList& nodes);
+
 
 	std::string getTfFuncType() {
 		return m_ScenePreset.m_DataMapperPreset.TsFuncType;

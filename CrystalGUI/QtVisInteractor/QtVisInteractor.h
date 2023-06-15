@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtVisInteractor_h__
 #define __QtVisInteractor_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 namespace CrystalGUI {
 
 

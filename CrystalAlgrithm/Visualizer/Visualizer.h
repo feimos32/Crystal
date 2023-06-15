@@ -20,7 +20,19 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __Visualizer_h__
 #define __Visualizer_h__
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
+namespace CrystalAlgrithm {
+
+class EXPORT_DLL Visualizer {
+
+};
+
+
+
+
+}
 
 
 #endif

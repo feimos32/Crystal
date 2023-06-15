@@ -40,7 +40,7 @@ class Transform;
 inline constexpr Float Radians(Float deg) { return (3.14159265f / 180) * deg; }
 
 // Matrix4x4 Declarations
-struct Matrix4x4 {
+struct EXPORT_DLL Matrix4x4 {
 	// Matrix4x4 Public Methods
 	HOST_AND_DEVICE Matrix4x4() {
 		m[0][0] = m[1][1] = m[2][2] = m[3][3] = 1.f;
@@ -72,22 +72,22 @@ struct Matrix4x4 {
 				m1.m[i][2] * m2.m[2][j] + m1.m[i][3] * m2.m[3][j];
 		return r;
 	}
-	HOST_AND_DEVICE friend Matrix4x4 Inverse(const Matrix4x4&);
+	HOST_AND_DEVICE friend Matrix4x4 Inverse(const Matrix4x4&, bool& flag);
 	Float m[4][4];
 };
 
-class Transform {
+class EXPORT_DLL Transform {
 public:
 	// Transform Public Methods
-	HOST_AND_DEVICE Transform() {}
+	HOST_AND_DEVICE Transform() { invFlag = true; }
 	HOST_AND_DEVICE Transform(const Float mat[4][4]) {
 		m = Matrix4x4(mat[0][0], mat[0][1], mat[0][2], mat[0][3], mat[1][0],
 			mat[1][1], mat[1][2], mat[1][3], mat[2][0], mat[2][1],
 			mat[2][2], mat[2][3], mat[3][0], mat[3][1], mat[3][2],
 			mat[3][3]);
-		mInv = Inverse(m);
+		mInv = Inverse(m, invFlag);
 	}
-	HOST_AND_DEVICE Transform(const Matrix4x4& m) : m(m), mInv(Inverse(m)) {}
+	HOST_AND_DEVICE Transform(const Matrix4x4& m) : m(m), mInv(Inverse(m, invFlag)) {}
 	HOST_AND_DEVICE Transform(const Matrix4x4& m, const Matrix4x4& mInv) : m(m), mInv(mInv) {}
 	HOST_AND_DEVICE friend Transform Inverse(const Transform& t) {
 		return Transform(t.mInv, t.m);
@@ -136,6 +136,7 @@ public:
 private:
 	// Transform Private Data
 	Matrix4x4 m, mInv;
+	bool invFlag;
 };
 
 

@@ -17,32 +17,49 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#ifndef __FrameBuffer_h__
+#define __FrameBuffer_h__
 
-#include "CrystalGUI/Utility/Common.h"
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
-#include <QGraphicsView>
-#include <QMouseEvent>
+namespace CrystalAlgrithm {
 
-namespace CrystalGUI {
-
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+class EXPORT_DLL FrameBuffer {
 
 public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
 
-	QGraphicsScene scene;
+	FrameBuffer();
+	~FrameBuffer() {
+		ReleaseAll();
+	}
+
+	void ReleaseAll();
+	void ResetAll(size_t w, size_t h);
+
+	size_t width, height;
+
+	// Buffers in CPU
+	uchar3* displayBufferU;
+	uchar3* get_displayBufferU() {
+		return displayBufferU;
+	}
+
+	// Buffers in GPU
+	uchar3* GPU_displayBufferU;
+	uchar3* get_GPU_displayBufferU() {
+		return GPU_displayBufferU;
+	}
+	float4* GPU_displayBufferF;
+	float4* get_GPU_displayBufferF() {
+		return GPU_displayBufferF;
+	}
 
 
 
 };
 
-
-
 }
-
 
 #endif
 

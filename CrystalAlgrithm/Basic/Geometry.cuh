@@ -28,6 +28,8 @@ PBRT v3: <https://pbrt.org/>
 #include <cuda.h>
 #include <cuda_runtime.h>
 
+#include "Export_dll.cuh"
+
 #include "Common.cuh"
 
 // statement
@@ -58,7 +60,7 @@ HOST_AND_DEVICE inline Float abs(Float a) {
 	return a > 0.0f ? a : -a;
 }
 
-class Vector3f {
+class EXPORT_DLL Vector3f {
 public:
 	// Vector3f Public Methods
 	HOST_AND_DEVICE Float operator[](int i) const {
@@ -129,7 +131,7 @@ public:
 	Float x, y, z;
 };
 
-class Point3f {
+class EXPORT_DLL Point3f {
 public:
 	// Point3f Public Methods
 	HOST_AND_DEVICE Point3f() { x = y = z = 0; }
@@ -220,7 +222,7 @@ public:
 	Float x, y, z;
 };
 
-class Normal3f {
+class EXPORT_DLL Normal3f {
 public:
 	// Normal3f Public Methods
 	HOST_AND_DEVICE Normal3f() { x = y = z = 0; }

@@ -20,7 +20,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __Light_h__
 #define __Light_h__
 
-
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
 
 
 #endif

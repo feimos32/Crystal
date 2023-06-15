@@ -21,6 +21,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtNodePropertiesWidget_h__
 #define __QtNodePropertiesWidget_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include <QGroupBox>
 
 namespace CrystalGUI {

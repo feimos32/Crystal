@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtTF_2D_Trapezoidal_GF_h__
 #define __QtTF_2D_Trapezoidal_GF_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include "QtTfFuncDock.h"
 
 namespace CrystalGUI {

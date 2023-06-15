@@ -20,11 +20,12 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtDataMapper_h__
 #define __QtDataMapper_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
+namespace CrystalGUI {
 
 
-
-
-
+}
 
 #endif
 

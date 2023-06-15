@@ -160,8 +160,8 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     setQtTfFuncDock(sp);
 
     // Test
-    // CrystalAlgrithm::printCudaDevice();
-    // CrystalAlgrithm::SpectrumTest();
+    CrystalAlgrithm::printCudaDevice();
+    CrystalAlgrithm::SpectrumTest();
 
 
 

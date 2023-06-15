@@ -20,10 +20,12 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __TransferFunction_h__
 #define __TransferFunction_h__
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+
 namespace CrystalAlgrithm {
 
 
-class TransferFunction {
+class EXPORT_DLL TransferFunction {
 public:
 
 };

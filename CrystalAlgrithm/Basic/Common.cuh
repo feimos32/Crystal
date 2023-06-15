@@ -17,8 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __Common_h__
-#define __Common_h__
+#ifndef __Common_cuh__
+#define __Common_cuh__
 
 #include <cuda.h>
 #include <cuda_runtime.h>

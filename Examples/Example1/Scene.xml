@@ -14,4 +14,8 @@
 	<SceneGeometry> 
 		<SceneGeometryFile file="SceneGeometry.xml" />
 	</SceneGeometry>
+	<Visualizer> 
+		<VisualizerType type="ExposureRender" />
+		<FrameBufferSize width="708" height="608" />
+	</Visualizer>
 </Scene>

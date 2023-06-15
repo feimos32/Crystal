@@ -12,39 +12,24 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
 
-#include "CrystalGUI/Utility/Common.h"
+#include "PresetScene.h"
 
-#include <QGraphicsView>
-#include <QMouseEvent>
-
-namespace CrystalGUI {
-
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
-
-public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-
-	QGraphicsScene scene;
-
-
-
-};
+namespace CrystalAlgrithm{
 
 
 
 }
 
 
-#endif
+
+
+
 
 
 

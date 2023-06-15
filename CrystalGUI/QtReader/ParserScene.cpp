@@ -123,6 +123,9 @@ bool ParserScene::readSceneXML() {
 		else if ("DataMapper" == e.tagName()) {
 			readSceneDataMapperXML(child.childNodes());
 		}
+		else if ("Visualizer" == e.tagName()) {
+			readSceneVisualizerXML(child.childNodes());
+		}
 		else {
 			readFlag = false;
 			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + e.tagName().toStdString());
@@ -133,7 +136,7 @@ bool ParserScene::readSceneXML() {
 	return readFlag;
 }
 
-bool ParserScene::readSceneMedicalDataXML(const QDomNodeList nodes) {
+bool ParserScene::readSceneMedicalDataXML(const QDomNodeList& nodes) {
 
 	bool readFlag = true;
 	for (int i = 0; i < nodes.count(); i++) {
@@ -228,7 +231,32 @@ bool ParserScene::readSceneDataMapperXML(const QDomNodeList& nodes) {
 	return readFlag;
 }
 
+bool ParserScene::readSceneVisualizerXML(const QDomNodeList& nodes) {
+	bool readFlag = true;
+	for (int i = 0; i < nodes.count(); i++) {
+		QDomNode childNode = nodes.at(i);
+		QString tag = childNode.toElement().tagName();
+		if ("VisualizerType" == tag) {
+			m_ScenePreset.m_VisualizerPreset.VisualizerType =
+				childNode.toElement().attribute("type").toStdString();
+		}
+		else if ("FrameBufferSize" == tag) {
+			m_ScenePreset.m_VisualizerPreset.width =
+				childNode.toElement().attribute("width").toULongLong();
+			m_ScenePreset.m_VisualizerPreset.height =
+				childNode.toElement().attribute("height").toULongLong();
+		}
+		else {
+			readFlag = false;
+			PrintError("Error: Unwanted tag name while parsering Scene Xml: " + tag.toStdString());
+		}
+	}
+	if (ParserSceneDebug) {
+		m_ScenePreset.m_VisualizerPreset.PrintVisualizerPreset();
+	}
 
+	return readFlag;
+}
 
 
 

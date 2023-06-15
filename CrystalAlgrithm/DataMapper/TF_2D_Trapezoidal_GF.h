@@ -24,6 +24,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalAlgrithm/Basic/Geometry.cuh"
 #include "CrystalAlgrithm/Basic/Spectrum.cuh"
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+
 #include <vector>
 
 namespace CrystalAlgrithm {
@@ -38,13 +40,13 @@ struct TF_2D_Trapezoidal_GF_Node_1 {
 	float metallic;
 };
 
-struct TF_2D_Trapezoidal_GF_Node_2 {
+struct EXPORT_DLL TF_2D_Trapezoidal_GF_Node_2 {
 	float normalizedIntensity;
 	float opacity;
 };
 
 // TF_2D_Trapezoidal Gradient factor
-class TF_2D_Trapezoidal_GF : public TransferFunction {
+class EXPORT_DLL TF_2D_Trapezoidal_GF : public TransferFunction {
 public:
 
 	std::vector<TF_2D_Trapezoidal_GF_Node_1> nodes1;

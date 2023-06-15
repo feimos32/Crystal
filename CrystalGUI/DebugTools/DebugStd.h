@@ -20,6 +20,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __DebugStd_h__
 #define __DebugStd_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include <iostream>
 #include <string>
 #include <QString>

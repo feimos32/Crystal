@@ -204,7 +204,9 @@ SOURCE_GROUP("Reader" FILES ${Reader})
 # Scene
 set(Scene
 	CrystalAlgrithm/Scene/PresetScene.h
+	CrystalAlgrithm/Scene/PresetScene.cpp
 	CrystalAlgrithm/Scene/Scene.h
+	CrystalAlgrithm/Scene/Scene.cpp
 )
 # Make the Scene group
 SOURCE_GROUP("Scene" FILES ${Scene})
@@ -221,6 +223,9 @@ SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
 # Visualizer
 set(Visualizer
 	CrystalAlgrithm/Visualizer/Visualizer.h
+	CrystalAlgrithm/Visualizer/ExposureRender.h
+	CrystalAlgrithm/Visualizer/FrameBuffer.h
+	CrystalAlgrithm/Visualizer/FrameBuffer.cpp
 )
 # Make the Visualizer group
 SOURCE_GROUP("Visualizer" FILES ${Visualizer})
@@ -300,6 +305,7 @@ SOURCE_GROUP("DebugTools" FILES ${DebugTools})
 set(Utility
 	CrystalGUI/Utility/Utility.h
 	CrystalGUI/Utility/Utility.cpp
+	CrystalGUI/Utility/Common.h
 )
 # Make the Utility group
 SOURCE_GROUP("Utility" FILES ${Utility})

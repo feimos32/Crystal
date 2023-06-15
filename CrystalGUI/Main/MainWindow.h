@@ -20,6 +20,8 @@
 #ifndef __MainWindow_h__
 #define __MainWindow_h__
 
+#include "CrystalGUI/Utility/Common.h"
+
 #include <QtWidgets>
 
 #include <QMainWindow>

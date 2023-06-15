@@ -20,7 +20,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __QtTfFuncDock_h__
 #define __QtTfFuncDock_h__
 
-
+#include "CrystalGUI/Utility/Common.h"
 
 #include <QDockWidget>
 

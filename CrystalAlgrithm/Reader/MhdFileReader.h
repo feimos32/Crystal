@@ -22,9 +22,11 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "MedicalDataReader.h"
 
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+
 namespace CrystalAlgrithm {
 
-class MhdFileReader : public MedicalDataReader {
+class EXPORT_DLL MhdFileReader : public MedicalDataReader {
 public:
 
 
