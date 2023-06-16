@@ -80,9 +80,10 @@ public:
 		return m_ScenePreset.m_DataMapperPreset.TsFuncType;
 	}
 
+	CrystalAlgrithm::PresetScene m_ScenePreset;
 
 private:
-	CrystalAlgrithm::PresetScene m_ScenePreset;
+	
 
 	QDomDocument reader;
 	QDomDocument writer;

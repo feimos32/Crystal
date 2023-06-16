@@ -22,13 +22,17 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
+#include <QObject>
+
 namespace CrystalGUI {
 
+class QtVisInteractor : public QObject {
+	Q_OBJECT
+public:
 
 
 
-
-
+};
 
 
 }

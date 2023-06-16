@@ -23,7 +23,16 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #undef _EXPORTING
 
+namespace CrystalGUI {
 
+
+
+
+
+
+
+
+}
 
 
 

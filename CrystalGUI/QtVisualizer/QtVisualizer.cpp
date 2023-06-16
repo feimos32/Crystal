@@ -19,7 +19,46 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "QtVisualizer.h"
 
+#include "CrystalGUI/DebugTools/DebugStd.h"
+#define QtVisualizerDebug true
 
+namespace CrystalGUI {
+
+QtVisualizer::QtVisualizer(QObject* parent){
+	m_Visualizer = nullptr;
+	m_FrameBuffer = nullptr;
+
+}
+
+QtVisualizer::~QtVisualizer() {
+
+	if (QtVisualizerDebug) {
+		PrintValue_Std("QtVisualizer::~QtVisualizer()");
+	}
+
+	if (!m_Visualizer) m_Visualizer.release();
+	if (!m_FrameBuffer) m_FrameBuffer.release();
+}
+
+void QtVisualizer::Initialization(const CrystalAlgrithm::PresetVisualizer& visualizerPreset) 
+{
+	if (QtVisualizerDebug) {
+		PrintValue_Std("QtVisualizer::Initialization(...)");
+	}
+
+	visualizerPreset.VisualizerType;
+
+	visualizerPreset.width;
+	visualizerPreset.height;
+
+
+
+}
+
+
+
+
+}
 
 
 

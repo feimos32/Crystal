@@ -32,6 +32,7 @@ class QtTfFuncDock : public QDockWidget
 
 public:
 	QtTfFuncDock(QWidget* pParent = NULL);
+	~QtTfFuncDock();
 
 protected:
 	

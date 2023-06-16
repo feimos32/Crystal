@@ -22,7 +22,41 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
+#include <QObject>
 
+#include "CrystalAlgrithm/Visualizer/FrameBuffer.h"
+
+#include "CrystalAlgrithm/Visualizer/Visualizer.h"
+#include "CrystalAlgrithm/Visualizer/ExposureRender.h"
+
+#include "CrystalAlgrithm/Scene/PresetScene.h"
+
+
+#include <memory>
+
+namespace CrystalGUI {
+
+
+class QtVisualizer : public QObject {
+	Q_OBJECT
+public:
+	QtVisualizer(QObject* parent = Q_NULLPTR);
+	~QtVisualizer();
+
+	void Initialization(const CrystalAlgrithm::PresetVisualizer& visualizerPreset);
+
+	std::unique_ptr<CrystalAlgrithm::Visualizer> m_Visualizer;
+	std::unique_ptr<CrystalAlgrithm::FrameBuffer> m_FrameBuffer;
+
+
+
+};
+
+
+
+
+
+}
 
 #endif
 

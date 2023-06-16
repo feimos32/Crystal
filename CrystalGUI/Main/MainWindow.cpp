@@ -75,6 +75,8 @@ InitialMainWindow::~InitialMainWindow() {
         
     }
 
+    
+
     // Disconnect all signals and slots
 
 }
@@ -157,7 +159,12 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     sp.setFilePath(sceneFile);
     sp.readSceneXML();
 
+    // Initialize TransferFunction DockWidget
     setQtTfFuncDock(sp);
+
+    // Initialize QtVisualizer
+    m_QtVisualizer.Initialization(sp.m_ScenePreset.m_VisualizerPreset);
+
 
     // Test
     CrystalAlgrithm::printCudaDevice();
@@ -171,6 +178,7 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
 DisplayMainWindow::~DisplayMainWindow() {
     if (MainWindowDebug)
         PrintValue_Std("DisplayMainWindow::~DisplayMainWindow()");
+
 }
 
 void DisplayMainWindow::closeEvent(QCloseEvent* e) {

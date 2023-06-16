@@ -17,6 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#include "QtVisInteractor.h"
+
 namespace CrystalGUI {
 
 

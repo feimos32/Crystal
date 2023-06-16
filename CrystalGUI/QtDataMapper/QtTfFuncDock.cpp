@@ -27,11 +27,18 @@ namespace CrystalGUI {
 QtTfFuncDock::QtTfFuncDock(QWidget* pParent) {
 
 	if (QtTfFuncDockDebug) {
-		PrintValue_Std("QtTfFuncDock Constructed.");
+		PrintValue_Std("QtTfFuncDock::QtTfFuncDock(...)");
 	}
 
 }
 
+QtTfFuncDock::~QtTfFuncDock() {
+
+	if (QtTfFuncDockDebug) {
+		PrintValue_Std("QtTfFuncDock::~QtTfFuncDock()");
+	}
+
+}
 
 
 

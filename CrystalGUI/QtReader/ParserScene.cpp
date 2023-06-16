@@ -38,7 +38,9 @@ ParserScene::ParserScene(QObject* parent) {
 }
 
 ParserScene::~ParserScene() {
-
+	if (ParserSceneDebug) {
+		PrintValue_Std("ParserScene::~ParserScene()");
+	}
 }
 
 bool ParserScene::readSceneXML() {

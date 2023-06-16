@@ -17,6 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __Utility_h__
+#define __Utility_h__
+
+namespace CrystalGUI {
 
 
 
@@ -25,5 +29,10 @@ Github site: <https://github.com/feimos32/Crystal>
 
 
 
+}
+
+
+
+#endif
 
 
