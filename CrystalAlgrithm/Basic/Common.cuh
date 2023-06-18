@@ -24,6 +24,7 @@ Github site: <https://github.com/feimos32/Crystal>
 #include <cuda_runtime.h>
 #include <string>
 #include <limits>
+#include <iostream>
 
 namespace CrystalAlgrithm {
 
@@ -34,13 +35,20 @@ namespace CrystalAlgrithm {
 
 #define Float float
 
+
+
+// Some Numerical definations
+
 #define M_PI 3.1415926f
 #define OneOver4PI 0.07957747f
 #define INV_M_PI 0.3183099f
-#define ANGLE(angle) (angle*M_PI/180.0f)
+#define ANGLE(angle) (angle * M_PI / 180.0f)
 
 #define MaxFloat std::numeric_limits<Float>::max()
 #define Infinity std::numeric_limits<Float>::infinity()
+
+
+// Some Utility functions
 
 HOST_AND_DEVICE inline Float Clamp(Float val, Float low, Float high) {
 	if (val < low)
@@ -54,6 +62,9 @@ HOST_AND_DEVICE inline Float Lerp(Float t, Float v1, Float v2) { return (1 - t) 
 
 const Float largeValue = 9999999.0;
 
+
+// Print CUDA Runtime Information
+
 std::string getCudaDebug_NULL(const char* file, int line);
 
 std::string getCudaDebug_ERROR(const char* error, const char* file, int line);
@@ -63,6 +74,40 @@ bool getCudaError(cudaError_t err, const char* file, int line);
 bool getCudaError(cudaError_t err);
 
 #define Get_CUDA_ERROR( err ) (getCudaError( err, __FILE__, __LINE__ ))
+
+
+// Print Debug Information
+
+inline void PrintError_Std(std::string err, const char* file, int line) {
+	std::cout << "[Error]: " << std::string(err) + " in " + std::string(file) +
+		" at line " + std::to_string(line) << std::endl;
+}
+
+#define PrintError( err ) (PrintError_Std( err, __FILE__, __LINE__ ))
+
+inline void PrintValue_Std(std::string info, float s) {
+	std::cout << "[Debug]: " << info + ": [" + std::to_string(s) + "]" << std::endl;
+}
+inline void PrintValue_Std(std::string info, size_t s) {
+	std::cout << "[Debug]: " << info + ": [" + std::to_string(s) + "]" << std::endl;
+}
+inline void PrintValue_Std(std::string info, int s) {
+	std::cout << "[Debug]: " << info + ": [" + std::to_string(s) + "]" << std::endl;
+}
+
+#define PrintValue(info, val) PrintValue_Std(info, val);
+
+inline void PrintValue_Std(float s) {
+	std::cout << "[Debug]: " << "[" + std::to_string(s) + "]" << std::endl;
+}
+inline void PrintValue_Std(int s) {
+	std::cout << "[Debug]: " << "[" + std::to_string(s) + "]" << std::endl;
+}
+inline void PrintValue_Std(std::string s) {
+	std::cout << "[Debug]: " << "[" + s + "]" << std::endl;
+}
+
+// GPU Information
 
 struct GpuInfo {
 	std::string GpuName;
@@ -76,7 +121,7 @@ struct GpuInfo {
 class GpuDeviceInfos {
 public:
 	int GpuCount;
-	GpuInfo gpu[4];
+	GpuInfo gpu[6];
 };
 
 

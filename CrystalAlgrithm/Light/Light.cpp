@@ -17,33 +17,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __ExposureRender_h__
-#define __ExposureRender_h__
-
-#include "Visualizer.h"
-
-#include "CrystalAlgrithm/Basic/Export_dll.cuh"
-#include "CrystalAlgrithm/Basic/Common.cuh"
+#include "Light.h"
 
 namespace CrystalAlgrithm {
 
-class EXPORT_DLL ExposureRender: public Visualizer {
-
-public:
-	ExposureRender();
-	~ExposureRender();
-
-
-
-};
 
 
 
 
 }
-
-
-#endif
 
 
 

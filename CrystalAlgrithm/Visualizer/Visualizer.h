@@ -27,6 +27,11 @@ namespace CrystalAlgrithm {
 
 class EXPORT_DLL Visualizer {
 
+public:
+	Visualizer();
+	~Visualizer();
+
+
 };
 
 

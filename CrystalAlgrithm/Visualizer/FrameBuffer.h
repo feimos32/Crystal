@@ -30,9 +30,7 @@ class EXPORT_DLL FrameBuffer {
 public:
 
 	FrameBuffer();
-	~FrameBuffer() {
-		ReleaseAll();
-	}
+	~FrameBuffer();
 
 	void ReleaseAll();
 	void ResetAll(size_t w, size_t h);

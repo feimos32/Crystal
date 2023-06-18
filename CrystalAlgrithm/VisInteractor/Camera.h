@@ -22,6 +22,13 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
 
+namespace CrystalAlgrithm {
+
+
+
+
+
+}
 
 #endif
 

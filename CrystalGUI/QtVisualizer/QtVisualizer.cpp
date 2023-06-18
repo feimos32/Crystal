@@ -22,6 +22,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalGUI/DebugTools/DebugStd.h"
 #define QtVisualizerDebug true
 
+#include "CrystalAlgrithm/Visualizer/ExposureRender.h"
+
 namespace CrystalGUI {
 
 QtVisualizer::QtVisualizer(QObject* parent){
@@ -46,10 +48,17 @@ void QtVisualizer::Initialization(const CrystalAlgrithm::PresetVisualizer& visua
 		PrintValue_Std("QtVisualizer::Initialization(...)");
 	}
 
-	visualizerPreset.VisualizerType;
+	if ("ExposureRender" == visualizerPreset.VisualizerType) {
+		m_Visualizer = 
+			std::unique_ptr<CrystalAlgrithm::Visualizer>(new CrystalAlgrithm::ExposureRender());
+	}
+	else {
+		PrintError("Unknown Visualizer name");
+	}
 
-	visualizerPreset.width;
-	visualizerPreset.height;
+	m_FrameBuffer = std::unique_ptr<CrystalAlgrithm::FrameBuffer>(new CrystalAlgrithm::FrameBuffer());
+	m_FrameBuffer->ResetAll(visualizerPreset.width, visualizerPreset.height);
+	
 
 
 

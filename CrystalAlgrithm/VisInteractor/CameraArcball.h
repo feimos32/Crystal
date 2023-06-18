@@ -20,6 +20,16 @@ Github site: <https://github.com/feimos32/Crystal>
 #ifndef __CameraArcball_h__
 #define __CameraArcball_h__
 
+namespace CrystalAlgrithm {
+
+
+
+
+
+}
+
+
+
 
 
 

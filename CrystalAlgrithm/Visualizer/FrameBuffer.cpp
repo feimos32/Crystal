@@ -18,15 +18,31 @@ Github site: <https://github.com/feimos32/Crystal>
 */
 
 #include "FrameBuffer.h"
+#include "CrystalAlgrithm/Basic/Common.cuh"
+
+#define FrameBuffer_Debug true
 
 namespace CrystalAlgrithm {
 
 FrameBuffer::FrameBuffer() {
+
+	if (FrameBuffer_Debug) {
+		PrintValue_Std("FrameBuffer::FrameBuffer()");
+	}
+
 	width = height = 0;
 
 	displayBufferU = nullptr;
 	GPU_displayBufferU = nullptr;
 	GPU_displayBufferF = nullptr;
+}
+
+FrameBuffer::~FrameBuffer()
+{
+	if (FrameBuffer_Debug) {
+		PrintValue_Std("FrameBuffer::~FrameBuffer()");
+	}
+	ReleaseAll();
 }
 
 void FrameBuffer::ReleaseAll() {
@@ -46,6 +62,11 @@ void FrameBuffer::ReleaseAll() {
 }
 
 void FrameBuffer::ResetAll(size_t w, size_t h) {
+
+	if (FrameBuffer_Debug) {
+		PrintValue_Std("FrameBuffer::ResetAll(...)");
+	}
+
 	ReleaseAll();
 
 	width = w;

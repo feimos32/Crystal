@@ -155,6 +155,7 @@ SOURCE_GROUP("DataAttribute" FILES ${DataAttribute})
 set(DataMapper
 	CrystalAlgrithm/DataMapper/DataMapper.h
 	CrystalAlgrithm/DataMapper/TransferFunction.h
+	CrystalAlgrithm/DataMapper/TransferFunction.cpp
 	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h
 	CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.cpp
 	CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.h
@@ -166,6 +167,7 @@ SOURCE_GROUP("DataMapper" FILES ${DataMapper})
 # DataOrganiz
 set(DataOrganiz
 	CrystalAlgrithm/DataOrganiz/DataOrganiz.h
+	CrystalAlgrithm/DataOrganiz/DataOrganiz.cpp
 )
 # Make the DataOrganiz group
 SOURCE_GROUP("DataOrganiz" FILES ${DataOrganiz})
@@ -173,6 +175,7 @@ SOURCE_GROUP("DataOrganiz" FILES ${DataOrganiz})
 # Light
 set(Light
 	CrystalAlgrithm/Light/Light.h
+	CrystalAlgrithm/Light/Light.cpp
 )
 # Make the Light group
 SOURCE_GROUP("Light" FILES ${Light})
@@ -180,6 +183,7 @@ SOURCE_GROUP("Light" FILES ${Light})
 # Postprocessor
 set(Postprocessor
 	CrystalAlgrithm/Postprocessor/Postprocessor.h
+	CrystalAlgrithm/Postprocessor/Postprocessor.cpp
 )
 # Make the Postprocessor group
 SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
@@ -187,6 +191,7 @@ SOURCE_GROUP("Postprocessor" FILES ${Postprocessor})
 # Preprocessor
 set(Preprocessor
 	CrystalAlgrithm/Preprocessor/Preprocessor.h
+	CrystalAlgrithm/Preprocessor/Preprocessor.cpp
 )
 # Make the Preprocessor group
 SOURCE_GROUP("Preprocessor" FILES ${Preprocessor})
@@ -214,8 +219,11 @@ SOURCE_GROUP("Scene" FILES ${Scene})
 # VisInteractor
 set(VisInteractor
 	CrystalAlgrithm/VisInteractor/Camera.h
+	CrystalAlgrithm/VisInteractor/Camera.cpp
 	CrystalAlgrithm/VisInteractor/CameraArcball.h
+	CrystalAlgrithm/VisInteractor/CameraArcball.cpp
 	CrystalAlgrithm/VisInteractor/CameraFps.h
+	CrystalAlgrithm/VisInteractor/CameraFps.cpp
 )
 # Make the VisInteractor group
 SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
@@ -223,7 +231,9 @@ SOURCE_GROUP("VisInteractor" FILES ${VisInteractor})
 # Visualizer
 set(Visualizer
 	CrystalAlgrithm/Visualizer/Visualizer.h
+	CrystalAlgrithm/Visualizer/Visualizer.cpp
 	CrystalAlgrithm/Visualizer/ExposureRender.h
+	CrystalAlgrithm/Visualizer/ExposureRender.cpp
 	CrystalAlgrithm/Visualizer/FrameBuffer.h
 	CrystalAlgrithm/Visualizer/FrameBuffer.cpp
 )

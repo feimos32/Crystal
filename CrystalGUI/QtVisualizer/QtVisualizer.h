@@ -27,7 +27,6 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalAlgrithm/Visualizer/FrameBuffer.h"
 
 #include "CrystalAlgrithm/Visualizer/Visualizer.h"
-#include "CrystalAlgrithm/Visualizer/ExposureRender.h"
 
 #include "CrystalAlgrithm/Scene/PresetScene.h"
 
