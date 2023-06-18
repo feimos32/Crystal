@@ -52,7 +52,8 @@
 > VTK version 9 (equal to or greater than 9.1) with Qt 6 (equal to or greater than 6.1)      
 > VTK version 9 support Qt 6
 >
->
+
+
 > - VTK needs to be co-compiled with Qt to generate QVTKOpenGLNativeWidget.
 > 
 > - Our setting is VTK version 9.2.6 with Qt 6.2.4
