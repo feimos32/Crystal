@@ -33,7 +33,7 @@ namespace CrystalAlgrithm {
 #define DEVICE __device__
 #define GPU_CALL __global__
 
-#define Float float
+#define float float
 
 
 
@@ -44,13 +44,13 @@ namespace CrystalAlgrithm {
 #define INV_M_PI 0.3183099f
 #define ANGLE(angle) (angle * M_PI / 180.0f)
 
-#define MaxFloat std::numeric_limits<Float>::max()
-#define Infinity std::numeric_limits<Float>::infinity()
+#define MaxFloat std::numeric_limits<float>::max()
+#define Infinity std::numeric_limits<float>::infinity()
 
 
 // Some Utility functions
 
-HOST_AND_DEVICE inline Float Clamp(Float val, Float low, Float high) {
+HOST_AND_DEVICE inline float Clamp(float val, float low, float high) {
 	if (val < low)
 		return low;
 	else if (val > high)
@@ -58,9 +58,9 @@ HOST_AND_DEVICE inline Float Clamp(Float val, Float low, Float high) {
 	else
 		return val;
 }
-HOST_AND_DEVICE inline Float Lerp(Float t, Float v1, Float v2) { return (1 - t) * v1 + t * v2; }
+HOST_AND_DEVICE inline float Lerp(float t, float v1, float v2) { return (1 - t) * v1 + t * v2; }
 
-const Float largeValue = 9999999.0;
+const float largeValue = 9999999.0;
 
 
 // Print CUDA Runtime Information
@@ -79,7 +79,7 @@ bool getCudaError(cudaError_t err);
 // Print Debug Information
 
 inline void PrintError_Std(std::string err, const char* file, int line) {
-	std::cout << "[Error]: " << std::string(err) + " in " + std::string(file) +
+	std::cout << "[Error]: [" << std::string(err) + "] in " + std::string(file) +
 		" at line " + std::to_string(line) << std::endl;
 }
 

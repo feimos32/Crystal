@@ -18,11 +18,31 @@
 */
 
 #include "DisplayWidget.h"
+#include "CrystalGUI/DebugTools/DebugStd.h"
+
+#define DisplayWidget_Debug true
 
 namespace CrystalGUI {
 
 DisplayWidget::DisplayWidget(QWidget* parent) { 
-    
+    if (DisplayWidget_Debug) {
+        PrintValue_Std("DisplayWidget::DisplayWidget(...)");
+    }
+
+}
+
+DisplayWidget::~DisplayWidget() {
+    if (DisplayWidget_Debug) {
+        PrintValue_Std("DisplayWidget::~DisplayWidget()");
+    }
+
+
+}
+
+void DisplayWidget::displayNewFrame() {
+
+    PrintValue_Std("DisplayWidget::displayNewFrame()");
+
 }
 
 

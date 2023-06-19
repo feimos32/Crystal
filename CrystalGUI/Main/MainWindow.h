@@ -33,6 +33,8 @@
 #include "CrystalGUI/Display/DisplayWidget.h"
 #include "CrystalGUI/QtDataMapper/QtTfFuncDock.h"
 #include "CrystalGUI/QtVisualizer/QtVisualizer.h"
+#include "CrystalGUI/QtVisualizer/QtRenderThread.h"
+#include "CrystalGUI/QtVisInteractor/QtVisInteractor.h"
 
 #include "CrystalGUI/QtReader/ParserScene.h"
 
@@ -66,7 +68,10 @@ protected:
 
     ParserScene sp;
 
-    QtVisualizer m_QtVisualizer;
+    QtVisualizer* m_QtVisualizer;
+    QtRenderThread* m_QtRenderThread;
+
+
 
 };
 

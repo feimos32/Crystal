@@ -32,13 +32,13 @@ Github site: <https://github.com/feimos32/Crystal>
 
 namespace CrystalAlgrithm {
 
-HOST_AND_DEVICE inline void XYZToRGB(const Float xyz[3], Float rgb[3]) {
+HOST_AND_DEVICE inline void XYZToRGB(const float xyz[3], float rgb[3]) {
     rgb[0] = 3.240479f * xyz[0] - 1.537150f * xyz[1] - 0.498535f * xyz[2];
     rgb[1] = -0.969256f * xyz[0] + 1.875991f * xyz[1] + 0.041556f * xyz[2];
     rgb[2] = 0.055648f * xyz[0] - 0.204043f * xyz[1] + 1.057311f * xyz[2];
 }
 
-HOST_AND_DEVICE inline void RGBToXYZ(const Float rgb[3], Float xyz[3]) {
+HOST_AND_DEVICE inline void RGBToXYZ(const float rgb[3], float xyz[3]) {
     xyz[0] = 0.412453f * rgb[0] + 0.357580f * rgb[1] + 0.180423f * rgb[2];
     xyz[1] = 0.212671f * rgb[0] + 0.715160f * rgb[1] + 0.072169f * rgb[2];
     xyz[2] = 0.019334f * rgb[0] + 0.119193f * rgb[1] + 0.950227f * rgb[2];
@@ -48,7 +48,7 @@ HOST_AND_DEVICE inline void RGBToXYZ(const Float rgb[3], Float xyz[3]) {
 class EXPORT_DLL Spectrum3 {
 public:
     // CoefficientSpectrum Public Methods
-    HOST_AND_DEVICE Spectrum3(Float v = 0.f) {
+    HOST_AND_DEVICE Spectrum3(float v = 0.f) {
         for (int i = 0; i < 3; ++i) c[i] = v;
     }
 
@@ -82,22 +82,22 @@ public:
         for (int i = 0; i < 3; ++i) c[i] *= sp.c[i];
         return *this;
     }
-    HOST_AND_DEVICE Spectrum3 operator*(Float a) const {
+    HOST_AND_DEVICE Spectrum3 operator*(float a) const {
         Spectrum3 ret = *this;
         for (int i = 0; i < 3; ++i) ret.c[i] *= a;
         return ret;
     }
-    HOST_AND_DEVICE Spectrum3& operator*=(Float a) {
+    HOST_AND_DEVICE Spectrum3& operator*=(float a) {
         for (int i = 0; i < 3; ++i) c[i] *= a;
         return *this;
     }
     
-    HOST_AND_DEVICE Spectrum3 operator/(Float a) const {
+    HOST_AND_DEVICE Spectrum3 operator/(float a) const {
         Spectrum3 ret = *this;
         for (int i = 0; i < 3; ++i) ret.c[i] /= a;
         return ret;
     }
-    HOST_AND_DEVICE Spectrum3& operator/=(Float a) {
+    HOST_AND_DEVICE Spectrum3& operator/=(float a) {
         for (int i = 0; i < 3; ++i) c[i] /= a;
         return *this;
     }
@@ -125,7 +125,7 @@ public:
         return ret;
     }
 
-    HOST_AND_DEVICE Spectrum3 Pow(const Spectrum3& s, Float e) {
+    HOST_AND_DEVICE Spectrum3 Pow(const Spectrum3& s, float e) {
         Spectrum3 ret;
         for (int i = 0; i < 3; ++i) ret.c[i] = pow(s.c[i], e);
         return ret;
@@ -146,14 +146,14 @@ public:
         str += " ]";
         return str;
     }
-    HOST_AND_DEVICE Spectrum3 Clamp(Float low = 0, Float high = largeValue) const {
+    HOST_AND_DEVICE Spectrum3 Clamp(float low = 0, float high = largeValue) const {
         Spectrum3 ret;
         for (int i = 0; i < 3; ++i)
             ret.c[i] = CrystalAlgrithm::Clamp(c[i], low, high);
         return ret;
     }
-    Float MaxComponentValue() const {
-        Float m = c[0];
+    float MaxComponentValue() const {
+        float m = c[0];
         for (int i = 1; i < 3; ++i)
             m = max(m, c[i]);
         return m;
@@ -163,10 +163,10 @@ public:
             if (isnan(c[i])) return true;
         return false;
     }
-    HOST_AND_DEVICE Float& operator[](int i) {
+    HOST_AND_DEVICE float& operator[](int i) {
         return c[i];
     }
-    HOST_AND_DEVICE Float operator[](int i) const {
+    HOST_AND_DEVICE float operator[](int i) const {
         return c[i];
     }
 
@@ -175,13 +175,13 @@ public:
 
 protected:
     // Spectrum3 Protected Data
-    Float c[nSamples];
+    float c[nSamples];
 };
 
 class EXPORT_DLL Spectrum4 {
 public:
     // CoefficientSpectrum Public Methods
-    HOST_AND_DEVICE Spectrum4(Float v = 0.f) {
+    HOST_AND_DEVICE Spectrum4(float v = 0.f) {
         for (int i = 0; i < 4; ++i) c[i] = v;
     }
 
@@ -215,22 +215,22 @@ public:
         for (int i = 0; i < 4; ++i) c[i] *= sp.c[i];
         return *this;
     }
-    HOST_AND_DEVICE Spectrum4 operator*(Float a) const {
+    HOST_AND_DEVICE Spectrum4 operator*(float a) const {
         Spectrum4 ret = *this;
         for (int i = 0; i < 4; ++i) ret.c[i] *= a;
         return ret;
     }
-    HOST_AND_DEVICE Spectrum4& operator*=(Float a) {
+    HOST_AND_DEVICE Spectrum4& operator*=(float a) {
         for (int i = 0; i < 4; ++i) c[i] *= a;
         return *this;
     }
     
-    HOST_AND_DEVICE Spectrum4 operator/(Float a) const {
+    HOST_AND_DEVICE Spectrum4 operator/(float a) const {
         Spectrum4 ret = *this;
         for (int i = 0; i < 4; ++i) ret.c[i] /= a;
         return ret;
     }
-    HOST_AND_DEVICE Spectrum4& operator/=(Float a) {
+    HOST_AND_DEVICE Spectrum4& operator/=(float a) {
         for (int i = 0; i < 4; ++i) c[i] /= a;
         return *this;
     }
@@ -260,7 +260,7 @@ public:
         return ret;
     }
 
-    HOST_AND_DEVICE Spectrum4 Pow(const Spectrum4& s, Float e) {
+    HOST_AND_DEVICE Spectrum4 Pow(const Spectrum4& s, float e) {
         Spectrum4 ret;
         for (int i = 0; i < 4; ++i) ret.c[i] = pow(s.c[i], e);
         return ret;
@@ -281,14 +281,14 @@ public:
         str += " ]";
         return str;
     }
-    HOST_AND_DEVICE Spectrum4 Clamp(Float low = 0, Float high = Infinity) const {
+    HOST_AND_DEVICE Spectrum4 Clamp(float low = 0, float high = Infinity) const {
         Spectrum4 ret;
         for (int i = 0; i < 4; ++i)
             ret.c[i] = CrystalAlgrithm::Clamp(c[i], low, high);
         return ret;
     }
-    Float MaxComponentValue() const {
-        Float m = c[0];
+    float MaxComponentValue() const {
+        float m = c[0];
         for (int i = 1; i < 4; ++i)
             m = max(m, c[i]);
         return m;
@@ -298,10 +298,10 @@ public:
             if (isnan(c[i])) return true;
         return false;
     }
-    HOST_AND_DEVICE Float& operator[](int i) {
+    HOST_AND_DEVICE float& operator[](int i) {
         return c[i];
     }
-    HOST_AND_DEVICE Float operator[](int i) const {
+    HOST_AND_DEVICE float operator[](int i) const {
         return c[i];
     }
 
@@ -310,7 +310,7 @@ public:
 
 protected:
     // Spectrum4 Protected Data
-    Float c[nSamples];
+    float c[nSamples];
 };
 
 

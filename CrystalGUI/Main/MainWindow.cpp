@@ -39,6 +39,10 @@ namespace CrystalGUI{
 InitialMainWindow::InitialMainWindow(QWidget* parent)
     : QMainWindow(parent) {
 
+    if (MainWindowDebug) {
+        PrintValue_Std("InitialMainWindow::InitialMainWindow(...)");
+    }
+
     // Appearance
     setWindowIcon(QIcon("Resources/Icons/sIcon.png"));
     
@@ -139,6 +143,8 @@ void InitialMainWindow::DisplayMainWindowClosed() {
 DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     setMinimumSize(350, 200);
 
+    m_QtRenderThread = NULL;
+
     setWindowIcon(QIcon("Resources/Icons/sIcon.png"));
     QFile qssfile("Resources/qss/DisplayMainWindow.qss");
     qssfile.open(QFile::ReadOnly);
@@ -151,10 +157,6 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     mainLayout = new QHBoxLayout;
     centralWidget->setLayout(mainLayout);
 
-    displayWidget = new DisplayWidget;
-    // thread return 0x1, maybe not a mistake
-    mainLayout->addWidget(displayWidget);
-
     // parse XML File
     sp.setFilePath(sceneFile);
     sp.readSceneXML();
@@ -163,8 +165,22 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     setQtTfFuncDock(sp);
 
     // Initialize QtVisualizer
-    m_QtVisualizer.Initialization(sp.m_ScenePreset.m_VisualizerPreset);
+    m_QtVisualizer = new QtVisualizer;
+    m_QtVisualizer->Initialization(sp.m_ScenePreset.m_VisualizerPreset);
 
+    // Initialize DisplayWidget
+    displayWidget = new DisplayWidget;
+    // thread return 0x1, maybe not a mistake
+    mainLayout->addWidget(displayWidget);
+    displayWidget->setFrameBuffer(m_QtVisualizer->m_FrameBuffer);
+
+
+    // start rendering thread
+    m_QtRenderThread = new QtRenderThread();
+    m_QtRenderThread->setVisualizer(m_QtVisualizer->m_Visualizer);
+    m_QtRenderThread->setFrameBuffer(m_QtVisualizer->m_FrameBuffer);
+    m_QtRenderThread->start();
+    connect(m_QtRenderThread, SIGNAL(generateNewFrame()), displayWidget, SLOT(displayNewFrame()));
 
     // Test
     CrystalAlgrithm::printCudaDevice();
@@ -178,6 +194,24 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
 DisplayMainWindow::~DisplayMainWindow() {
     if (MainWindowDebug)
         PrintValue_Std("DisplayMainWindow::~DisplayMainWindow()");
+
+    disconnect(m_QtRenderThread, SIGNAL(generateNewFrame()), displayWidget, SLOT(displayNewFrame()));
+
+    if (m_QtRenderThread) {
+        m_QtRenderThread->setStopFlag(true);
+
+        // Kill the render thread
+        m_QtRenderThread->quit();
+        // Wait for thread to end
+        m_QtRenderThread->wait();
+
+        delete m_QtRenderThread;
+        m_QtRenderThread = NULL;
+    }
+
+    if (m_QtVisualizer) {
+        delete m_QtVisualizer;
+    }
 
 }
 

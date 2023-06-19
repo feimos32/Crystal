@@ -364,6 +364,8 @@ SOURCE_GROUP("QtDataMapper" FILES ${QtDataMapper})
 set(QtVisualizer
 	CrystalGUI/QtVisualizer/QtVisualizer.h
 	CrystalGUI/QtVisualizer/QtVisualizer.cpp
+	CrystalGUI/QtVisualizer/QtRenderThread.h
+	CrystalGUI/QtVisualizer/QtRenderThread.cpp
 )
 # Make the QtVisualizer group
 SOURCE_GROUP("QtVisualizer" FILES ${QtVisualizer})

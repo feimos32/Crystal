@@ -17,44 +17,50 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtVisualizer_h__
-#define __QtVisualizer_h__
+#ifndef __QtRenderThread_h__
+#define __QtRenderThread_h__
 
 #include "CrystalGUI/Utility/Common.h"
 
-#include <QObject>
+#include <QThread>
 
-#include "CrystalAlgrithm/Visualizer/FrameBuffer.h"
-
-#include "CrystalAlgrithm/Visualizer/Visualizer.h"
-
-#include "CrystalAlgrithm/Scene/PresetScene.h"
-
-
-#include <memory>
+#include "QtVisualizer.h"
 
 namespace CrystalGUI {
 
 
-class QtVisualizer : public QObject {
+class QtRenderThread : public QThread {
 	Q_OBJECT
 public:
-	QtVisualizer(QObject* parent = Q_NULLPTR);
-	~QtVisualizer();
+	QtRenderThread(QObject* pParent = NULL);
+	~QtRenderThread();
 
-	void Initialization(const CrystalAlgrithm::PresetVisualizer& visualizerPreset);
+	void run();
+	void setStopFlag(bool s) {
+		stopFlag = s;
+	}
 
 	std::shared_ptr<CrystalAlgrithm::Visualizer> m_Visualizer;
+	void setVisualizer(std::shared_ptr<CrystalAlgrithm::Visualizer> vis) {
+		m_Visualizer = vis;
+	}
 	std::shared_ptr<CrystalAlgrithm::FrameBuffer> m_FrameBuffer;
+	void setFrameBuffer(std::shared_ptr<CrystalAlgrithm::FrameBuffer> framebuffer) {
+		m_FrameBuffer = framebuffer;
+	}
+	void visualize();
 
+private:
+	bool stopFlag;
+signals:
+	void generateNewFrame();
 
 };
 
 
-
-
-
 }
+
+
 
 #endif
 

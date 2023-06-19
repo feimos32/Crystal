@@ -23,6 +23,8 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalAlgrithm/Basic/Export_dll.cuh"
 #include "CrystalAlgrithm/Basic/Common.cuh"
 
+#include "CrystalAlgrithm/Visualizer/FrameBuffer.h"
+
 namespace CrystalAlgrithm {
 
 class EXPORT_DLL Visualizer {
@@ -31,6 +33,7 @@ public:
 	Visualizer();
 	~Visualizer();
 
+	virtual void visualize(FrameBuffer*framebuffer);
 
 };
 

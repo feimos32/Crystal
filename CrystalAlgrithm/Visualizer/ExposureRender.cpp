@@ -20,15 +20,25 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "ExposureRender.h"
 #include "CrystalAlgrithm/Basic/Common.cuh"
 
+#define ExposureRender_Debug true
+
 namespace CrystalAlgrithm {
 
 ExposureRender::ExposureRender() {
-	PrintValue_Std("ExposureRender::ExposureRender()");
+	if (ExposureRender_Debug)
+		PrintValue_Std("ExposureRender::ExposureRender()");
 
 }
 
 ExposureRender::~ExposureRender() {
-	PrintValue_Std("ExposureRender::~ExposureRender()");
+	if (ExposureRender_Debug)
+		PrintValue_Std("ExposureRender::~ExposureRender()");
+
+}
+
+void ExposureRender::visualize(FrameBuffer* framebuffer) {
+	if (ExposureRender_Debug)
+		PrintValue_Std("ExposureRender::visualize(...)");
 
 }
 

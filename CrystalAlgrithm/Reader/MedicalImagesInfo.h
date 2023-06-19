@@ -51,8 +51,8 @@ public:
 
 	int Dim;
 	size_t X_Dim, Y_Dim, Z_Dim;
-	Float X_Spacing, Y_Spacing, Z_Spacing;
-	Float Slope, Intercept;
+	float X_Spacing, Y_Spacing, Z_Spacing;
+	float Slope, Intercept;
 	short dataRange[2];
 	short gradientRange[2];
 

@@ -27,6 +27,10 @@ Github site: <https://github.com/feimos32/Crystal>
 namespace CrystalGUI {
 
 QtVisualizer::QtVisualizer(QObject* parent){
+	if (QtVisualizerDebug) {
+		PrintValue_Std("QtVisualizer::QtVisualizer()");
+	}
+
 	m_Visualizer = nullptr;
 	m_FrameBuffer = nullptr;
 
@@ -37,9 +41,6 @@ QtVisualizer::~QtVisualizer() {
 	if (QtVisualizerDebug) {
 		PrintValue_Std("QtVisualizer::~QtVisualizer()");
 	}
-
-	if (!m_Visualizer) m_Visualizer.release();
-	if (!m_FrameBuffer) m_FrameBuffer.release();
 }
 
 void QtVisualizer::Initialization(const CrystalAlgrithm::PresetVisualizer& visualizerPreset) 
@@ -50,19 +51,20 @@ void QtVisualizer::Initialization(const CrystalAlgrithm::PresetVisualizer& visua
 
 	if ("ExposureRender" == visualizerPreset.VisualizerType) {
 		m_Visualizer = 
-			std::unique_ptr<CrystalAlgrithm::Visualizer>(new CrystalAlgrithm::ExposureRender());
+			std::shared_ptr<CrystalAlgrithm::Visualizer>(new CrystalAlgrithm::ExposureRender());
 	}
 	else {
 		PrintError("Unknown Visualizer name");
+		return;
 	}
 
-	m_FrameBuffer = std::unique_ptr<CrystalAlgrithm::FrameBuffer>(new CrystalAlgrithm::FrameBuffer());
+	m_FrameBuffer = std::shared_ptr<CrystalAlgrithm::FrameBuffer>(new CrystalAlgrithm::FrameBuffer());
 	m_FrameBuffer->ResetAll(visualizerPreset.width, visualizerPreset.height);
-	
-
-
 
 }
+
+
+
 
 
 

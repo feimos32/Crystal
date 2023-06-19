@@ -31,6 +31,10 @@ FrameBuffer::FrameBuffer() {
 	}
 
 	width = height = 0;
+	allRenderCount = 0;
+	renderCount_stableCamera = 0;
+	renderCount_stableTfFunc = 0;
+	renderCount_stableLight = 0;
 
 	displayBufferU = nullptr;
 	GPU_displayBufferU = nullptr;
@@ -59,6 +63,11 @@ void FrameBuffer::ReleaseAll() {
 
 
 	width = height = 0;
+
+	allRenderCount = 0;
+	renderCount_stableCamera = 0;
+	renderCount_stableTfFunc = 0;
+	renderCount_stableLight = 0;
 }
 
 void FrameBuffer::ResetAll(size_t w, size_t h) {

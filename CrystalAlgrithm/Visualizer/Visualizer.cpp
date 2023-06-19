@@ -19,14 +19,30 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "Visualizer.h"
 
+#define Visualizer_Debug true
+
 namespace CrystalAlgrithm {
 
 Visualizer::Visualizer() {
+	
+	if (Visualizer_Debug) {
+		PrintValue_Std("Visualizer::Visualizer()");
+	}
 
 }
-
+	
 Visualizer::~Visualizer() {
 
+	if (Visualizer_Debug) {
+		PrintValue_Std("Visualizer::~Visualizer()");
+	}
+	
+}
+
+void Visualizer::visualize(FrameBuffer* framebuffer) {
+	
+	PrintError("Visualizer::visualize(...) cannot be execuated");
+	
 }
 
 

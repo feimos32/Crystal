@@ -548,7 +548,7 @@ void Texture1DCharTest() {
 
 
 
-// Float Correct interpolation
+// float Correct interpolation
 __global__ void Texture2DFloatTestKernel(
 	float* output, cudaTextureObject_t texObj,
 	int width, int height)

@@ -30,6 +30,7 @@ VTK_MODULE_INIT(vtkRenderingFreeType);
 
 
 #include "CrystalGUI/QtVisInteractor/QtVisInteractor.h"
+#include "CrystalGUI/QtVisualizer/QtVisualizer.h"
 
 #include <QVTKOpenGLNativewidget.h>
 
@@ -40,7 +41,16 @@ class DisplayWidget : public QVTKOpenGLNativeWidget {
     Q_OBJECT
 public:
     DisplayWidget(QWidget* parent = nullptr);
-    
+    ~DisplayWidget();
+
+private slots:
+    void displayNewFrame();
+
+public:
+    void setFrameBuffer(std::shared_ptr<CrystalAlgrithm::FrameBuffer> framebuffer) {
+        m_FrameBuffer = framebuffer;
+    }
+    std::shared_ptr<CrystalAlgrithm::FrameBuffer> m_FrameBuffer;
 
 
 };

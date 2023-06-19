@@ -37,6 +37,17 @@ public:
 
 	size_t width, height;
 
+	size_t allRenderCount;
+	size_t renderCount_stableCamera;
+	size_t renderCount_stableTfFunc;
+	size_t renderCount_stableLight;
+	void FrameCountPlus() {
+		allRenderCount++;
+		renderCount_stableCamera++;
+		renderCount_stableTfFunc++;
+		renderCount_stableLight++;
+	}
+
 	// Buffers in CPU
 	uchar3* displayBufferU;
 	uchar3* get_displayBufferU() {
