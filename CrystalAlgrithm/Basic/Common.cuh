@@ -29,8 +29,8 @@ Github site: <https://github.com/feimos32/Crystal>
 namespace CrystalAlgrithm {
 
 #define HOST_AND_DEVICE __host__ __device__
-#define HOST __host__
-#define DEVICE __device__
+#define HOST_Ctl __host__
+#define DEVICE_Ctl __device__
 #define GPU_CALL __global__
 
 #define float float

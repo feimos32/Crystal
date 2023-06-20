@@ -56,7 +56,7 @@ void QtRenderThread::run() {
 
 
 		emit generateNewFrame();
-		while (t.elapsed() < 1000);
+		while (t.elapsed() < 10);
 	}
 }
 

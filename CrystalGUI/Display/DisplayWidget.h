@@ -33,6 +33,16 @@ VTK_MODULE_INIT(vtkRenderingFreeType);
 #include "CrystalGUI/QtVisualizer/QtVisualizer.h"
 
 #include <QVTKOpenGLNativewidget.h>
+#include <vtkSmartPointer.h>
+
+class vtkRenderer;
+class vtkGenericOpenGLRenderWindow;
+class vtkImageActor;
+class vtkImageImport;
+
+class vtkCallbackCommand;
+class vtkInteractorStyleImage;
+class vtkInteractorStyleUser;
 
 
 namespace CrystalGUI {
@@ -51,7 +61,21 @@ public:
         m_FrameBuffer = framebuffer;
     }
     std::shared_ptr<CrystalAlgrithm::FrameBuffer> m_FrameBuffer;
+    void initializeBuffer();
+    void resizeBuffer();
 
+private: 
+    
+
+    vtkSmartPointer<vtkRenderer>				    m_SceneRenderer;
+    vtkSmartPointer<vtkGenericOpenGLRenderWindow>   m_RenderWindow;
+    vtkSmartPointer<vtkImageActor>				m_ImageActor;
+    vtkSmartPointer<vtkImageImport>				m_ImageImport;
+
+    vtkSmartPointer<vtkCallbackCommand>			m_KeyPressCallback;
+    vtkSmartPointer<vtkCallbackCommand>			m_KeyReleaseCallback;
+    vtkSmartPointer<vtkInteractorStyleImage>	m_InteractorStyleImage;
+    vtkSmartPointer<vtkInteractorStyleUser>	    m_InteractorStyleUser;
 
 };
 

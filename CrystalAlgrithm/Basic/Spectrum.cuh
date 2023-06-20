@@ -114,7 +114,7 @@ public:
             if (c[i] != 0.) return false;
         return true;
     }
-    Spectrum3 Sqrt(const Spectrum3& s) {
+    HOST_Ctl Spectrum3 Sqrt(const Spectrum3& s) {
         Spectrum3 ret;
         for (int i = 0; i < 3; ++i) ret.c[i] = sqrt(s.c[i]);
         return ret;
@@ -131,13 +131,13 @@ public:
         return ret;
     }
 
-    Spectrum3 Exp(const Spectrum3& s) {
+    HOST_Ctl Spectrum3 Exp(const Spectrum3& s) {
         Spectrum3 ret;
         for (int i = 0; i < 3; ++i) ret.c[i] = exp(s.c[i]);
         return ret;
     }
     
-    HOST std::string ToString() const {
+    HOST_Ctl std::string ToString() const {
         std::string str = "[ ";
         for (int i = 0; i < 3; ++i) {
             str += std::to_string(c[i]); 
@@ -152,13 +152,13 @@ public:
             ret.c[i] = CrystalAlgrithm::Clamp(c[i], low, high);
         return ret;
     }
-    float MaxComponentValue() const {
+    HOST_AND_DEVICE float MaxComponentValue() const {
         float m = c[0];
         for (int i = 1; i < 3; ++i)
             m = max(m, c[i]);
         return m;
     }
-    bool HasNaNs() const {
+    HOST_Ctl bool HasNaNs_Host() const {
         for (int i = 0; i < 3; ++i)
             if (isnan(c[i])) return true;
         return false;
@@ -248,7 +248,7 @@ public:
         return true;
     }
 
-    Spectrum4 Sqrt(const Spectrum4& s) {
+    HOST_Ctl Spectrum4 Sqrt(const Spectrum4& s) {
         Spectrum4 ret;
         for (int i = 0; i < 4; ++i) ret.c[i] = sqrt(s.c[i]);
         return ret;
@@ -266,13 +266,13 @@ public:
         return ret;
     }
 
-    Spectrum4 Exp(const Spectrum4& s) {
+    HOST_Ctl Spectrum4 Exp(const Spectrum4& s) {
         Spectrum4 ret;
         for (int i = 0; i < 4; ++i) ret.c[i] = exp(s.c[i]);
         return ret;
     }
     
-    HOST std::string ToString() const {
+    HOST_Ctl std::string ToString() const {
         std::string str = "[ ";
         for (int i = 0; i < 4; ++i) {
             str += std::to_string(c[i]);
@@ -287,13 +287,13 @@ public:
             ret.c[i] = CrystalAlgrithm::Clamp(c[i], low, high);
         return ret;
     }
-    float MaxComponentValue() const {
+    HOST_AND_DEVICE float MaxComponentValue() const {
         float m = c[0];
         for (int i = 1; i < 4; ++i)
             m = max(m, c[i]);
         return m;
     }
-    bool HasNaNs() const {
+    HOST_Ctl bool HasNaNs_Host() const {
         for (int i = 0; i < 4; ++i)
             if (isnan(c[i])) return true;
         return false;

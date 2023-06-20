@@ -75,7 +75,7 @@ public:
 	}
 	HOST_AND_DEVICE Vector3f() { x = y = z = 0; }
 	HOST_AND_DEVICE Vector3f(float x, float y, float z) : x(x), y(y), z(z) { }
-	HOST bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
+	HOST_Ctl bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
 	HOST_AND_DEVICE explicit Vector3f(const Point3f& p);
 	HOST_AND_DEVICE Vector3f operator+(const Vector3f& v) const {
 		return Vector3f(x + v.x, y + v.y, z + v.z);
@@ -215,7 +215,7 @@ public:
 	HOST_AND_DEVICE bool operator!=(const Point3f& p) const {
 		return x != p.x || y != p.y || z != p.z;
 	}
-	HOST bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
+	HOST_Ctl bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
 	HOST_AND_DEVICE Point3f operator-() const { return Point3f(-x, -y, -z); }
 
 	// Point3f Public Data
@@ -248,7 +248,7 @@ public:
 		z -= n.z;
 		return *this;
 	}
-	HOST bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
+	HOST_Ctl bool HasNaNs() const { return isnan(x) || isnan(y) || isnan(z); }
 
 	HOST_AND_DEVICE Normal3f operator*(float f) const {
 		return Normal3f(f * x, f * y, f * z);

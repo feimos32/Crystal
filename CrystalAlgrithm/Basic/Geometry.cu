@@ -37,11 +37,11 @@ PBRT v3: <https://pbrt.org/>
 // Vector3f/Point3f/Normal3f
 namespace CrystalAlgrithm {
 
-HOST inline Point3f Floor(const Point3f& p) {
+HOST_Ctl inline Point3f Floor(const Point3f& p) {
 	return Point3f(std::floor(p.x), std::floor(p.y), std::floor(p.z));
 }
 
-HOST inline Point3f Ceil(const Point3f& p) {
+HOST_Ctl inline Point3f Ceil(const Point3f& p) {
 	return Point3f(std::ceil(p.x), std::ceil(p.y), std::ceil(p.z));
 }
 

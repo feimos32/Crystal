@@ -173,6 +173,7 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     // thread return 0x1, maybe not a mistake
     mainLayout->addWidget(displayWidget);
     displayWidget->setFrameBuffer(m_QtVisualizer->m_FrameBuffer);
+    displayWidget->initializeBuffer();
 
 
     // start rendering thread
