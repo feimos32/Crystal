@@ -180,6 +180,8 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     m_QtRenderThread = new QtRenderThread();
     m_QtRenderThread->setVisualizer(m_QtVisualizer->m_Visualizer);
     m_QtRenderThread->setFrameBuffer(m_QtVisualizer->m_FrameBuffer);
+
+    m_QtRenderThread->renderBegin();
     m_QtRenderThread->start();
     connect(m_QtRenderThread, SIGNAL(generateNewFrame()), displayWidget, SLOT(displayNewFrame()));
 

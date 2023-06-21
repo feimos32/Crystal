@@ -29,6 +29,8 @@ Visualizer::Visualizer() {
 		PrintValue_Std("Visualizer::Visualizer()");
 	}
 
+	framebuffer_GPU = nullptr;
+	width = height = 0;
 }
 	
 Visualizer::~Visualizer() {
@@ -36,14 +38,38 @@ Visualizer::~Visualizer() {
 	if (Visualizer_Debug) {
 		PrintValue_Std("Visualizer::~Visualizer()");
 	}
-	
+	if (framebuffer_GPU) {
+		bool flag = Get_CUDA_ERROR(cudaFree(framebuffer_GPU));
+		if (!flag) PrintError("Find error when free framebuffer_GPU");
+	}
 }
 
-void Visualizer::visualize(FrameBuffer* framebuffer) {
-	
+void Visualizer::visualize() {
 	PrintError("Visualizer::visualize(...) cannot be execuated");
-	
 }
+
+bool Visualizer::resetFrameBuffer(FrameBuffer* fb) {
+	bool flag;
+	//if (framebuffer_GPU) {
+	//	flag = Get_CUDA_ERROR(cudaFree(framebuffer_GPU));
+	//	if (!flag) return false;
+	//}
+	
+	if (!framebuffer_GPU) {
+		flag = Get_CUDA_ERROR(cudaMalloc(&framebuffer_GPU, sizeof(FrameBuffer)));
+		if (!flag) return false;
+	}
+
+	flag = Get_CUDA_ERROR(cudaMemcpy(framebuffer_GPU, fb, sizeof(FrameBuffer), cudaMemcpyHostToDevice));
+	if (!flag) return false;
+
+	width = fb->width;
+	height = fb->height;
+
+	return true;
+}
+
+
 
 
 

@@ -33,7 +33,12 @@ public:
 	Visualizer();
 	~Visualizer();
 
-	virtual void visualize(FrameBuffer*framebuffer);
+	virtual void visualize();
+	bool resetFrameBuffer(FrameBuffer* fb);
+
+public:
+	FrameBuffer* framebuffer_GPU;
+	int width, height;
 
 };
 

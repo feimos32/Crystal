@@ -234,6 +234,7 @@ set(Visualizer
 	CrystalAlgrithm/Visualizer/Visualizer.cpp
 	CrystalAlgrithm/Visualizer/ExposureRender.h
 	CrystalAlgrithm/Visualizer/ExposureRender.cpp
+	CrystalAlgrithm/Visualizer/ExposureRender.cu
 	CrystalAlgrithm/Visualizer/FrameBuffer.h
 	CrystalAlgrithm/Visualizer/FrameBuffer.cpp
 )

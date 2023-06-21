@@ -33,7 +33,7 @@ public:
 	ExposureRender();
 	~ExposureRender();
 
-	virtual void visualize(FrameBuffer* framebuffer);
+	virtual void visualize();
 
 };
 

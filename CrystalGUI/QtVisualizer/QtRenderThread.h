@@ -36,6 +36,7 @@ public:
 	~QtRenderThread();
 
 	void run();
+	void renderBegin();
 	void setStopFlag(bool s) {
 		stopFlag = s;
 	}

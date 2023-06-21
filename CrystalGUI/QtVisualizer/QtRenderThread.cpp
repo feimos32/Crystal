@@ -46,6 +46,16 @@ QtRenderThread::~QtRenderThread() {
 	}
 }
 
+void QtRenderThread::renderBegin() {
+	if (m_Visualizer && m_FrameBuffer)
+		m_Visualizer->resetFrameBuffer(m_FrameBuffer.get());
+	else {
+		PrintError("m_Visualizer or m_FrameBuffer if nullptr");
+	}
+
+
+}
+
 void QtRenderThread::run() {
 
 	while (!stopFlag) {
@@ -62,12 +72,19 @@ void QtRenderThread::run() {
 
 void QtRenderThread::visualize() {
 
-	if (m_Visualizer && m_FrameBuffer)
-		m_Visualizer->visualize(m_FrameBuffer.get());
+	if (m_Visualizer && m_FrameBuffer) {
+		m_FrameBuffer->FrameCountPlus();
+
+		m_Visualizer->resetFrameBuffer(m_FrameBuffer.get());
+		m_Visualizer->visualize();
+	}
+		
 	else {
 		PrintError("m_Visualizer or m_FrameBuffer if nullptr");
+		return;
 	}
 
+	m_FrameBuffer->obtainOutputFromGPU();
 
 }
 

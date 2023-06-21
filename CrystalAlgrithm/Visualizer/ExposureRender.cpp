@@ -36,29 +36,6 @@ ExposureRender::~ExposureRender() {
 
 }
 
-void ExposureRender::visualize(FrameBuffer* framebuffer) {
-	//if (ExposureRender_Debug)
-	//	PrintValue_Std("ExposureRender::visualize(...)");
-
-	framebuffer->FrameCountPlus();
-	size_t Frame = framebuffer->allRenderCount;
-	uchar3* buffer = framebuffer->get_displayBufferU();
-
-	for (int i = 0; i < framebuffer->width; i++) {
-		for (int j = 0; j < framebuffer->height; j++) {
-			
-			rsize_t offset = (i + j * framebuffer->width);
-
-			unsigned char color = Frame % 250;
-
-			buffer[offset] = make_uchar3(color, color, color);
-			
-		}
-	}
-
-
-
-}
 
 
 

@@ -53,6 +53,14 @@ public:
 	uchar3* get_displayBufferU() {
 		return displayBufferU;
 	}
+	bool obtainOutputFromGPU() {
+		if (width == 0 || height == 0) {
+			PrintError("(width == 0 || height == 0) in FrameBuffer");
+			return false;
+		}
+		bool flag = Get_CUDA_ERROR(cudaMemcpy(displayBufferU, GPU_displayBufferU, sizeof(uchar3) * width * height, cudaMemcpyDeviceToHost));
+		return flag;
+	}
 
 	// Buffers in GPU
 	uchar3* GPU_displayBufferU;
