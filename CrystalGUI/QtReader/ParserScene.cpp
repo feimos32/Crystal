@@ -260,7 +260,9 @@ bool ParserScene::readSceneVisualizerXML(const QDomNodeList& nodes) {
 	return readFlag;
 }
 
+bool ParserScene::writeSceneXML() {
 
+}
 
 
 

@@ -25,10 +25,18 @@ namespace CrystalGUI {
 QtTfFuncGraphicsView_1D::QtTfFuncGraphicsView_1D(QGraphicsView* parent) :
 	QGraphicsView(parent){
 
-
+	setMinimumSize(200,100);
 
 
 }
+
+QtTfFuncGraphicsView_1D::~QtTfFuncGraphicsView_1D() {
+
+}
+
+
+
+
 
 
 

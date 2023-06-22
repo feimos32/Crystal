@@ -23,6 +23,8 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
+#include "CrystalAlgrithm/Scene/PresetScene.h"
+
 #include <QGroupBox>
 
 namespace CrystalGUI {
@@ -34,6 +36,7 @@ public:
 	NodePropertiesWidget(QWidget* parent = Q_NULLPTR);
 
 	~NodePropertiesWidget();
+
 
 
 };

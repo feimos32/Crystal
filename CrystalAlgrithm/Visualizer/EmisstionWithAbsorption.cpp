@@ -17,37 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#include "EmisstionWithAbsorption.h"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
-#include "CrystalGUI/Utility/Common.h"
+#define EmisstionWithAbsorption_Debug true
 
-#include "CrystalAlgrithm/Scene/PresetScene.h"
+namespace CrystalAlgrithm {
 
-#include <QGraphicsView>
-#include <QMouseEvent>
+EmisstionWithAbsorption::EmisstionWithAbsorption() {
+	if (EmisstionWithAbsorption_Debug)
+		PrintValue_Std("EmisstionWithAbsorption::EmisstionWithAbsorption()");
 
-namespace CrystalGUI {
+}
 
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+EmisstionWithAbsorption::~EmisstionWithAbsorption() {
+	if (EmisstionWithAbsorption_Debug)
+		PrintValue_Std("EmisstionWithAbsorption::~EmisstionWithAbsorption()");
 
-public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-	~QtTfFuncGraphicsView_1D();
+}
 
-	QGraphicsScene scene;
-
-
-
-};
 
 
 
 }
 
 
-#endif
+
+
+
+
 
 
 

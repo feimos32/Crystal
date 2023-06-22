@@ -17,30 +17,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#ifndef __ExposureRender_h__
+#define __ExposureRender_h__
 
-#include "CrystalGUI/Utility/Common.h"
+#include "Visualizer.h"
 
-#include "CrystalAlgrithm/Scene/PresetScene.h"
+#include "CrystalAlgrithm/Basic/Export_dll.cuh"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
-#include <QGraphicsView>
-#include <QMouseEvent>
+namespace CrystalAlgrithm {
 
-namespace CrystalGUI {
-
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+class EXPORT_DLL RayCastingWithPhongShading : public Visualizer {
 
 public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-	~QtTfFuncGraphicsView_1D();
+	RayCastingWithPhongShading();
+	~RayCastingWithPhongShading();
 
-	QGraphicsScene scene;
-
-
+	virtual void visualize();
 
 };
+
 
 
 

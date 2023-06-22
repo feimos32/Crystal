@@ -17,37 +17,25 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#include "ParserTransferFunction.h"
 
-#include "CrystalGUI/Utility/Common.h"
-
-#include "CrystalAlgrithm/Scene/PresetScene.h"
-
-#include <QGraphicsView>
-#include <QMouseEvent>
+#define ParserTransferFunctionDebug true
 
 namespace CrystalGUI {
 
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+ParserTransferFunction::ParserTransferFunction(QObject* parent = Q_NULLPTR) {
 
-public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-	~QtTfFuncGraphicsView_1D();
+}
 
-	QGraphicsScene scene;
-
-
-
-};
-
-
+ParserTransferFunction::~ParserTransferFunction() {
 
 }
 
 
-#endif
 
+
+
+
+}
 
 

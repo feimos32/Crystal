@@ -235,6 +235,15 @@ set(Visualizer
 	CrystalAlgrithm/Visualizer/ExposureRender.h
 	CrystalAlgrithm/Visualizer/ExposureRender.cpp
 	CrystalAlgrithm/Visualizer/ExposureRender.cu
+	CrystalAlgrithm/Visualizer/DeltaTracing.h
+	CrystalAlgrithm/Visualizer/DeltaTracing.cpp
+	CrystalAlgrithm/Visualizer/DeltaTracing.cu
+	CrystalAlgrithm/Visualizer/RayCastingWithPhongShading.h
+	CrystalAlgrithm/Visualizer/RayCastingWithPhongShading.cpp
+	CrystalAlgrithm/Visualizer/RayCastingWithPhongShading.cu
+	CrystalAlgrithm/Visualizer/EmisstionWithAbsorption.h
+	CrystalAlgrithm/Visualizer/EmisstionWithAbsorption.cpp
+	CrystalAlgrithm/Visualizer/EmisstionWithAbsorption.cu
 	CrystalAlgrithm/Visualizer/FrameBuffer.h
 	CrystalAlgrithm/Visualizer/FrameBuffer.cpp
 )
@@ -327,6 +336,7 @@ set(QtReader
 	CrystalGUI/QtReader/ParserScene.cpp
 	CrystalGUI/QtReader/ParserLight.h
 	CrystalGUI/QtReader/ParserTransferFunction.h
+	CrystalGUI/QtReader/ParserTransferFunction.cpp
 	CrystalGUI/QtReader/QtMedicalDataReader.h
 	CrystalGUI/QtReader/QtMedicalDataReader.cpp
 )

@@ -17,37 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#include "RayCastingWithPhongShading.h"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
-#include "CrystalGUI/Utility/Common.h"
+#define RayCastingWithPhongShading_Debug true
 
-#include "CrystalAlgrithm/Scene/PresetScene.h"
+namespace CrystalAlgrithm {
 
-#include <QGraphicsView>
-#include <QMouseEvent>
+RayCastingWithPhongShading::RayCastingWithPhongShading() {
+	if (RayCastingWithPhongShading_Debug)
+		PrintValue_Std("RayCastingWithPhongShading::RayCastingWithPhongShading()");
 
-namespace CrystalGUI {
+}
 
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+RayCastingWithPhongShading::~RayCastingWithPhongShading() {
+	if (RayCastingWithPhongShading_Debug)
+		PrintValue_Std("RayCastingWithPhongShading::~RayCastingWithPhongShading()");
 
-public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-	~QtTfFuncGraphicsView_1D();
+}
 
-	QGraphicsScene scene;
-
-
-
-};
 
 
 
 }
 
 
-#endif
+
+
+
+
 
 
 

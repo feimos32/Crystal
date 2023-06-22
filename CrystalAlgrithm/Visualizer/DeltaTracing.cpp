@@ -17,37 +17,35 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncGraphicsView_1D_h__
-#define __QtTfFuncGraphicsView_1D_h__
+#include "DeltaTracing.h"
+#include "CrystalAlgrithm/Basic/Common.cuh"
 
-#include "CrystalGUI/Utility/Common.h"
+#define DeltaTracing_Debug true
 
-#include "CrystalAlgrithm/Scene/PresetScene.h"
+namespace CrystalAlgrithm {
 
-#include <QGraphicsView>
-#include <QMouseEvent>
+DeltaTracing::DeltaTracing() {
+	if (DeltaTracing_Debug)
+		PrintValue_Std("DeltaTracing::DeltaTracing()");
 
-namespace CrystalGUI {
+}
 
-class QtTfFuncGraphicsView_1D : public QGraphicsView {
-	Q_OBJECT
+DeltaTracing::~DeltaTracing() {
+	if (DeltaTracing_Debug)
+		PrintValue_Std("DeltaTracing::~DeltaTracing()");
 
-public:
-	QtTfFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
-	~QtTfFuncGraphicsView_1D();
+}
 
-	QGraphicsScene scene;
-
-
-
-};
 
 
 
 }
 
 
-#endif
+
+
+
+
 
 
 

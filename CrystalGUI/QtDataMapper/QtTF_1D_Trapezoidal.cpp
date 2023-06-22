@@ -43,12 +43,24 @@ QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTfFuncDock(pParen
     m_QScrollArea.setWidget(&centerWidget);
     centerWidget.setLayout(&centerLayout);
     
-    centerLayout.addWidget(&m_QtTfFuncGraphicsView_1D);
-    
+}
 
 
+QtTF_1D_Trapezoidal::~QtTF_1D_Trapezoidal() {
 
 }
+
+void QtTF_1D_Trapezoidal::Initialize(
+    CrystalAlgrithm::PresetDataMapper& m_DataMapperPreset,
+    CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset) {
+
+
+    centerLayout.addWidget(m_QtTfFuncGraphicsView_1D);
+
+}
+
+
+
 
 
 

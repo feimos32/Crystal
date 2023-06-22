@@ -22,9 +22,26 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
+#include <QtXml\QtXml>
+#include <QtXml\QDomDocument>
+
+#include "CrystalGUI/DebugTools/DebugStd.h"
+
 namespace CrystalGUI {
 
+class ParserTransferFunction : public QObject {
+	Q_OBJECT
 
+public:
+	ParserTransferFunction(QObject* parent = Q_NULLPTR);
+	~ParserTransferFunction();
+
+
+
+
+
+
+};
 
 
 

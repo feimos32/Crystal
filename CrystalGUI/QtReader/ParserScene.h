@@ -68,13 +68,13 @@ public:
 		filePath = fp;
 	}
 	bool readSceneXML();
-
 	bool readSceneCameraXML(const QDomNodeList& nodes);
 	bool readSceneSceneGeometryXML(const QDomNodeList& nodes);
 	bool readSceneDataMapperXML(const QDomNodeList& nodes);
 	bool readSceneMedicalDataXML(const QDomNodeList& nodes);
 	bool readSceneVisualizerXML(const QDomNodeList& nodes);
 
+	bool writeSceneXML();
 
 	std::string getTfFuncType() {
 		return m_ScenePreset.m_DataMapperPreset.TsFuncType;
