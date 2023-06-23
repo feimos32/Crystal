@@ -34,7 +34,7 @@ public:
 	QtTF_2D_Trapezoidal_GF(QWidget* pParent = NULL);
 
 protected:
-
+	CrystalAlgrithm::TF_2D_Trapezoidal_GF m_TF_2D_Trapezoidal_GF;
 
 
 };

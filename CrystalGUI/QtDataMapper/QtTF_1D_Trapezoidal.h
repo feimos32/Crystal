@@ -24,10 +24,9 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "QtTsFuncDock.h"
 
-#include "CrystalAlgrithm/Scene/PresetScene.h"
-
 #include "CrystalGUI/QtDataMapper/QtTsFuncGraphicsView_1D.h"
 #include "CrystalGUI/QtDataMapper/QtNodePropertiesWidget.h"
+
 
 #include <QScrollArea>
 #include <QHBoxLayout>
@@ -44,9 +43,13 @@ public:
 	QtTF_1D_Trapezoidal(QWidget* pParent = NULL);
 	~QtTF_1D_Trapezoidal();
 
-	void Initialize(
+	virtual void Initialize(
 		CrystalAlgrithm::PresetDataMapper& m_DataMapperPreset,
 		CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset);
+
+protected:
+	CrystalAlgrithm::TF_1D_Trapezoidal m_TF_1D_Trapezoidal;
+	ParserTransferFunction m_ParserTransferFunction;
 
 protected:
 	QScrollArea m_QScrollArea;

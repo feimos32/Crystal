@@ -26,6 +26,9 @@ Github site: <https://github.com/feimos32/Crystal>
 #include "CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h"
 #include "CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.h"
 
+#include "CrystalAlgrithm/Scene/PresetScene.h"
+#include "CrystalGUI/QtReader/ParserTransferFunction.h"
+
 #include <QDockWidget>
 
 namespace CrystalGUI {
@@ -38,12 +41,16 @@ public:
 	QtTsFuncDock(QWidget* pParent = NULL);
 	~QtTsFuncDock();
 
+	void setTsFuncDirPath(std::string path) {
+		TsFuncDirPath = path;
+	}
+	virtual void Initialize(
+		CrystalAlgrithm::PresetDataMapper& m_DataMapperPreset,
+		CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset);
+
 protected:
 	std::string TsFuncType;
-	CrystalAlgrithm::TF_1D_Trapezoidal m_TF_1D_Trapezoidal;
-	CrystalAlgrithm::TF_2D_Trapezoidal_GF m_TF_2D_Trapezoidal_GF;
-
-
+	std::string TsFuncDirPath;
 
 };
 

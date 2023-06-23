@@ -245,17 +245,18 @@ void DisplayMainWindow::setQtTsFuncDock(ParserScene& sp) {
         PrintError("No matching transfer function name");
         return;
     }
+    m_QtTsFuncDock->setTsFuncDirPath(sp.getFileDir().toStdString());
+    m_QtTsFuncDock->Initialize(
+        sp.m_ScenePreset.m_DataMapperPreset,
+        sp.m_ScenePreset.m_VisualizerPreset);
 
     addDockWidget(Qt::LeftDockWidgetArea, m_QtTsFuncDock);
 
     //tabifyDockWidget(mytfDockWidget, myLightSetDockWidget);
     m_QtTsFuncDock->raise();
 
-
-
-
-
 }
+
 
 
 

@@ -40,6 +40,16 @@ QtTsFuncDock::~QtTsFuncDock() {
 
 }
 
+void QtTsFuncDock::Initialize(
+	CrystalAlgrithm::PresetDataMapper& m_DataMapperPreset,
+	CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset) {
+
+	if (QtTsFuncDockDebug) {
+		PrintValue_Std("QtTsFuncDock::Initialize(...)");
+	}
+
+}
+
 
 
 }

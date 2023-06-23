@@ -31,11 +31,26 @@ ParserTransferFunction::~ParserTransferFunction() {
 
 }
 
+bool ParserTransferFunction::Parse_TF_1D_Trapezoidal(CrystalAlgrithm::TF_1D_Trapezoidal& tf) {
+
+	return true;
+}
+
+bool ParserTransferFunction::Parse_TF_2D_Trapezoidal_GF(CrystalAlgrithm::TF_2D_Trapezoidal_GF& tf) {
+
+	return true;
+}
+
 
 
 
 
 
 }
+
+
+
+
+
 
 

@@ -22,13 +22,15 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include <QFile>
 
+#define QtTF_1D_Trapezoidal_Debug true
 
 namespace CrystalGUI {
 
 
 
 
-QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTsFuncDock(pParent){
+QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTsFuncDock(pParent)
+{
 
 	setWindowTitle("TF_1D_Trapezoidal");
 
@@ -43,6 +45,9 @@ QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTsFuncDock(pParen
     m_QScrollArea.setWidget(&centerWidget);
     centerWidget.setLayout(&centerLayout);
     
+    m_QtTsFuncGraphicsView_1D = NULL;
+    m_NodePropertiesWidget = NULL;
+
 }
 
 
@@ -54,8 +59,21 @@ void QtTF_1D_Trapezoidal::Initialize(
     CrystalAlgrithm::PresetDataMapper& m_DataMapperPreset,
     CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset) {
 
+    if (m_QtTsFuncGraphicsView_1D) {
+        return;
+    }
+    if (m_NodePropertiesWidget) {
+        return;
+    }
 
-    centerLayout.addWidget(m_QtTsFuncGraphicsView_1D);
+    if (QtTF_1D_Trapezoidal_Debug) {
+        PrintValue(
+            "TsFuncFilePath", 
+            (TsFuncDirPath + "/" + m_DataMapperPreset.TsFuncFileName).c_str());
+    }
+    
+
+    //centerLayout.addWidget(m_QtTsFuncGraphicsView_1D);
 
 }
 

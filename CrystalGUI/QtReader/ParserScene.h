@@ -67,6 +67,9 @@ public:
 	void setFilePath(QString fp) {
 		filePath = fp;
 	}
+	QString getFileDir() {
+		return fileDir;
+	}
 	bool readSceneXML();
 	bool readSceneCameraXML(const QDomNodeList& nodes);
 	bool readSceneSceneGeometryXML(const QDomNodeList& nodes);

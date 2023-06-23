@@ -27,6 +27,10 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/DebugTools/DebugStd.h"
 
+#include "CrystalAlgrithm/DataMapper/TransferFunction.h"
+#include "CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h"
+#include "CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.h"
+
 namespace CrystalGUI {
 
 class ParserTransferFunction : public QObject {
@@ -35,10 +39,14 @@ class ParserTransferFunction : public QObject {
 public:
 	ParserTransferFunction(QObject* parent = Q_NULLPTR);
 	~ParserTransferFunction();
-
-
+	void setTsFuncPath(std::string path) {
+		TsFuncPath = path;
+	}
+	bool Parse_TF_1D_Trapezoidal(CrystalAlgrithm::TF_1D_Trapezoidal& tf);
+	bool Parse_TF_2D_Trapezoidal_GF(CrystalAlgrithm::TF_2D_Trapezoidal_GF& tf);
 
 private:
+	std::string TsFuncPath;
 
 	QDomDocument reader;
 	QDomDocument writer;
