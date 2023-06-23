@@ -28,7 +28,7 @@ namespace CrystalGUI {
 
 
 
-QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTfFuncDock(pParent){
+QtTF_1D_Trapezoidal::QtTF_1D_Trapezoidal(QWidget* pParent) : QtTsFuncDock(pParent){
 
 	setWindowTitle("TF_1D_Trapezoidal");
 
@@ -55,7 +55,7 @@ void QtTF_1D_Trapezoidal::Initialize(
     CrystalAlgrithm::PresetVisualizer& m_VisualizerPreset) {
 
 
-    centerLayout.addWidget(m_QtTfFuncGraphicsView_1D);
+    centerLayout.addWidget(m_QtTsFuncGraphicsView_1D);
 
 }
 

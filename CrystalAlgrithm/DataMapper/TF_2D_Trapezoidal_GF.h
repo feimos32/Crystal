@@ -32,12 +32,12 @@ namespace CrystalAlgrithm {
 
 struct TF_2D_Trapezoidal_GF_Node_1 {
 	float normalizedIntensity;
-	Spectrum3 emit;
-	Spectrum3 diffuse;
-	Spectrum3 specular;
 	float opacity;
 	float roughness;
 	float metallic;
+	float3 emission;
+	float3 diffuse;
+	float3 specular;
 };
 
 struct EXPORT_DLL TF_2D_Trapezoidal_GF_Node_2 {
@@ -51,7 +51,7 @@ public:
 
 	std::vector<TF_2D_Trapezoidal_GF_Node_1> nodes1;
 	std::vector<TF_2D_Trapezoidal_GF_Node_2> nodes2;
-
+	float DensityScale;
 
 };
 

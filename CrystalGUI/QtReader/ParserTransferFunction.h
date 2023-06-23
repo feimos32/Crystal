@@ -38,6 +38,11 @@ public:
 
 
 
+private:
+
+	QDomDocument reader;
+	QDomDocument writer;
+
 
 
 

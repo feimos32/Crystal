@@ -1,6 +1,5 @@
 <TransferFunction>
-	<Type type="TrapezoidalTransferFunction" />
-	<AxisY Name="Opacity" />
+	<Type type="TF_1D_Trapezoidal" />
 	<TFDefine>
 		<DensityScale components="1" type="float" RangeBtn="0.1" RangeTop="10.0" />
 	</TFDefine>

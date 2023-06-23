@@ -23,7 +23,7 @@ Github site: <https://github.com/feimos32/Crystal>
 namespace CrystalGUI {
 
 
-QtTF_2D_Trapezoidal_GF::QtTF_2D_Trapezoidal_GF(QWidget* pParent) : QtTfFuncDock(pParent) {
+QtTF_2D_Trapezoidal_GF::QtTF_2D_Trapezoidal_GF(QWidget* pParent) : QtTsFuncDock(pParent) {
 
 	setWindowTitle("TF_2D_Trapezoidal_GF");
 

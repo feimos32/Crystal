@@ -356,10 +356,10 @@ set(QtDataMapper
 	CrystalGUI/QtDataMapper/QtDataMapper.h
 	CrystalGUI/QtDataMapper/QtDataMapper.cpp
 	
-	CrystalGUI/QtDataMapper/QtTfFuncDock.h
-	CrystalGUI/QtDataMapper/QtTfFuncDock.cpp
-	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h
-	CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.cpp
+	CrystalGUI/QtDataMapper/QtTsFuncDock.h
+	CrystalGUI/QtDataMapper/QtTsFuncDock.cpp
+	CrystalGUI/QtDataMapper/QtTsFuncGraphicsView_1D.h
+	CrystalGUI/QtDataMapper/QtTsFuncGraphicsView_1D.cpp
 	CrystalGUI/QtDataMapper/QtNodePropertiesWidget.h
 	CrystalGUI/QtDataMapper/QtNodePropertiesWidget.cpp
 	

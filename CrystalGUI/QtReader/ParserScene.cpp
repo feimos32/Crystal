@@ -262,6 +262,7 @@ bool ParserScene::readSceneVisualizerXML(const QDomNodeList& nodes) {
 
 bool ParserScene::writeSceneXML() {
 
+	return true;
 }
 
 

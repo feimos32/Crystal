@@ -22,11 +22,11 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
-#include "QtTfFuncDock.h"
+#include "QtTsFuncDock.h"
 
 #include "CrystalAlgrithm/Scene/PresetScene.h"
 
-#include "CrystalGUI/QtDataMapper/QtTfFuncGraphicsView_1D.h"
+#include "CrystalGUI/QtDataMapper/QtTsFuncGraphicsView_1D.h"
 #include "CrystalGUI/QtDataMapper/QtNodePropertiesWidget.h"
 
 #include <QScrollArea>
@@ -36,7 +36,7 @@ Github site: <https://github.com/feimos32/Crystal>
 namespace CrystalGUI {
 
 
-class QtTF_1D_Trapezoidal : public QtTfFuncDock
+class QtTF_1D_Trapezoidal : public QtTsFuncDock
 {
 	Q_OBJECT
 
@@ -53,7 +53,7 @@ protected:
 	QWidget centerWidget;
 	QHBoxLayout centerLayout;
 
-	QtTfFuncGraphicsView_1D *m_QtTfFuncGraphicsView_1D;
+	QtTsFuncGraphicsView_1D *m_QtTsFuncGraphicsView_1D;
 
 	NodePropertiesWidget *m_NodePropertiesWidget;
 

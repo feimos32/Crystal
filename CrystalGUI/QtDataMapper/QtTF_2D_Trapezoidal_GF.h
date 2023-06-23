@@ -22,11 +22,11 @@ Github site: <https://github.com/feimos32/Crystal>
 
 #include "CrystalGUI/Utility/Common.h"
 
-#include "QtTfFuncDock.h"
+#include "QtTsFuncDock.h"
 
 namespace CrystalGUI {
 
-class QtTF_2D_Trapezoidal_GF : public QtTfFuncDock
+class QtTF_2D_Trapezoidal_GF : public QtTsFuncDock
 {
 	Q_OBJECT
 

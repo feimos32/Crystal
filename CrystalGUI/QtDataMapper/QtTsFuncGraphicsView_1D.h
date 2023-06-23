@@ -17,32 +17,37 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
+#ifndef __QtTsFuncGraphicsView_1D_h__
+#define __QtTsFuncGraphicsView_1D_h__
 
-#include "QtTfFuncGraphicsView_1D.h"
+#include "CrystalGUI/Utility/Common.h"
+
+#include "CrystalAlgrithm/Scene/PresetScene.h"
+
+#include <QGraphicsView>
+#include <QMouseEvent>
 
 namespace CrystalGUI {
 
-QtTfFuncGraphicsView_1D::QtTfFuncGraphicsView_1D(QGraphicsView* parent) :
-	QGraphicsView(parent){
+class QtTsFuncGraphicsView_1D : public QGraphicsView {
+	Q_OBJECT
 
-	setMinimumSize(200,100);
+public:
+	QtTsFuncGraphicsView_1D(QGraphicsView* parent = Q_NULLPTR);
+	~QtTsFuncGraphicsView_1D();
 
-
-}
-
-QtTfFuncGraphicsView_1D::~QtTfFuncGraphicsView_1D() {
-
-}
+	QGraphicsScene scene;
 
 
 
-
-
+};
 
 
 
 }
 
+
+#endif
 
 
 

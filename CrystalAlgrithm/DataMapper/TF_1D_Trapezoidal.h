@@ -32,12 +32,13 @@ namespace CrystalAlgrithm {
 
 struct TF_1D_Trapezoidal_Node {
 	float normalizedIntensity;
-	Spectrum3 emit;
-	Spectrum3 diffuse;
-	Spectrum3 specular;
 	float opacity;
 	float roughness;
 	float metallic;
+	// cannot defined as 'emit', because 'emit' is a basic function in Qt
+	float3 emission;
+	float3 diffuse;
+	float3 specular;
 };
 
 class EXPORT_DLL TF_1D_Trapezoidal : public TransferFunction {
@@ -54,6 +55,7 @@ public:
 	}
 
 	std::vector<TF_1D_Trapezoidal_Node> nodes;
+	float DensityScale;
 
 	bool hasEmit, hasDiffuse, hasSpecular, 
 		hasOpacity, hasRoughness, hasMetallic;

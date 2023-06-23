@@ -48,7 +48,11 @@ HOST_AND_DEVICE inline void RGBToXYZ(const float rgb[3], float xyz[3]) {
 class EXPORT_DLL Spectrum3 {
 public:
     // CoefficientSpectrum Public Methods
-    HOST_AND_DEVICE Spectrum3(float v = 0.f) {
+    HOST_AND_DEVICE Spectrum3() {
+        for (int i = 0; i < 3; ++i) c[i] = 0.0f;
+    }
+
+    HOST_AND_DEVICE Spectrum3(float v) {
         for (int i = 0; i < 3; ++i) c[i] = v;
     }
 

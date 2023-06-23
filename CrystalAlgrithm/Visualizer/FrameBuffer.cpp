@@ -33,7 +33,7 @@ FrameBuffer::FrameBuffer() {
 	width = height = 0;
 	allRenderCount = 0;
 	renderCount_stableCamera = 0;
-	renderCount_stableTfFunc = 0;
+	renderCount_stableTsFunc = 0;
 	renderCount_stableLight = 0;
 
 	displayBufferU = nullptr;
@@ -66,7 +66,7 @@ void FrameBuffer::ReleaseAll() {
 
 	allRenderCount = 0;
 	renderCount_stableCamera = 0;
-	renderCount_stableTfFunc = 0;
+	renderCount_stableTsFunc = 0;
 	renderCount_stableLight = 0;
 }
 

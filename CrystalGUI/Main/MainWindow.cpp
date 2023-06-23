@@ -162,7 +162,7 @@ DisplayMainWindow::DisplayMainWindow(QString sceneFile, QWidget* parent) {
     sp.readSceneXML();
 
     // Initialize TransferFunction DockWidget
-    setQtTfFuncDock(sp);
+    setQtTsFuncDock(sp);
 
     // Initialize QtVisualizer
     m_QtVisualizer = new QtVisualizer;
@@ -233,23 +233,23 @@ void DisplayMainWindow::closeEvent(QCloseEvent* e) {
 
 
 
-void DisplayMainWindow::setQtTfFuncDock(ParserScene& sp) {
+void DisplayMainWindow::setQtTsFuncDock(ParserScene& sp) {
 
-    if ("TF_1D_Trapezoidal" == sp.getTfFuncType()) {
-        m_QtTfFuncDock = new QtTF_1D_Trapezoidal();
+    if ("TF_1D_Trapezoidal" == sp.getTsFuncType()) {
+        m_QtTsFuncDock = new QtTF_1D_Trapezoidal();
     }
-    else if ("TF_2D_Trapezoidal_GF" == sp.getTfFuncType()) {
-        m_QtTfFuncDock = new QtTF_2D_Trapezoidal_GF();
+    else if ("TF_2D_Trapezoidal_GF" == sp.getTsFuncType()) {
+        m_QtTsFuncDock = new QtTF_2D_Trapezoidal_GF();
     }
     else {
         PrintError("No matching transfer function name");
         return;
     }
 
-    addDockWidget(Qt::LeftDockWidgetArea, m_QtTfFuncDock);
+    addDockWidget(Qt::LeftDockWidgetArea, m_QtTsFuncDock);
 
     //tabifyDockWidget(mytfDockWidget, myLightSetDockWidget);
-    m_QtTfFuncDock->raise();
+    m_QtTsFuncDock->raise();
 
 
 

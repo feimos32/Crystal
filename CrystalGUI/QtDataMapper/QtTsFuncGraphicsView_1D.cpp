@@ -17,28 +17,27 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#include "CrystalGUI/DebugTools/DebugStd.h"
-#include "QtTfFuncDock.h"
 
-#define QtTfFuncDockDebug true
+#include "QtTsFuncGraphicsView_1D.h"
 
 namespace CrystalGUI {
 
-QtTfFuncDock::QtTfFuncDock(QWidget* pParent) {
+QtTsFuncGraphicsView_1D::QtTsFuncGraphicsView_1D(QGraphicsView* parent) :
+	QGraphicsView(parent){
 
-	if (QtTfFuncDockDebug) {
-		PrintValue_Std("QtTfFuncDock::QtTfFuncDock(...)");
-	}
+	setMinimumSize(200,100);
+
+
+}
+
+QtTsFuncGraphicsView_1D::~QtTsFuncGraphicsView_1D() {
 
 }
 
-QtTfFuncDock::~QtTfFuncDock() {
 
-	if (QtTfFuncDockDebug) {
-		PrintValue_Std("QtTfFuncDock::~QtTfFuncDock()");
-	}
 
-}
+
+
 
 
 

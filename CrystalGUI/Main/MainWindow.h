@@ -31,7 +31,7 @@
 #include <QHBoxLayout>
 
 #include "CrystalGUI/Display/DisplayWidget.h"
-#include "CrystalGUI/QtDataMapper/QtTfFuncDock.h"
+#include "CrystalGUI/QtDataMapper/QtTsFuncDock.h"
 #include "CrystalGUI/QtVisualizer/QtVisualizer.h"
 #include "CrystalGUI/QtVisualizer/QtRenderThread.h"
 #include "CrystalGUI/QtVisInteractor/QtVisInteractor.h"
@@ -49,7 +49,7 @@ public:
     DisplayMainWindow(QString sceneFile, QWidget* parent = 0);
     ~DisplayMainWindow();
 
-    void setQtTfFuncDock(ParserScene& sp);
+    void setQtTsFuncDock(ParserScene& sp);
 
 signals:
     void windowClosed();
@@ -60,7 +60,7 @@ protected:
 
     DisplayWidget * displayWidget;
 
-    QtTfFuncDock* m_QtTfFuncDock;
+    QtTsFuncDock* m_QtTsFuncDock;
 
     QWidget* centralWidget;
 

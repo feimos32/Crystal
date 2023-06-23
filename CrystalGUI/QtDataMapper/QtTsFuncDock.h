@@ -17,25 +17,32 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Github site: <https://github.com/feimos32/Crystal>
 */
 
-#ifndef __QtTfFuncDock_h__
-#define __QtTfFuncDock_h__
+#ifndef __QtTsFuncDock_h__
+#define __QtTsFuncDock_h__
 
 #include "CrystalGUI/Utility/Common.h"
+
+#include "CrystalAlgrithm/DataMapper/TransferFunction.h"
+#include "CrystalAlgrithm/DataMapper/TF_1D_Trapezoidal.h"
+#include "CrystalAlgrithm/DataMapper/TF_2D_Trapezoidal_GF.h"
 
 #include <QDockWidget>
 
 namespace CrystalGUI {
 
-class QtTfFuncDock : public QDockWidget
+class QtTsFuncDock : public QDockWidget
 {
 	Q_OBJECT
 
 public:
-	QtTfFuncDock(QWidget* pParent = NULL);
-	~QtTfFuncDock();
+	QtTsFuncDock(QWidget* pParent = NULL);
+	~QtTsFuncDock();
 
 protected:
-	
+	std::string TsFuncType;
+	CrystalAlgrithm::TF_1D_Trapezoidal m_TF_1D_Trapezoidal;
+	CrystalAlgrithm::TF_2D_Trapezoidal_GF m_TF_2D_Trapezoidal_GF;
+
 
 
 };

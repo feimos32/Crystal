@@ -76,7 +76,7 @@ public:
 
 	bool writeSceneXML();
 
-	std::string getTfFuncType() {
+	std::string getTsFuncType() {
 		return m_ScenePreset.m_DataMapperPreset.TsFuncType;
 	}
 

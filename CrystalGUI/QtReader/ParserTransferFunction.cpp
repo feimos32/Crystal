@@ -23,7 +23,7 @@ Github site: <https://github.com/feimos32/Crystal>
 
 namespace CrystalGUI {
 
-ParserTransferFunction::ParserTransferFunction(QObject* parent = Q_NULLPTR) {
+ParserTransferFunction::ParserTransferFunction(QObject* parent) {
 
 }
 
